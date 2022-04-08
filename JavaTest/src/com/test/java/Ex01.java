@@ -23,6 +23,7 @@ public class Ex01 {
 		// 명령어 > 문장 단위 구성
 		// 문장(Statement)
 		System.out.println("첫번째 예제");
+		System.out.println();
 		
 	}
 }
