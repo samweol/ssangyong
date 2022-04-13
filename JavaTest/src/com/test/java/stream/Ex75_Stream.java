@@ -144,7 +144,7 @@ public class Ex75_Stream {
 			
 		} catch (Exception e) {
 			System.out.print("Ex75_Stream.m4");
-			e.printStackTrace(); 
+			e.printStackTrace();
 		}
 		
 		
