@@ -181,7 +181,11 @@ insert into tblRegister values(3,1);
 insert into tblRegister values(3,2);
 insert into tblRegister values(3,5);
 
-insert into tblScore values(1, 100, 
+insert into tblScore values (1, 100, 1, 1);
+insert into tblScore values (2, 90,  1, 2);
+insert into tblScore values (3, 80,  1, 3);
+insert into tblScore values (4, 70,  2, 2);
+insert into tblScore values (5, 60,  3, 2);
 
 select * from tblStudent;
 select * from tblSubject;
