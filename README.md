@@ -1,1 +1,3 @@
 # ssangyong
+- Java
+- SQL
