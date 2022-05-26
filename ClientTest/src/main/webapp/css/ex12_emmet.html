@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex12_emmet.html -->
+    <!--  
+        Emmet, Zen_coding
+        - CSS 선택자 문법을 사용해서 HTML/CSS 코드를 손쉽게 작성하는 기능
+        - 생산성 도구
+        - http://emmet.io
+    -->
+    div{상자}
+    <div>상자</div>
+
+    div[title=box]
+    <div title="box"></div>
+
+    div#box1.box[title=상자]{상자입니다.}
+    <div id="box1" class="box" title="상자">상자입니다.</div>
+
+    div#box1{상자}*5
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+    <div id="box1">상자</div>
+
+    div#box${상자}*5
+    <div id="box1">상자</div>
+    <div id="box2">상자</div>
+    <div id="box3">상자</div>
+    <div id="box4">상자</div>
+    <div id="box5">상자</div>
+
+    div+p
+    <div></div>
+    <p></p>
+
+    div>p
+    <div>
+        <p></p>
+    </div>
+
+    (h1+p)*3
+    <h1></h1>
+    <p></p>
+    <h1></h1>
+    <p></p>
+    <h1></h1>
+    <p></p>
+
+    h1#title1.title{제목입니다}+p.content{설명입니다.}*3
+    <h1 id="title1" class="title">제목입니다</h1>
+    <p class="content">설명입니다.</p>
+    <p class="content">설명입니다.</p>
+    <p class="content">설명입니다.</p>
+
+    cat01.jpg~cat06.jpg
+    (img[src=images/cat0$.jpg alt=고양이$ title=고양이$ width=250]+br)*6
+    <img src="images/cat01.jpg" alt="고양이1" title="고양이1" width="250"><br><img src="images/cat02.jpg" alt="고양이2" title="고양이2" width="250"><br><img src="images/cat03.jpg" alt="고양이3" title="고양이3" width="250"><br><img src="images/cat04.jpg" alt="고양이4" title="고양이4" width="250"><br><img src="images/cat05.jpg" alt="고양이5" title="고양이5" width="250"><br><img src="images/cat06.jpg" alt="고양이6" title="고양이6" width="250"><br>
+
+    table>tr*10>td*5
+    table#tbl1>tr*10>td.cell${항목$}*5
+    <table id="tbl1">
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+        <tr>
+            <td class="cell1">항목1</td>
+            <td class="cell2">항목2</td>
+            <td class="cell3">항목3</td>
+            <td class="cell4">항목4</td>
+            <td class="cell5">항목5</td>
+        </tr>
+    </table>
+
+    Lorem Ipsum
+
+    lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam aspernatur quasi provident fugit soluta recusandae, illo est molestias, mollitia laboriosam deleniti nam voluptate. Ducimus tempore provident placeat est tempora!
+
+    h1>lorem5
+    <h1>Lorem ipsum dolor sit amet.</h1>
+
+    (h1>lorem8)+(p>lorem50)*3
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, voluptas sequi iusto excepturi sapiente tempore delectus similique quisquam qui explicabo accusamus ut reprehenderit ullam sint velit debitis tenetur voluptatibus ea eos libero repellat. Unde vitae, aliquid, vel incidunt non molestias dolore alias obcaecati culpa totam similique inventore recusandae nobis pariatur?</p>
+    <p>Quis tempore modi perspiciatis voluptates labore possimus quidem, maxime molestias quia cum error temporibus quasi ut ipsum quibusdam excepturi non ab. Dolorem magnam maxime possimus earum animi nam, repellendus beatae expedita iste, labore obcaecati. Commodi cupiditate fugiat debitis, ratione, doloremque, maxime id unde dolore temporibus earum necessitatibus in facilis nisi.</p>
+    <p>Ipsam architecto repudiandae sunt vitae error dolores pariatur velit voluptatibus provident atque tenetur recusandae consequatur dolor, magni fugit soluta fuga debitis iste dolorem iure, sint maiores. Amet mollitia illum nobis, eligendi unde ad sed, quam numquam vero eaque minima nam esse repellat non consequuntur voluptates corporis vel dolore consequatur inventore?</p>
+</body>
+</body>
+</html>

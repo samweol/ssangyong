@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txt {
+            /* background-color: yellow; */
+            /* 텍스트 색상, 전경색(Fore Color) */
+            /* color: red; */
+            color: #444444; /*#333333~#555555*/
+            /* #44AAFF > #4AF */
+
+            /* 텍스트 정렬(수평 정렬) */
+            text-align: justify;
+
+            /* 텍스트 크기 */
+            /* font-size: 16px; */
+            font-size: 1em;
+
+            /*  
+            
+            HTML 수치 표현법
+            1. 숫자(px, 문자수, 셀병합)
+            2. 백분율(%)
+
+            CSS 수치 표현법
+            - 수치 데이터는 반드시 단위 표기를 해야 한다. (단윌 생략 불가능)
+            1. pt : 포인트(글꼴), 절대값, 1/72인치
+            2. px : 픽셀(크기, 여백, 위치, 글꼴 등), 절대값
+            3. em : 기본 글꼴 크기를 기준으로 하는 상대 크기(%), 상대값, 알파벳 대문자 M의 높이를 100%을 기준으로 하는 상대 크기. 상속을 받음
+            4. rem : em과 동일. 상속을 안 받음
+            10. % : 백분율(크기, 여백, 위치, 정렬 등..). 상대값
+            ----------------------------------
+            5. ex : 알파벳 소문자 x의 높이를 100%으로 기준하는 상대 크기
+            6. mm : 밀리미터
+            7. cm : 센치미터
+            8. in : 인치
+            9. pc : 파이카(12pt)
+            11. 기타 등등...
+
+
+            */
+
+            /* 
+            줄간격 
+            - %, em(rem)
+            - px
+            - 1.4em ~ 1.8em
+            */
+            line-height: 1.6em;
+
+            /* 스타일 (normal, italic*/
+            font-style: normal;
+
+            /* 두께(normal, bold) */
+            font-weight: normal;
+
+            /* 단어 간격(스페이스 크기) */
+            word-spacing: 0em;
+
+            /* 자간(문자 간격) */
+            letter-spacing: -1px;
+
+            /* 꾸밈 */
+            text-decoration: line-through;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- ex15_text.html -->
+    <h1>텍스트 관련 속성</h1>
+    <p>(서울=뉴스1) 정은지 기자 = 한글과컴퓨터의 첫 인공위성이자 국내 첫 지구관측용 민간위성인 '세종1호'가 성공적으로 궤도에 안착했다.
+
+        26일 한글과컴퓨터에 따르면 세종1호는 지난 25일 오후 2시35분(현지시간 기준, 한국시간 기준 26일 오전 3시35분)에 미국 플로리다주 케이프 커내버럴에 있는 케네디 우주센터에서 성공리에 발사된 후 지상국과의 교신을 완료했다.
+        
+        한컴의 세종1호는 크기 100×200×300mm, 무게 10.8kg의 나노급 초소형 저궤도 인공위성으로, 지상으로부터 500㎞ 궤도에서 약 90분에 한 번씩 하루에 12~14회 지구를 선회하며, 발사 후 약 한 달간의 시험테스트 과정을 거쳐 5m 해상도의 관측 카메라로 지구관측 영상 데이터를 확보할 예정이다.</p>
+    <p class="txt">(서울=뉴스1) 정은지 기자 = 한글과컴퓨터의 첫 인공위성이자 국내 첫 지구관측용 민간위성인 '세종1호'가 성공적으로 궤도에 안착했다.
+
+        26일 한글과컴퓨터에 따르면 세종1호는 지난 25일 오후 2시35분(현지시간 기준, 한국시간 기준 26일 오전 3시35분)에 미국 플로리다주 케이프 커내버럴에 있는 케네디 우주센터에서 성공리에 발사된 후 지상국과의 교신을 완료했다.
+        
+        한컴의 세종1호는 크기 100×200×300mm, 무게 10.8kg의 나노급 초소형 저궤도 인공위성으로, 지상으로부터 500㎞ 궤도에서 약 90분에 한 번씩 하루에 12~14회 지구를 선회하며, 발사 후 약 한 달간의 시험테스트 과정을 거쳐 5m 해상도의 관측 카메라로 지구관측 영상 데이터를 확보할 예정이다.</p>
+    <p>(서울=뉴스1) 정은지 기자 = 한글과컴퓨터의 첫 인공위성이자 국내 첫 지구관측용 민간위성인 '세종1호'가 성공적으로 궤도에 안착했다.
+
+        26일 한글과컴퓨터에 따르면 세종1호는 지난 25일 오후 2시35분(현지시간 기준, 한국시간 기준 26일 오전 3시35분)에 미국 플로리다주 케이프 커내버럴에 있는 케네디 우주센터에서 성공리에 발사된 후 지상국과의 교신을 완료했다.
+        
+        한컴의 세종1호는 크기 100×200×300mm, 무게 10.8kg의 나노급 초소형 저궤도 인공위성으로, 지상으로부터 500㎞ 궤도에서 약 90분에 한 번씩 하루에 12~14회 지구를 선회하며, 발사 후 약 한 달간의 시험테스트 과정을 거쳐 5m 해상도의 관측 카메라로 지구관측 영상 데이터를 확보할 예정이다.</p>
+
+        <hr>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quo fugiat veniam aliquid nemo modi similique nostrum eum delectus dolorem vitae pariatur molestiae provident, ut officiis ex optio at? Esse eveniet unde quos voluptatem labore, eos repellat quia maxime aperiam obcaecati? A reiciendis, alias sunt aliquid dolore laudantium ipsam voluptates. Odio obcaecati repudiandae voluptatum vero ullam laudantium expedita facere doloremque itaque possimus nemo rerum, tempora pariatur animi aperiam molestiae tenetur omnis. Culpa unde hic recusandae perspiciatis. Unde animi voluptatibus dicta, aperiam architecto doloremque a. Veritatis molestiae consequatur at libero nostrum earum, praesentium, beatae temporibus iste porro suscipit maiores nam adipisci.</p>
+        <p class="txt">Laudantium blanditiis praesentium voluptas similique libero animi ea nisi ad, at et dolorem ex magnam, nostrum aut sit amet corrupti tenetur voluptatem magni molestiae sed placeat dicta? Nobis voluptatum doloremque laudantium debitis possimus quod numquam voluptatibus deleniti sequi in fugiat recusandae quos impedit dolore, nulla facilis sint eveniet inventore. Ullam iste molestiae id suscipit accusantium commodi voluptatem esse nulla sit aliquid? In doloremque placeat corporis ex doloribus fugit facilis! Vero accusamus blanditiis ullam id numquam velit quos error dolores iusto, explicabo fuga dolorem saepe animi necessitatibus reprehenderit ea esse. Dolorum officia repellendus illo dolorem dicta mollitia quas placeat deleniti veritatis.</p>
+        <p>Dolorum nemo molestiae odit harum et aliquid voluptas hic fugit error? Repellat pariatur, provident reiciendis odit atque hic officia voluptatem impedit voluptas, consequatur adipisci! Earum quo incidunt impedit facere! Provident asperiores expedita quam. Autem sunt commodi vel voluptatum! Perferendis voluptatem inventore necessitatibus reprehenderit dicta architecto exercitationem. Dolore debitis dignissimos, eum animi reprehenderit odio sapiente recusandae necessitatibus fuga sint adipisci minus culpa fugiat, asperiores tempora quas explicabo rem. Sit necessitatibus delectus nobis. Amet odio placeat architecto nihil deleniti fugiat esse suscipit debitis similique beatae? Eius, sint consectetur perferendis dolore dolor aliquid error neque consequatur nulla optio iste in reiciendis! Rem, eos.</p>
+</body>
+</html>
