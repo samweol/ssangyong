@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span:nth-child(1) { 
+            color: tomato;
+            float: right;
+        }
+        span:nth-child(2) { 
+            color: gold;
+            float: right;
+        }
+        span:nth-child(3) { 
+            color: cornflowerblue;
+            float: right;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+            float: left;
+        }
+
+        #box1 {
+            background-color: red;
+        }
+        #box2 {
+            background-color: orange;
+        }
+        #box3 {
+            background-color: yellow;
+        }
+        #box4 {
+            background-color: green;
+        }
+        #box5 {
+            background-color: blue;
+        }
+        #box6 {
+            background-color: indigo;
+        }
+        #box7 {
+            background-color: purple;
+        }
+        /* #list {
+            font-size: 0;
+        }
+        #list > .box {
+            font-size: 1rem;
+        } */
+
+        #list::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        #list {
+            /* border: 10px solid black; */
+            width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex38_float.html -->
+
+    <p>
+        Lorem ipsum <span>dolor</span> sit amet consectetur adipisicing elit. Odio consequuntur officia similique <span>repellendus</span> animi unde, <span>aliquam</span>, possimus modi commodi culpa, molestiae expedita reiciendis. Eveniet omnis voluptatibus ullam! Consequatur, hic reprehenderit.
+
+        <hr>
+
+        <div id="list">
+            <div id="box1" class="box">빨</div>
+            <div id="box2" class="box">주</div>
+            <div id="box3" class="box">노</div>
+            <div id="box4" class="box">초</div>
+            <div id="box5" class="box">파</div>
+            <div id="box6" class="box">남</div>
+            <div id="box7" class="box">보</div>
+            <!-- <div style="clear: both;"></div> -->
+        </div>
+    </p>
+
+    <h1>다른 내용들..</h1>
+</body>
+</html>
