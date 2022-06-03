@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ec897c3b32.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        .box {
+            text-align: center;
+            font-variant: small-caps;
+        }
+
+        .box .letter {
+            color: white;
+            font-size: 70px;
+            display: inline-block;
+            opacity: 0;
+            transform: scale(50, 50);
+            animation-name: key-letter;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+        }
+
+        @keyframes key-letter {
+            from {
+                transform: scale(50, 50);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1, 1);
+                opacity: 1;
+            }
+        }
+
+        .box #letter2 { animation-delay: .15s;}
+        .box #letter3 { animation-delay: .3s;}
+        .box #letter4 { animation-delay: .45s;}
+        .box #letter5 { animation-delay: .6s;}
+        .box #letter6 { animation-delay: .75s;}
+        .box #letter7 { animation-delay: .9s;}
+        .box #letter8 { animation-delay: 1.05s;}
+        .box #letter9 { animation-delay: 1.2s;}
+        .box #letter10 { animation-delay: 1.35s;}
+        .box #letter11 {
+            color: gold;
+            animation-delay: 1.4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span id="letter01" class="letter">H</span>
+        <span id="letter02" class="letter">e</span>
+        <span id="letter03" class="letter">l</span>
+        <span id="letter04" class="letter">l</span>
+        <span id="letter05" class="letter">o</span>
+        <span id="letter06" class="letter">!</span>
+        <span id="letter07" class="letter">H</span>
+        <span id="letter08" class="letter">T</span>
+        <span id="letter09" class="letter">M</span>
+        <span id="letter10" class="letter">L</span>
+        <span id="letter11" class="letter"><i class="fa-brands fa-html5 icon"></i></span>
+    </div>
+</body>
+</html>
