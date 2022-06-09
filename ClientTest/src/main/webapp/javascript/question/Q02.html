@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: gray;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form > div {
+            color: gray;
+            font-weight: bold;
+        }
+
+        form>input {
+            margin-top: 5px;
+        }
+
+        form>input#text {
+            color: red;
+            outline: none;
+            border: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Q02.html -->
+
+    <h1>회원 가입</h1>
+    <form name="form1">
+        <div>아이디 : </div>
+        <input type="text" name="txt1" onkeyup="m1(this);">
+        <input type="text" name="txt2" id="text" readonly>
+    </form>
+
+    <script>
+        function m1(txt){
+            if((txt.value).length <5 ){
+                document.form1.txt2.value = '아이디가 너무 짧습니다.';
+            } else if((txt.value).length >=5 && (txt.value).length <13){
+                document.form1.txt2.value = '아이디가 적합합니다.';
+            } else if((txt.value).length>=13) {
+                document.form1.txt2.value = '아이디가 너무 깁니다.';
+            }
+        }
+    </script>
+</body>
+</html>

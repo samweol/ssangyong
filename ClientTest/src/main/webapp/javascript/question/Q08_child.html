@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form name="form1">
+        <input type="button" name="btn1" value="서울시 강남구 역삼동">
+        <input type="button" name="btn2" value="서울시 강남구 대치동">
+        <input type="button" name="btn3" value="서울시 강남구 도곡동">
+    </form>
+
+    <script>
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+
+        function m1() {
+            window.close();
+            opener.document.all.txt1.value = '06232';
+            opener.document.all.txt2.value = '서울시 강남구 역삼동'
+            opener.document.all.txt3.focus();
+        }
+
+        function m2() {
+            window.close();
+            opener.document.all.txt1.value = '06291';
+            opener.document.all.txt2.value = '서울시 강남구 대치동'
+            opener.document.all.txt3.focus();
+        }
+
+        function m3() {
+            window.close();
+            opener.document.all.txt1.value = '06267';
+            opener.document.all.txt2.value = '서울시 강남구 도곡동'
+            opener.document.all.txt3.focus();
+        }
+
+    </script>
+</body>
+</html>

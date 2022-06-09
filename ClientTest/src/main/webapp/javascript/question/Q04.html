@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="fomr1">
+        <img src="./../../html/images/cat02.jpg" name="image1" onmouseover="m1();" onmouseout="m2();">
+        <img src="./../../html/images/cat01.jpg" name="image2" onmouseover="m1();" onmouseout="m2();">
+        <img src="./../../html/images/cat03.jpg" name="image3" onmouseover="m1();" onmouseout="m2();">
+        <img src="./../../html/images/cat04.jpg" name="image4" onmouseover="m1();" onmouseout="m2();">
+        <img src="./../../html/images/cat05.jpg" name="image5" onmouseover="m1();" onmouseout="m2();">
+    </form>
+
+    <script>
+        function m1() {
+            
+            if(event.target.name == 'image1'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/dog01.jpg'
+            } else if(event.target.name == 'image2'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/dog02.jpg'
+            } else if(event.target.name == 'image3'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/dog03.jpg'
+            } else if(event.target.name == 'image4'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/dog04.jpg'
+            } else if(event.target.name == 'image5'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/dog05.jpg'
+            }
+            
+        }
+
+        function m2() {
+            if(event.target.name == 'image1'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/cat01.jpg'
+            } else if(event.target.name == 'image2'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/cat02.jpg'
+            } else if(event.target.name == 'image3'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/cat03.jpg'
+            } else if(event.target.name == 'image4'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/cat04.jpg'
+            } else if(event.target.name == 'image5'){
+                event.target.src = 'http://127.0.0.1:5500/html/images/cat05.jpg'
+            }
+
+        }
+    </script>
+</body>
+</html>

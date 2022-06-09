@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Q09.html -->
+    <h1>회원 가입</h1>
+    <table>
+        <tr>
+            <th>주민번호</th>
+            <td><input type="text" name="ssn1"> - <input type="text" name="ssn2"></td>
+        </tr>
+        <tr>
+            <th>생년월일</th>
+            <td><input type="text" name="year">년 <input type="text" name="month">월 <input type="text" name="day">일</td>
+        </tr>
+        <tr>
+            <th>성별</th>
+            <td><input type="radio" name="sex" value="male">남자<input type="radio" name="sex" value="female">여자</td>
+        </tr>
+    </table>
+
+    <script>
+        var ssn1 = document.all.ssn1;
+        var ssn2 = document.all.ssn2;
+
+        var year = document.all.year;
+        var month = document.all.month;
+        var day = document.all.day;
+
+        var radio = document.all.sex;
+
+        ssn1.onkeyup = m1;
+        function m1() {
+            if(ssn1.value.length == 6) {
+                year.value = ssn1.value.substr(0,2);
+                month.value = ssn1.value.substr(2, 2);
+                day.value = ssn1.value.substr(4, 2);
+            }
+        }
+
+        ssn2.onkeyup = m2;
+        function m2() {
+            if(ssn2.value == 1) {
+                radio[0].checked = true;
+            } else if(ssn2.value == 2) {
+                radio[1].checked = true;
+            }
+        }
+    </script>
+</body>
+</html>

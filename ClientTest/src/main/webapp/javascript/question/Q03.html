@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Q03.html -->
+
+    <h1>고양이</h1>
+    <form name="form1">
+        <img src="./../../html/images/catty01.png" name="cat1" onmouseover="m1(this);">
+        <img src="./../../html/images/catty02.png" name="cat2" onmouseover="m1(this);">
+        <img src="./../../html/images/catty03.png" name="cat3" onmouseover="m1(this);">
+        <img src="./../../html/images/catty04.png" name="cat4" onmouseover="m1(this);">
+        <img src="./../../html/images/catty05.png" name="cat5" onmouseover="m1(this);">
+    </form>
+
+    <script>
+        window.onmouseover = m1;
+        window.onkeydown = m2;
+        //mouseover function
+        function m1(cat){
+            if(cat.name='cat1'){
+                cat.width += 10;
+            } else if(cat.name='cat2'){
+                cat.width += 10;
+            } else if(cat.name='cat3'){
+                cat.width += 10;
+            } else if(cat.name='cat4'){
+                cat.width += 10;
+            } else if(cat.name='cat5'){
+                cat.width += 10;
+            }
+        }
+
+        //onkeydown function
+        function m2(evt){
+            //49~53, 97~101, 27
+            // alert(evt.keyCode);
+            if(evt.keyCode==49 || evt.keyCode==97){
+                //1번키
+                document.form1.cat1.width += 10;
+            } else if(evt.keyCode==50 || evt.keyCode==98){
+                //2번키
+                document.form1.cat2.width += 10;
+            } else if(evt.keyCode==51 || evt.keyCode==99){
+                //3번키
+                document.form1.cat3.width += 10;
+            } else if(evt.keyCode==52 || evt.keyCode==100){
+                //4번키
+                document.form1.cat4.width += 10;
+            } else if(evt.keyCode==53 || evt.keyCode==101){
+                //5번키
+                document.form1.cat5.width += 10;
+            } else if(evt.keyCode == 27){
+                //esc키
+                document.form1.cat1.width = 128;
+                document.form1.cat2.width = 128;
+                document.form1.cat3.width = 128;
+                document.form1.cat4.width = 128;
+                document.form1.cat5.width = 128;
+                //이름 다같이 하면 배열도 가능할지도
+            }
+        }
+    </script>
+</body>
+</html>
