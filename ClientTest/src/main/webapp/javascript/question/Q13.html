@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .timer {
+            display: flex;
+            justify-content: center;
+            border: 1px solid gray;
+        }
+        .timer>input {
+            font-size: 50px;
+            width: 60px;
+            text-align: center;
+            border: 0px;
+            color: gray;
+            font-weight: bold;
+        }
+
+        .button{
+            display: flex;
+            justify-content: center;
+        }
+        .button>input {
+            margin: 2px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q13.html -->
+
+    <div class="timer">
+        <input type="text" name="min" value="00">
+        <input type="text" name="txt" value=":">
+        <input type="text" name="sec" value="00">
+        <input type="text" name="txt" value=":">
+        <input type="text" name="msec" value="00">
+    </div>
+    <div class="button">
+        <input type="button" name="btnStart" value="시작">
+        <input type="button" name="btnStop" value="멈춤">
+        <input type="button" name="btnFin" value="종료">
+    </div>
+
+    <script>
+        var btnStart = document.all.btnStart;
+        var btnStop = document.all.btnStop;
+        var btnFin = document.all.btnFin;
+
+        var min = document.all.min;
+        var sec = document.all.sec;
+        var msec = document.all.msec;
+
+        btnStart.onclick = m1;
+        btnStop.onclick = m2;
+        btnFin.onclick = m3;
+
+        var n=0;
+
+        var timer = 0;
+        function m1() {
+            if(timer == 0) {
+                timer = setInterval(f1, 10);
+            }
+        }
+
+        var msecChange = 0;
+        function f1() {
+            // msecChange++;
+            // msec.value = msecChange;
+
+            // if(msecChange == 100){
+            //     sec.value++;
+            //     msecChange = 0;
+            // }
+
+            // if(sec.value == 60) {
+            //     min.value++;
+            //     sec.value = 0;
+            // }
+
+            msec.value = formatnumber(n % 100);
+            sec.value = formatnumber(n / 100 % 60);
+            min.value = formatnumber(n / 100 / 60);
+            n++;
+        }
+
+        function m2() {
+            clearInterval(timer);
+            timer = 0;
+        }
+
+        function m3() {
+            msec.value = "00";
+            sec.value = "00";
+            min.value = "00";
+            clearInterval(timer);
+            timer = 0;
+            n=0;
+        }
+
+        function formatnumber(num) {
+            if(num<10){
+                return "0" + parseInt(num);
+            } else {
+                return parseInt(num);
+            }
+        }
+    </script>
+</body>
+</html>

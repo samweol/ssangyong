@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 3px solid gray;
+            width: 300px;
+        }
+
+        legend {
+            color: gray;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: gray;
+            font-weight: bold;
+        }
+        .content {
+            margin: 5px;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            margin-top: 50px;
+            border: 1px solid gray;
+            
+        }
+
+        table td {
+            width: 250px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q15.html -->
+
+    <h1>테이블</h1>
+
+    <fieldset>
+        <legend>색상 입력</legend>
+        <div class="content">색상 : <input type="color"></div>
+        <div class="content">이름 : <input type="text"></div>
+        <div class="content"><input type="button" value="추가하기"></div>
+    </fieldset>
+
+    <table>
+        <tr>
+            <th>색상명</th>
+            <th>미리보기</th>
+        </tr>
+        <tr>
+            <td>노랑</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>풀색</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>
