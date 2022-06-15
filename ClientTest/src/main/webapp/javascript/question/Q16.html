@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //윈도우 창 어디든 클릭하면 이미지 삽입
+        window.onmousedown = function(event) {
+
+            //1. 이미지 태그 생성
+            let img = document.createElement('img'); //<img>
+            
+            //2. 속성 추가
+            img.setAttribute('src', './../../html/images/face03.png');
+
+            //3. 위치
+            img.style.position = 'absolute';
+            img.style.left = event.target.clientX + 'px';
+            img.style.top = event.target.clientY + 'px';
+
+            //4. 추가하기
+            document.body.append(img);
+        };
+    </script>
+</body>
+</html>
