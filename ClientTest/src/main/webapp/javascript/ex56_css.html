@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu {
+            /* border: 1px solid black; */
+            display: flex;
+            width: 630px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            margin: 0 auto;
+            transform: translate(0px, -100px);
+        }
+
+        main {
+            width: 800px;
+            margin: 100px auto;
+        }
+
+        #menu img {
+            transition: .5s all;
+        }
+    </style>
+
+    <script>
+        // const item = document.getElementById('menu').children;
+        // alert(item);
+
+        //<body onload="">
+        //- <body>태그가 브라우저에 의해서 실행되고 난 직후
+        // function init() {
+        //     // alert();
+        //     const item = document.getElementById('menu').children;
+        //     alert(item);
+        // }
+
+        // window.onload = function() {};
+        // window.document.onload = function() {};
+        // window.document.body.onload = function() {};
+
+        let olditem = null;
+
+        window.onload = function() {
+            const item = document.getElementById('menu').children;
+            // alert(item);
+
+            for(let i=0; i<item.length; i++) {
+                item[i].onclick = function(event) {
+
+                    if(olditem != null) { //누군가 열려있다면?
+                        olditem.style.transform = 'translate(0px, 0px)';
+                    }
+
+                    if(event.target != olditem){
+
+                        event.target.style.transform = 'translate(0px, 90px)';
+                    olditem = event.target;
+
+                    } else { //자기껄 누르면 스스로 닫히게 하려고 추가한 조건문
+                        event.target.style.transform = 'translate(0px, 0px)';
+                    olditem = null;
+                    }
+                    
+                };
+            }
+        };
+    </script>
+</head>
+<!-- <body onload="init();"> -->
+<body>
+    <!-- ex56_css.html -->
+
+    <nav id="menu">
+        <img src="./../html/images/rect_icon01.png" alt="">
+        <img src="./../html/images/rect_icon02.png" alt="">
+        <img src="./../html/images/rect_icon03.png" alt="">
+        <img src="./../html/images/rect_icon04.png" alt="">
+        <img src="./../html/images/rect_icon05.png" alt="">
+    </nav>
+
+    <main>  
+        
+    <h1>Title</h1>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nisi, nulla a hic ea exercitationem laborum velit nostrum voluptatibus eveniet id ipsa quis officiis laboriosam numquam! Corrupti natus hic saepe!
+    </p>
+    <p>
+        Nam explicabo id blanditiis qui magnam ratione iusto impedit maxime laborum aut quibusdam doloribus, repellendus vitae sint libero expedita sequi quam eos nihil iste quisquam possimus repudiandae consequatur! Aut, eius.
+    </p>
+    <p>
+        Inventore quibusdam atque odio voluptatum dolore reprehenderit nihil quod debitis culpa eius ipsum, id repellendus harum voluptatem ullam officiis sunt dolores repellat suscipit deleniti nobis tempora sit earum laudantium! Quos.
+    </p>
+    <p>
+        In ratione aliquid quis repellat ipsam laborum nostrum blanditiis tempora necessitatibus natus, velit saepe aspernatur officia? Earum obcaecati labore veritatis consectetur, error, eius deserunt vitae, aliquam placeat ullam ducimus nulla.
+    </p>
+    <p>
+        Consequatur, sunt! Illum asperiores, cupiditate voluptatum culpa, aperiam ratione voluptatibus eveniet modi animi laboriosam corporis commodi eum sequi quam illo consequuntur perspiciatis reiciendis quaerat rem tempora? Sit atque reiciendis commodi.
+    </p>
+    <p>
+        Odio maiores officia cupiditate et aut, magnam nulla, veniam tempore ipsum ratione nam fugit, quam saepe molestiae aperiam suscipit doloremque. Saepe, at. Provident quod tempora non saepe animi. Dolores, optio.
+    </p>
+    <p>
+        Libero, eligendi quasi optio eveniet placeat nihil maxime quam doloremque iste omnis. Ex aperiam a fugit facilis officiis sunt pariatur reprehenderit, nobis ducimus dignissimos numquam, velit eum, animi aut quo.
+    </p>
+    <p>
+        Vero, voluptas voluptatem aliquam soluta hic illum ad quo porro obcaecati tempora sed repudiandae a iste vel adipisci officia reiciendis praesentium eveniet iusto sit totam aliquid assumenda repellat mollitia! Laudantium!
+    </p>
+    <p>
+        Delectus explicabo maxime minima praesentium, totam ab iste beatae quas nemo ad nostrum sapiente maiores laudantium nesciunt. Exercitationem commodi quos corporis, iure, quibusdam omnis maxime cumque numquam esse error quia!
+    </p>
+    <p>
+        Expedita molestias eligendi minus molestiae facere minima reprehenderit blanditiis modi optio earum natus hic voluptatum, nam saepe ad. Reprehenderit enim porro dolore magnam eaque, numquam autem voluptatum nostrum ipsam corrupti.
+    </p>
+    </main>
+</body>
+</html>
