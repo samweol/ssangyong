@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bird {
+            background-image: url('./../../html/images/fly.png');
+            width: 200px;
+            height: 140px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q19.html 2022-06-15 10번문제 -->
+    <div id="bird"></div>
+    <select id="speed">
+        <option value="2000">느림</option>
+        <option value="100" selected>보통</option>
+        <option value="50">빠름</option>
+        <option value="20">매우 빠름</option>
+    </select>
+
+    <script>
+        // 찾기
+        const bird = document.getElementById('bird');
+
+        let x = 0;
+        let y = 0;
+
+        window.onload = () => {
+            setInterval(()=>{
+                x -= 200;
+
+                if(x < (-200 * 4)) {
+                    x = 0;
+                    y -= 140;
+
+                    if(y < -140) {
+                        y = 0;
+                    }
+                }
+
+                bird.style.backgroundPosition = `${x}px ${y}px`;
+            }, 100);
+        };
+    </script>
+</body>
+</html>
