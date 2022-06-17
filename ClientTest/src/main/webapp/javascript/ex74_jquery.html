@@ -37,6 +37,7 @@
             height: 50px;
             text-align: center;
             border-top: 1px solid #DCE2F0;
+            background-color: #50586C;
         }
 
         #menu > span {
@@ -46,6 +47,7 @@
             cursor: pointer;
             margin: 14px 0;
             border-right: 1px dashed #DCE2F0;
+            
         }
 
         #menu > span:last-child {
@@ -296,8 +298,60 @@
         $('#menu > span').click(function(event) {
             //alert(this.dataset['item']);
             //alert($(this).data('item'));
+
+            //각각 item 스크롤 위치?
+            // alert($('#item1').position().top);
+
+            // $($(this).data('item')).position().top;
+
+            // let time = 현재위치 - 이동할 위치 * 비율;
+            let time = $(document).scrollTop() - $($(this).data('item')).position().top;
+
+            $('html,body').animate({
+                scrollTop: $($(this).data('item')).position().top - 70
+            }, time);
         });
 
+        $('.back > a').click(function(event) {
+            
+            //이동 액션
+            // console.log(100);
+
+            //각 태그별 > 고유 동작 > 취소
+            event.preventDefault();
+
+            $('html,body').animate({
+                scrollTop: 0
+            }, 2000);
+        });
+
+
+        $(document).scroll(function(event){
+
+            //메뉴가 시야에서 사라지는 순간 > 메뉴를 붙박이로 만들기
+            // console.log($(document).scrollTop(), $('#menu').position().top);
+
+            if($(document).scrollTop() >= $('#menu').position().top) {
+                // alert();
+
+                $('#menu').css({
+                    position: 'fixed',
+                    top: '0px',
+                    bottom: ''
+                });
+            }
+
+            //상단 헤더가 눈에 보이는 순간 > 메뉴를 원상태로 돌리기
+            if($(document).scrollTop() <= $('header').outerHeight() - $('#menu').outerHeight()){
+                $('#menu').css({
+                        position: 'absolute',
+                        top: '',
+                        bottom: '0px'
+                    });
+            }
+        });
+
+        
 
 
     </script>
