@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+        form>input {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 300px;
+            border: 0px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q11.html -->
+
+    <form name="form1">
+        <input type="text" name="txt1" value="10">
+    </form>
+
+    <script>
+        var txt1 = document.form1.txt1; //텍스트 박스 찾기
+
+        var timer = setInterval(m1, 1000);
+
+        var n = 10; //10부터 시작해서 내려가기때문
+        function m1(){
+            n--;
+            txt1.value = n;
+            if(n == 0){
+                clearInterval(timer);
+                location.href = "http://google.com";
+            }
+        }
+    </script>
+</body>
+</html>

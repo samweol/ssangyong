@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 1s all;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q18.html 2022-06-15 4번 문제 -->
+    <img src="./../../html/images/catty01.png" id="cat">
+
+    <script>
+        //고양이 찾기
+        const cat = document.getElementById('cat');
+
+        let x;
+        let y;
+        //윈도우 아무 창이나 눌렀을 때 이벤트가 발생해야함
+        window.onmousedown = function (event) {
+            cat.style.left = event.clientX - 64 + 'px';
+            cat.style.top = event.clientY - 64 + 'px';
+        }
+    </script>
+</body>
+</html>

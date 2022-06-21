@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clock {
+            margin: auto auto;
+            width: 700px;
+            height: 700px;
+            border: 25px dashed gray;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .chim {
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        #hour {
+            background-color: tomato;
+            width: 50px;
+            height: 175px;
+            border: 10px solid gray;
+            border-radius: 30%;
+
+            position: absolute;
+            left: 345px;
+            top: 175px;
+
+            transition-property: all;
+            transition-duration: 21600s;
+            transform-origin: bottom;
+
+        }
+
+        #min {
+            background-color: cornflowerblue;
+            width: 50px;
+            height: 250px;
+            border: 10px solid gray;
+            border-radius: 30%;
+
+            position: absolute;
+            left: 345px;
+            top: 100px;
+
+            transition-property: all;
+            transition-duration: 360s;
+            transform-origin: bottom;
+
+        }
+
+        #sec{
+            background-color: gold;
+            width: 50px;
+            height: 320px;
+            border: 10px solid gray;
+            border-radius: 30%;
+
+            position: absolute;
+            left: 345px;
+            top: 30px;
+
+            transition-property: all;
+            transition-duration: 60s;
+            transform-origin: bottom;
+        }
+
+        #clock:hover #hour {
+            transform: rotate(36000deg);
+        }
+
+        #clock:hover #min {
+            transform: rotate(36000deg);
+        }
+
+        #clock:hover #sec {
+            transform: rotate(36000deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="clock">
+            <div class="chim" id="min">Min</div>
+            <div class="chim" id="sec">Sec</div>
+            <div class="chim" id="hour">Hour</div>
+                </div>
+            
+    </div>
+</body>
+</html>

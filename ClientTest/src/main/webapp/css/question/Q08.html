@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 30px;
+            width: 600px;
+            height: 700px;
+            border: 10px solid black;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            border: 7px solid black;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0px 8px;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        #ball1 {
+            background-color: red;
+            animation-name: key-ball1;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            
+        }
+        @keyframes key-ball1 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0, 645px);
+            }
+        }
+        #ball2 {
+            background-color: orange;
+            animation-name: key-ball2;
+            animation-duration: .5s;
+            animation-timing-function: ease;
+        }
+        @keyframes key-ball2 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0, 645px);
+            }
+        }
+        #ball3 {
+            background-color: yellow;
+            animation-name: key-ball3;
+            animation-duration: .6s;
+            animation-timing-function: ease-in;
+        }
+        @keyframes key-ball3 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0, 645px);
+            }
+        }
+        #ball4 {
+            background-color: green;
+            animation-name: key-ball4;
+            animation-duration: .8s;
+            animation-timing-function: ease-out;
+        }
+        @keyframes key-ball4 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0,645px);
+            }
+        }
+        #ball5 {
+            background-color: blue;
+            animation-name: key-ball5;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes key-ball5 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0,645px);
+            }
+        }
+        #ball6 {
+            background-color: navy;
+            animation-name: key-ball6;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes key-ball6 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0,645px);
+            }
+        }
+        #ball7 {
+            background-color: purple;
+            animation-name: key-ball7;
+            animation-duration: .9s;
+            animation-timing-function: ease-in;
+        }
+        @keyframes key-ball7 {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(0,645px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="ball1" class="ball"></div>
+        <div id="ball2" class="ball"></div>
+        <div id="ball3" class="ball"></div>
+        <div id="ball4" class="ball"></div>
+        <div id="ball5" class="ball"></div>
+        <div id="ball6" class="ball"></div>
+        <div id="ball7" class="ball"></div>
+    </div>
+</body>
+</html>

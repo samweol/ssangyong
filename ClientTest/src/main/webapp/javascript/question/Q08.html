@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Q08.html -->
+
+    <h1>우편 번호 검색</h1>
+    <table border>
+        <tr>
+            <th>우편번호</th>
+            <td><input type="text" name="txt1"><input type="button" value="우편번호 검사하기" name="btn1"></td>
+        </tr>
+        <tr>
+            <th>주소</th>
+            <td><input type="text" name="txt2"></td>
+        </tr>
+        <tr>
+            <th>상세주소</th>
+            <td><input type="text" name="txt3"></td>
+        </tr>
+    </table>
+
+    <script>
+        //우편번호 검사하기
+        var btn1 = document.all.btn1;
+        btn1.onclick = m1;
+        function m1(){
+            var child = window.open('Q08_child.html', 'child', 'width=500 height=300');
+        }
+    </script>
+</body>
+</html>

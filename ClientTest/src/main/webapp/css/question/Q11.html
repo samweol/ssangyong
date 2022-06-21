@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #8FD1D8;
+            ;
+        }
+        
+        h1 {
+            color: #4E4E4E;
+            font-variant: small-caps;
+            font-size: 3em;
+        }
+        
+        #main {
+            width: 569px;
+            margin: 0px auto;
+        }
+        
+        #tape {
+            width: 569px;
+            height: 359px;
+            background-image: url('https://drive.google.com/uc?export=download&id=1t9GcMheIDCVaZ6hBDRVXS-APLWtpT51J');
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        
+        #lefthole {
+            position: absolute;
+            left: 125px;
+            top: 119px;
+        }
+        
+        #righthole {
+            position: absolute;
+            left: 362px;
+            top: 119px;
+        }
+        
+        #lefthole,
+        #righthole {
+            animation: holeKey 1.25s infinite linear;
+        }
+        
+        @keyframes holeKey {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        #line {
+            width: 133px;
+            /* 176 */
+            height: 64px;
+            background-image: url('https://drive.google.com/uc?export=download&id=184-7uHoeAwMcxwrXO5m7FuVOq5BjkcIt');
+            background-position: -50px 0px;
+            position: absolute;
+            left: 218px;
+            top: 127px;
+            animation: lineKey 1.5s infinite alternate linear;
+        }
+        
+        @keyframes lineKey {
+            from {
+                background-position: -50px 0px;
+            }
+            to {
+                background-position: 7px 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1><i class="fas fa-headphones-alt"></i> Music</h1>
+        <div id="tape">
+            <img id="lefthole" src="https://drive.google.com/uc?export=download&id=1khKvAaDYt25voxiHJLFmnllSwfc7c8Iz">
+            <img id="righthole" src="https://drive.google.com/uc?export=download&id=1khKvAaDYt25voxiHJLFmnllSwfc7c8Iz">
+            <div id="line"></div>
+        </div>
+    </div>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <h2 id="source" style="width:569px; margin-right: auto; margin-left: auto; display: block;">source code</h2>
+    
+    <textarea style="width:569px; height: 200px; margin-right: auto; margin-left: auto; display: block;">
+<div id="main">
+	<h1><i class="fas fa-headphones-alt"></i> Music</h1>
+	<div id="tape">
+		<img id="lefthole" src="images/tapehole.png">
+		<img id="righthole" src="images/tapehole.png">
+		<div id="line"></div>
+	</div>
+</div>		
+	</textarea>
+</body>
+
+</html>

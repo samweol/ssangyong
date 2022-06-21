@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid gray;
+            width: 100%;
+            /* height: 200px; */
+        }
+
+        #box img {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q14.html -->
+    <div id="box">
+
+    </div>
+
+    <script>
+        //박스 찾기
+        var box = document.getElementById('box');
+
+        //키보드 입력시 함수 호출
+        window.onkeyup = m1;
+
+        function m1(event) {
+            // 48-57, 96-105
+            // alert(event.keyCode);
+            if(event.keyCode >=48 && event.keyCode<=57){
+                box.innerHTML += '<img src="./../../html/images/'+ (parseInt(event.keyCode) - 48) + '.png">';
+            } else if(event.keyCode >=96 && event.keyCode<=105){
+                box.innerHTML += '<img src="./../../html/images/'+ (parseInt(event.keyCode) - 96) + '.png">';
+            }
+            
+            
+        }
+    </script>
+</body>
+</html>

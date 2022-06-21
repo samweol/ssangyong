@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  
+            박스 모델
+            1. border
+            2. width, height
+        */
+
+        #box2{
+            border-color: orange;
+            background-color: bisque;
+
+            /*  
+
+                *** 일반적으로 태그의 높이는 상대 크기(%)를 지정할 수 없다.
+
+                <div> 
+                - 블럭 태그
+                - 너비 : 100%
+                - 높이 : 내용물
+
+                너비, 높이
+                - width, height
+                - 단위 > px(절대값), %(상대값)
+
+                
+            */
+
+            width: 200px;
+            /* height: 100px; */
+            height: auto;
+        }
+        .box {
+            border: 10px solid black;
+        }
+        /*  
+            *** 박스 모델은 width, height는 블럭태그에만 적용이 가능하다.
+            *** 인라인 태그 중 일부는 적용이 가능하다. (처음부터 영역이 눈에 보이는 태그들)
+            블럭 태그
+            - 너비 : 100%
+            - 높이 : 내용물
+
+            인라인 태그
+            - 너비 : 내용물
+            - 높이 : 내용물
+        */
+        #div1 {
+            background-color: red;
+            color: white;
+            width: 200px;
+            height: 200px;
+        }
+
+        #span1 {
+            background-color: blue;
+            color: white;
+            width: 200px;
+            height: 200px;
+        }
+
+        #word {
+            /* display: inline-block; */
+            width: 200px;
+            height: 200px;
+        }
+
+        #cat01 {
+            width: 100px;
+            height: 100px;
+        }
+
+        #txt1 {
+            width: 100px;  
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex17_box.html -->
+    <h1>박스 모델</h1>
+
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <h1>블럭 태그</h1>
+    <div id="div1">상자2</div>
+
+    <h1>인라인 태그</h1>
+    <span id="span1">인라인 태그</span>
+
+    <h1>문단태그</h1>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia optio dolorum totam recusandae perferendis cumque quaerat delectus veritatis vitae odit dolor voluptate quibusdam, doloremque aliquid earum sapiente minus corrupti quisquam ducimus repudiandae vero cupiditate! Esse id repudiandae error maiores modi consequuntur similique beatae. Rerum iste mollitia nemo consequatur fugiat quisquam hic facere ea quos? Fugiat enim in modi expedita, natus aspernatur similique eius laboriosam corporis dolor tenetur perferendis ullam voluptatum soluta magnam eum, velit dolorem delectus illo. Nam nemo sapiente sit voluptas maiores cupiditate perspiciatis voluptate? Officia cumque maiores provident quaerat ipsum. Nemo, omnis, asperiores a exercitationem eius architecto blanditiis accusamus ducimus vero repudiandae aspernatur molestias! Magni rem, vero aliquid reiciendis sunt <span id="word">molestiae</span> laboriosam, perferendis repudiandae officiis a facilis. Quia temporibus ullam error, maiores officia, adipisci consequuntur saepe fugit velit minus corrupti provident assumenda. Tempora ab laboriosam quasi eos omnis dolorum, repellendus assumenda officia cupiditate repellat et quae soluta saepe, nisi harum veritatis, nam exercitationem aspernatur recusandae voluptatum voluptas sunt! Velit, illo possimus dolor, pariatur, non quos minima illum hic distinctio obcaecati saepe modi inventore ut a quam veniam omnis molestiae repudiandae? Sint laborum neque rerum doloribus tenetur quaerat distinctio eos deleniti corrupti aliquid temporibus quas recusandae, illo veritatis ullam.
+    </p>
+
+    앞의 내용
+    <img src="./../html/images/cat01.jpg" id="cat01">
+    뒤의 내용
+    <hr>
+    이름 : <input type="text" id="txt1">님
+</body>
+</html>

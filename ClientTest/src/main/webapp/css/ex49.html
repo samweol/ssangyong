@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ec897c3b32.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        body {
+            width: 950px;
+        }
+
+        h1 {
+            font-size: 30px;
+        }
+
+        .main {
+            column-count: 2;
+        }
+
+        .chart {
+            display: flex;
+            width: 375px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgb(210, 208, 208);
+            /* border: 1px solid black; */
+        }
+
+        .chart #rank {
+            font-weight: bold;
+            position: relative;
+            top: 15px;
+            padding: 0px 10px;
+
+            /* border: 1px solid black; */
+        }
+
+        .chart #cover img {
+            width: 48px;
+            height: 48px;
+            padding: 0px 10px;
+        }
+
+        .chart .info #title {
+            font-weight: bold;
+            display: inline-block;
+            padding-top: 5px;
+        }
+
+        .chart .info .name {
+            color: #888;
+            font-size: 14px;
+            padding-top: 3px;
+        }
+
+        .chart .btn {
+            /* border: 1px solid black; */
+            padding-left: 70px;
+        }
+
+        .chart .btn #play {
+            color: tomato;
+            font-size: 25px;
+            display: inline-block;
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        .chart .btn #lyrics {
+            color: #888;
+            font-size: 25px;
+            display: inline-block;
+            padding: 7px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ex49.html -->
+    <h1>뮤직 급상승 차트</h1>
+    <div class="main">
+        <div class="chart">
+            <span id="rank">1</span>
+            <span id="cover"><img src="./../html/images/catty01.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">2</span>
+            <span id="cover"><img src="./../html/images/catty02.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">3</span>
+            <span id="cover"><img src="./../html/images/catty03.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">4</span>
+            <span id="cover"><img src="./../html/images/catty04.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">5</span>
+            <span id="cover"><img src="./../html/images/catty05.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스1</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">6</span>
+            <span id="cover"><img src="./../html/images/catty06.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">7</span>
+            <span id="cover"><img src="./../html/images/catty07.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">8</span>
+            <span id="cover"><img src="./../html/images/catty08.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">9</span>
+            <span id="cover"><img src="./../html/images/catty09.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+        <div class="chart">
+            <span id="rank">10</span>
+            <span id="cover"><img src="./../html/images/catty10.png"></span>
+            <div class="info">
+                <span id="title">우리들의 블루스</span>
+                <div class="name">
+                    <span id="singer">임영웅</span>
+                    <span id="album">IM HERO</span>
+                </div>
+            </div>
+            <div class="btn">
+                <span id="play"><i class="fa-solid fa-play"></i></span>
+                <span id="lyrics"><i class="fa-solid fa-music"></i></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

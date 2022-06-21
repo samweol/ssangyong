@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: gray;
+            font-weight: bold;
+        }
+
+        .input > span {
+            display: block;
+            margin: 5px;
+            color: gray;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q01.html -->
+
+    <h1>데이터 입력</h1>
+    <form name="form1">
+        <div class="input">
+            <span>이름 : <input type="text" name="txt1"></span>
+            <span>나이 : <input type="text" name="txt2"></span>
+            <span>별명 : <input type="text" name="txt3"></span>
+        </div>
+
+        <div class="button">
+            <input type="button" name="btn1" value="Long" data-name="long" onclick="m1(this);">
+            <input type="button" name="btn2" value="Short" data-name="short" onclick="m1(this);">
+        </div>
+    </form>
+    <script>
+        function m1(btn){
+            
+            if(btn.dataset['name'] == 'long'){
+                document.form1.txt1.size = 100;
+                document.form1.txt2.size = 100;
+                document.form1.txt3.size = 100;
+            } else if(btn.dataset['name'] == 'short') {
+                document.form1.txt1.size = 10;
+                document.form1.txt2.size = 10;
+                document.form1.txt3.size = 10;
+            }
+
+        }
+    </script>
+</body>
+</html>
