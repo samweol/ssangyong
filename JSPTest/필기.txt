@@ -191,10 +191,41 @@ session
 - ex18_file_form.jsp
 - ex18_file_ok.jsp
 
+다중 파일 업로드
+- ex19_file_form.jsp
+- ex19_file_ok.jsp
+
+파일 업로드
+- ex20_file_form.jsp > 수정할 것
+- ex20_file_ok.jsp
 
 
+내장 객체 > 저장소 제공 > pageContext, request, session, application > 생명 주기
+사용자 데이터 저장 > 4개의 객체 중 어떤 객체를 사용할지?
+
+- ex21_scope_1.jsp
+- ex21_scope_2.jsp
+- ex21_scope_3.jsp
 
 
+Expression
+- <%= %>
 
+EL 언어(Expression Language)
+- <%= %> 기능을 대신하기 위해서 만들어진 언어 > 가독성(코드 관리)
+- 자바의 값을 HTML 페이지 소스에 출력하는 역할
+- ${속성명}
+- 일반적인 자바 데이터를 출력할 수 없다.
+- pageContext, request, session, application 객체 내 저장소의 값만 출력할 수 있다.
+
+- ex22_el.jsp
+
+
+JSTL 액션 태그
+- <c:XXX> 태그 사용
+- c: > Namespace > 자바 패키지 역할
+- JSP Standard Tag Library
+- 설치 필요 > http://tomcat.appache.org/tablibs/standard/
+- ex23_jstl.jsp
 	
 	
