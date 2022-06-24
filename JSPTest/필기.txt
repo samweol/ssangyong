@@ -227,5 +227,65 @@ JSTL 액션 태그
 - JSP Standard Tag Library
 - 설치 필요 > http://tomcat.appache.org/tablibs/standard/
 - ex23_jstl.jsp
+
+
+주소록
+- JSP Model 1
+- Oracle 11g
+- Bootstrap + jQuery
+- Apache Tomcat 8.5
+- Java 11
+
+기능
+- CRUD 구현
+- 주소록 쓰기
+- 주소록 보기
+- 주소록 수정하기
+- 주소록 삭제하기
+
+DB
+- tblAddress
+- 번호(PK), 이름, 나이, 주소, 성별, 연락처
+
+디렉토리 구성 + 페이지 설계
+- 주소록 : 			webapp > address (루트 폴더)
+- 주소록 : 주소록쓰기 >	webapp > address > add.jsp, addok.jsp
+- 주소록 : 주소록읽기 >	webapp > address > list.jsp (시작 페이지)
+- 주소록 : 주소록수정 >	webapp > address > edit.jsp, editok.jsp
+- 주소록 : 주소록삭제 >	webapp > address > del.jsp, delok.jsp
+- 주소록 : 템 플 릿  >	webapp > address > template.jsp
+- 주소록 : 조각페이지 >	webapp > address > inc > header.jsp(머릿말 조각페이지)
+- 주소록 : 조각페이지 >	webapp > address > inc > assest.jsp (Bootstrap, jQuery)
+- 주소록 : 라이브러리 > 	webapp > address > css > address.css (전역 CSS)
+- 주소록 : 라이브러리 > 	webapp > address > js > address.js (전역 JavaScript)
+
+
+화면 틀 생성하기 > template.jsp
+
+
+
+이미지 갤러리
+1. list.jsp
+	- 목록보기
+	- DB > select .. > 사진 아이템 생성
+	- 사진 아이템 클릭 > 제목, 파일명, 날짜, 사진
+2. add.jsp + addok.jsp
+	- 제목, 이미지 > 서버 전송
+	- 파일 업로드 처리
+	
+3. delok.jsp
+	- 파일 삭제
+	- DB > delete
+
+DB
+- JSPTest > gallery.sql
+
+
+
+
+
+
+
+
 	
 	
