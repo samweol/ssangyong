@@ -1,24 +1,26 @@
+<%@page import="com.test.jsp.DBUtil"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="com.test.jsp.DBUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//Data 연결해서 리스트 받아오기
-	DBUtil util = new DBUtil();
+
+	//1. DB 작업 > select > 결과
+	//2. 결과 출력
+	
+	//1.
 	Connection conn = null;
 	Statement stat = null;
 	ResultSet rs = null;
 	
-	conn = util.open();
+	conn = DBUtil.open();
 	
-	String sql = "select * from tblGallery order by subject asc";
+	String sql = "select * from tblGallery order by regdate desc";
 	
 	stat = conn.createStatement();
 	
 	rs = stat.executeQuery(sql);
-	
 
 %>    
 <!DOCTYPE html>
@@ -107,12 +109,14 @@
 		<h1>Image Gallery <small>List</small></h1>
 		
 		<div id="list">
-			<% while(rs.next()){ %>
-			<div style="background-image:url(images/<%= rs.getString("filename")%>);" data-toggle="modal" data-target="#exampleModal" onclick="showImage('rect_icon10.png', '시계 아이콘', '2022-06-24 12:30:00');">
-				<span title="delete" onclick="deleteImage('rect_icon10.png');">&times;</span>
-				<div class="title">시계 아이콘</div>
+		
+			<% while (rs.next()) { %>
+			<div style="background-image:url(images/<%= rs.getString("filename") %>);" data-toggle="modal" data-target="#exampleModal" onclick="showImage('<%= rs.getString("filename") %>', '<%= rs.getString("subject") %>', '<%= rs.getString("regdate") %>');">
+				<span title="delete" onclick="deleteImage('<%= rs.getString("seq") %>');">&times;</span>
+				<div class="title"><%= rs.getString("subject") %></div>
 			</div>
-			<% }%>
+			<% } %>
+				
 		</div>
 
 		<input type="button" value=" 이미지 업로드 "
@@ -147,7 +151,6 @@
 	<script>
 	
 		function showImage(img, title, regdate) {
-			//alert(img);
 			
 			$('.modal-body > img').attr('src', 'images/' + img);
 			$('#exampleModalLabel > span').eq(0).text(title + '(' + img + ')');
@@ -155,11 +158,10 @@
 			
 		}
 		
-		function deleteImage(img) {
-			//alert(img);
+		function deleteImage(seq) {
 						
 			if (confirm('delete?')) { 
-				location.href = 'delok.jsp';
+				location.href = 'delok.jsp?seq=' + seq;
 			}
 			
 			event.stopPropagation();

@@ -24,12 +24,12 @@
 		<table class="table table-bordered add">
 			<tr>
 				<th>할일</th>
-				<td><input type="text" class="form-control" required name="work"></td>
+				<td><input type="text" name="todo" class="form-control" required></td>
 			</tr>	
 			<tr>
 				<th>중요도</th>
 				<td>
-					<select class="form-control" name="important">
+					<select name="priority" class="form-control">
 						<option value="A">A</option>
 						<option value="B" selected>B</option>
 						<option value="C">C</option>
@@ -42,7 +42,7 @@
 			<input type="button" value=" 돌아가기 "
 				class="btn btn-secondary" onclick="location.href='list.jsp';">
 			<input type="submit" value="등록하기"
-				class="btn btn-warning" onclick="location.href='add.jsp';">
+				class="btn btn-warning">
 		</div>
 		</form>
 	</main>

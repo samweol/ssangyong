@@ -1,99 +1,117 @@
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.test.jsp.DBUtil"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<% 
-	//1. 인코딩 처리
+<%
+	//1. 파일(이미지) 업로드
 	//2. 데이터 가져오기
 	//3. DB 작업
-	//	3.1 DB 연결
-	//	3.2 SQL
-	//	3.3 종료
-	//4. 마무리
+	//	2.1 DB 연결
+	//	2.2 SQL
+	//	2.3 종료
+	//4. 마무리(feedback)
+	
 	
 	//1.
-	request.setCharacterEncoding("UTF-8");
+	String path = application.getRealPath("/gallery/images");
 
-	//2.
-	String subject = request.getParameter("subject");
-	String attach = request.getParameter("attach");
+	int size = 1024 * 1024 * 100;
 	
-	//3. 
+	String filename = "";
+	String subject = "";
 	int result = 0;
+	
 	try {
-		DBUtil util = new DBUtil();
 		
-		Connection conn = null;
-		Statement stat = null;
-		PreparedStatement pstat = null;
+		MultipartRequest multi = new MultipartRequest(
+											request,
+											path,   
+											size, 	 
+											"UTF-8", 
+											new DefaultFileRenamePolicy() 
+										);
+
+		//2. 
+		filename = multi.getFilesystemName("attach");
+		subject = multi.getParameter("subject");
 		
-		conn = util.open();
 		
-		System.out.println(conn.isClosed()); //false
 		
-		String sql = "insert into tblGallery (seq, filename, subject, regdate) values (seqGallery.nextVal, ?, ?, sysdate)";
 		
-		pstat = conn.prepareStatement(sql);
+		try {
+			
+			//3.			
+			Connection conn = null;
+			PreparedStatement stat = null;
+			
+			conn = DBUtil.open();
+			
+			//System.out.println(conn.isClosed()); //false
+			
+			String sql = "insert into tblGallery (seq, filename, subject, regdate) values (seqGallery.nextval, ?, ?, default)";
+			
+			stat = conn.prepareStatement(sql);
+			
+			stat.setString(1, filename);
+			stat.setString(2, subject);
+			
+			result = stat.executeUpdate();
+			
 		
-		pstat.setString(1, attach);
-		pstat.setString(2, subject);
-		
-		//4.
-		result = pstat.executeUpdate();
-		
-		if(result > 0) {
-			//추가 성공
-		} else {
-			//추가 실패
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		
-	} catch (Exception e){
-		System.out.println(e);
+	} catch (Exception e) {
+		System.out.println(e);		
 	}
 	
-	
-	
-%>
+		
 
+%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>주소록</title>
-<%@ include file="/address/inc/asset.jsp" %>
+<title>Insert title here</title>
+<%@ include file="/gallery/inc/asset.jsp" %>
 <style>
-	<%@ include file="css/address.css" %>
+
 </style>
 </head>
 <body>
 
-	<!-- template.jsp > addok.jsp -->
-	<main>
-		<header>
-			<%@ include file="inc/header.jsp" %>
-		</header>
-		
-		<section>
-			<div class="section content">
-			</div>
-		</section>
-	</main>
-	
 	<script>
+		<% if (result > 0) { %>
 		
-		<% if (result >0) { %>
+		location.href = 'list.jsp';
 		
-		location.href='list.jsp';
-	
-	<%} else {%>
+		<% } else { %>
 		
-		alert('추가 실패!!');
+		alert('추가 실패;;');
 		history.back();
-	
-	<%}%>
+		
+		<% } %> 
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

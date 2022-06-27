@@ -32,7 +32,7 @@
 	<div class="container">
 		<h1>Image Gallery <small>Add</small></h1>
 				
-		<form method="POST" action="addok.jsp">
+		<form method="POST" action="addok.jsp" enctype="multipart/form-data">
 		<table class="table table-bordered">
 			<tr>
 				<th>제목</th>

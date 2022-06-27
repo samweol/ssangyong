@@ -6,13 +6,11 @@
     pageEncoding="UTF-8"%>
 <%
 
-	DBUtil util = new DBUtil();
-	
 	Connection conn = null;
 	Statement stat = null;
 	ResultSet rs = null;
 	
-	conn = util.open();
+	conn = DBUtil.open();
 	
 	String sql = "select * from tblTodo order by regdate asc";
 	
@@ -42,13 +40,19 @@
 				<th>할일</th>
 				<th>날짜</th>
 			</tr>
-			<% while(rs.next()){ %>
-			<tr>
+			<% 
+				while (rs.next()) { 
+					String temp = "";
+					if (rs.getString("complete").equals("y")) {
+						temp = "class=\"complete\"";
+					}
+			%>
+			<tr <%= temp %>>
 				<td><%= rs.getString("priority") %></td>
-				<td><%= rs.getString("todo") %></td>
+				<td onclick="change(<%= rs.getString("seq") %>, '<%= rs.getString("complete") %>');"><%= rs.getString("todo") %></td>
 				<td><%= rs.getString("regdate") %></td>
 			</tr>
-			<% }%>
+			<% } %>
 		</table>
 		
 		<div class="btns">
@@ -58,7 +62,9 @@
 	</main>
 	
 	<script>
-		
+		function change(seq, complete) {
+			location.href = 'change.jsp?seq=' + seq + '&complete=' + complete;
+		}
 	</script>
 
 </body>
