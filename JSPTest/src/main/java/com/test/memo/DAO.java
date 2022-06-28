@@ -146,8 +146,10 @@ public class DAO {
 			pstat.setString(1, dto.getSeq());
 			pstat.setString(2, dto.getPw());
 			
+			rs = pstat.executeQuery();
+			
 			if(rs.next()) {
-				return rs.getInt("cnt") == 1 ? true: false;
+				return rs.getInt("cnt") == 1 ? true:false;
 			}
 			
 		} catch (Exception e) {
@@ -155,5 +157,23 @@ public class DAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	//DelOk 서블릿이 seq, pw을 줄테니 삭제해주세요
+	public int del(String seq) {
+		try {
+			
+			String sql = "delete tblMemo where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("DAO.del");
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

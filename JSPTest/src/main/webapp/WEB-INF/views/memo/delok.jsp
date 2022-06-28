@@ -8,23 +8,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<%@ include file="/example/inc/asset.jsp" %>
-<%-- <jsp:include page="/example/inc/asset.jsp"></jsp:include>
- --%>
-
+<%@ include file="/WEB-INF/views/memo/inc/asset.jsp" %>
 <style>
 
 </style>
 </head>
 <body>
 
-	<!--  -->
-	<div class="container">
-	
-	</div>
-	
+	<!-- template.jsp > addok.jsp >delok.jsp -->
+	<main>
+		<%@ include file="/WEB-INF/views/memo/inc/header.jsp" %>
+		<section>
+		</section>
+		
+	</main>
 	<script>
-	
+		
+		<c:if test="${result == 1}">
+		location.href = '/jsp/memo/list.do';
+		</c:if>
+		
+		<c:if test="${result == 0}">
+		alert('삭제 실패');
+		history.back();
+		</c:if>
 	</script>
+	
 </body>
 </html>
