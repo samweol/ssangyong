@@ -7,30 +7,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
 
 </style>
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
+			
 		</section>
 	</main>
+	
 	<script>
+		
 		<c:if test="${result == 1}">
-		location.href = '/toy/board/view.do?seq=${seq}';
+		location.href = '/toy/board/view.do?seq=${pseq}&isSearch=${isSearch}&column=${column}&word=${word}';
 		</c:if>
 		
 		<c:if test="${result == 0}">
 		alert('failed');
 		history.back();
 		</c:if>
+	
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,14 @@
 		</section>
 	</main>
 	<script>
-	
+		<c:if test="${result == 1}">
+		location.href = '/toy/board/list.do';
+		</c:if>
+		
+		<c:if test="${result == 0}">
+		alert('failed');
+		history.back();
+		</c:if>
 	</script>
 </body>
 </html>

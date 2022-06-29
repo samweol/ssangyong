@@ -36,3 +36,27 @@ create table tblBoard (
     regdate date default sysdate not null, -- 작성시간
     readcount number default 0 not null -- 조회수
 );
+drop sequence seqBoard;
+create sequence seqBoard;
+
+select * from tblBoard;
+
+create or replace view vwBoard
+as
+select seq, subject, content, id, (select name from tblUser where id = tblBoard.id) as name, regdate, readcount
+from tblBoard order by seq desc;
+
+select * from vwBoard;
+
+commit;
+
+-- 댓글 테이블
+create table tblComment (
+    seq number primary key, --댓글번호
+    content varchar2(1000) not null, --내용
+    id varchar2(30) not null references tblUser(id), --아이디
+    regdate date default sysdate not null --날짜
+);
+
+create sequence seqComment;
+

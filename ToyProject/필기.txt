@@ -102,4 +102,23 @@ DB 설계
 				> "editok.jsp"
 				> "view.jsp"
 				> "del.jsp"
-				> "delok.jsp"					 
+				> "delok.jsp"
+
+---------------------------------CRUD
+
+검색
+				
+댓글쓰기
+- com.test.toy.board > "ADDCommentOk.java"
+
+페이징
+
+답변쓰기
+
+
+파일 업로드
+
+
+태그(#)
+
+싫어요/좋아요					 

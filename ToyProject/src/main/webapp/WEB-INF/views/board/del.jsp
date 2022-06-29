@@ -20,6 +20,19 @@
 	<main>
 		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
 		<section>
+			<h2>Board</h2>
+			
+			<form method="POST" action="/toy/board/delok.do">
+			
+			<div class="btns">
+				<input type="button" value="돌아가기" class="btn btn-secondary"
+					onclick="location.href='/toy/board/view.do?seq=${seq}';">
+				<input type="submit" value="삭제하기" class="btn btn-primary">
+			</div>
+			
+			<input type="hidden" name="seq" value="${seq }" />
+			
+			</form>
 		</section>
 	</main>
 	<script>
