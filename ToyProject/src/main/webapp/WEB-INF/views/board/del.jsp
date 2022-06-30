@@ -7,36 +7,61 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
 
 </style>
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
+			
 			<h2>Board</h2>
 			
 			<form method="POST" action="/toy/board/delok.do">
-			
+						
+			<div style="margin-bottom: 15px;">삭제하시겠습니까?</div>
+						
 			<div class="btns">
 				<input type="button" value="돌아가기" class="btn btn-secondary"
 					onclick="location.href='/toy/board/view.do?seq=${seq}';">
-				<input type="submit" value="삭제하기" class="btn btn-primary">
+				<button class="btn btn-primary">
+					<i class="fas fa-pen"></i>
+					삭제하기
+				</button>
 			</div>
 			
-			<input type="hidden" name="seq" value="${seq }" />
+			<input type="hidden" name="seq" value="${seq}">
 			
 			</form>
+			
+			
 		</section>
 	</main>
-	<script>
 	
+	<script>
+		
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,7 +61,11 @@ public class View extends HttpServlet {
 		dto.setContent(dto.getContent().replace("\r\n", "<br>"));
 		
 		
+		//http://localhost:8090/toy/board/view.do?seq=3&isSearch=n&column=&word=
+		//http://localhost:8090/toy/board/view.do?seq=3
+		
 		//- 검색어 표시하기
+		//if (isSearch != null && column != null && isSearch.equals("y") && column.equals("content")) {
 		if (isSearch.equals("y") && column.equals("content")) {
 			
 			//안녕하세요. 홍길동입니다.
@@ -79,6 +83,9 @@ public class View extends HttpServlet {
 		//3.7 댓글 목록 가져오기
 		ArrayList<CommentDTO> clist = dao.listComment(seq);
 		
+		for (CommentDTO cdto : clist) {
+			cdto.setContent(cdto.getContent().replace("\r\n", "<br>"));
+		}
 		
 		
 		

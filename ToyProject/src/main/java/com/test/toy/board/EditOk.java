@@ -44,38 +44,65 @@ public class EditOk extends HttpServlet {
 		
 		BoardDAO dao = new BoardDAO();
 		
+		
+		
+		
+		
 		int temp = 0;
 		
-		if(session.getAttribute("auth") == null) {
+		if (session.getAttribute("auth") == null) {
 			temp = 1; //익명 사용자
-		} else if(session.getAttribute("auth") != null) {
-			//실명사용자
+		} else if (session.getAttribute("auth") != null) { 
+			//temp = 1; //실명 사용자
 			
-			if(session.getAttribute("auth").equals(dao.get(seq).getId())) {
+			if (session.getAttribute("auth").equals(dao.get(seq).getId())) {
 				temp = 2; //글쓴 본인(***)
 			} else {
-				//temp = 2;
-				if(session.getAttribute("auth").toString().equals("admin")) {
+				
+				if (session.getAttribute("auth").toString().equals("admin")) {
 					temp = 3; //관리자(***)
 				} else {
 					temp = 4; //타인
 				}
+				
 			}
+			
 		}
-		
+				
 		
 		int result = 0;
 		
-		if(temp ==2 || temp == 3) {			
+		if (temp == 2 || temp == 3) {
 			result = dao.edit(dto);
 		}
+		
 		
 		//4.
 		req.setAttribute("result", result);
 		req.setAttribute("seq", seq);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/editok.jsp");
 
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/editok.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

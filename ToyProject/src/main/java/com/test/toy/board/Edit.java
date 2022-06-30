@@ -17,7 +17,7 @@ public class Edit extends HttpServlet {
 
 		//Edit.do
 		//1. 데이터 가져오기(seq)
-		//2. DB > 작업 > DAO 위임 > select
+		//2. DB 작업 > DAO 위임 > select 
 		//3. 결과
 		//4. JSP 호출하기 + 결과 전달하기
 		
@@ -31,9 +31,28 @@ public class Edit extends HttpServlet {
 		
 		//4.
 		req.setAttribute("dto", dto);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/edit.jsp");
 
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,19 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
 
 </style>
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
+			
 			<h2>Board</h2>
 			
 			<form method="POST" action="/toy/board/addok.do">
@@ -38,14 +36,43 @@
 			<div class="btns">
 				<input type="button" value="돌아가기" class="btn btn-secondary"
 					onclick="location.href='/toy/index.do';">
-				<input type="submit" value="글쓰기" class="btn btn-primary">
+				<button class="btn btn-primary">
+					<i class="fas fa-pen"></i>
+					쓰기
+				</button>
 			</div>
 			
+			<input type="hidden" name="reply" value="${reply}">
+			<input type="hidden" name="thread" value="${thread}">
+			<input type="hidden" name="depth" value="${depth}">
+			
 			</form>
+			
+			
 		</section>
 	</main>
-	<script>
 	
+	<script>
+		
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
