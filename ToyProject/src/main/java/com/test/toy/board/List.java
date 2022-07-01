@@ -67,6 +67,10 @@ public class List extends HttpServlet {
 		
 		
 		
+		//해시 태그 클릭
+		String tag = req.getParameter("tag");
+		map.put("tag", tag);
+		
 		
 		
 		

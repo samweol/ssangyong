@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Toy Project</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="stylesheet" href="/toy/asset/css/tagify.css" />
+<script src="/toy/asset/js/jQuery.tagify.min.js"></script>
 <style>
 
 </style>
@@ -46,6 +48,56 @@
 					<th>번호</th>
 					<td>${dto.seq}</td>
 				</tr>
+				<tr>
+					<th>파일</th>
+					<td>
+						
+						<c:if test="${not empty dto.orgfilename}">
+						<a href="/toy/board/download.do?filename=${dto.filename}&orgfilename=${dto.orgfilename}">${dto.orgfilename}</a>
+						</c:if>
+						
+						<c:if test="${empty dto.orgfilename}">
+						파일 없음
+						</c:if>
+						
+					</td>
+				</tr>
+				<tr>
+					<th>태그</th>
+					<td><input type="text" name="tags" readonly></td>
+				</tr>
+				<tr>
+					<th>좋아요/싫어요</th>
+					<td>
+					
+						<form method="GET" action="/toy/board/goodbad.do">
+						<button class="btn btn-danger">
+							<i class="fa-solid fa-heart"></i>
+							좋아요
+							<span class="badge badge-primary">15</span>
+						</button>
+						<input type="hidden" name="seq" value="${dto.seq}">
+						<input type="hidden" name="isSearch" value="${isSearch}">
+						<input type="hidden" name="column" value="${column}">
+						<input type="hidden" name="word" value="${word}">
+						<input type="hidden" name="goodbad" value="good">
+						</form>
+						
+						<form method="GET" action="/toy/board/goodbad.do">
+						<button class="btn btn-dark">
+							<i class="fa-solid fa-heart-crack"></i>
+							싫어요
+							<span class="badge badge-primary">5</span>
+						</button>
+						<input type="hidden" name="seq" value="${dto.seq}">
+						<input type="hidden" name="isSearch" value="${isSearch}">
+						<input type="hidden" name="column" value="${column}">
+						<input type="hidden" name="word" value="${word}">
+						<input type="hidden" name="goodbad" value="bad">
+						</form>
+						
+					</td>
+				</tr>
 			</table>
 			
 			<div class="btns">
@@ -62,20 +114,20 @@
 				
 				<c:if test="${dto.id == auth || auth == 'admin'}">
 				<button class="btn btn-primary"
-					onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">
+					onclick="location.href='/toy/board/edit.do?seq=${dto.seq}&isSearch=${isSearch}&column=${column}&word=${word}';">
 					<i class="fas fa-pen"></i>
 					수정하기
 				</button>
 				
 				<button class="btn btn-primary"
-					onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">
+					onclick="location.href='/toy/board/del.do?seq=${dto.seq}&isSearch=${isSearch}&column=${column}&word=${word}';">
 					<i class="fas fa-pen"></i>
 					삭제하기
 				</button>
 				</c:if>
 				
 				<button class="btn btn-primary" type="button"
-					onclick="location.href='/toy/board/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth}';">
+					onclick="location.href='/toy/board/add.do?reply=1&thread=${dto.thread}&depth=${dto.depth}&isSearch=${isSearch}&column=${column}&word=${word}';">
 					<i class="fas fa-pen"></i>
 					답변쓰기
 				</button>
@@ -207,6 +259,47 @@
 		function cancelForm() {
 			$('#editRow').remove();
 			isEdit = false;
+		}
+		
+		
+		//img.onload = function() {}
+		/*
+		$('#imgAttach').ready(function() {
+		
+			//alert($('#imgAttach').width());
+			
+			if ($('#imgAttach').width() > 630) {
+				$('#imgAttach').width(630);
+			}
+			
+			$('#imgAttach').show();
+			
+		});
+		*/
+		
+		let tag = '';
+		
+		<c:forEach items="${dto.taglist}" var="tag">
+			tag += '${tag},';
+		</c:forEach>
+		
+		//alert(tag);
+		
+		$('input[name=tags]').val(tag);
+		/* 
+		$('input[name=tags]').tagify().on('click', function(e) {
+			alert(e.detail);
+		}); 
+		*/
+		
+		const tagify = new Tagify(document.querySelector('input[name=tags]'), {});
+		
+		tagify.on('click', test);
+		
+		function test(e) {
+			//alert(e.detail.data.value);
+			
+			location.href = '/toy/board/list.do?tag=' + e.detail.data.value;
 		}
 
 	</script>

@@ -38,13 +38,26 @@
 				<tr>
 					<td>${dto.seq}</td>
 					<td>
-					<c:if test="${dto.depth >0 }">
-					<i class="fa-solid fa-right-long" style="margin-left: ${dto.depth * 20}px;"></i>
-					</c:if>
+					
+						<c:if test="${dto.depth > 0}">
+						<i class="fa-solid fa-circle-right"
+								style="margin-left: ${dto.depth * 20}px;"></i>
+						</c:if>
+						
 						<a href="/toy/board/view.do?seq=${dto.seq}&isSearch=${map.isSearch}&column=${map.column}&word=${map.word}">${dto.subject}</a>
+						
+						<c:if test="${not empty dto.filename}">
+						<i class="fa-solid fa-floppy-disk"></i>
+						</c:if>
+						
 						<c:if test="${dto.commentcount > 0}">
 						<span class="badge badge-primary">${dto.commentcount}</span>
 						</c:if>
+						
+						<c:if test="${(dto.isnew * 24) < 3 }">
+						<span style="color: tomato;">new</span>
+						</c:if>
+						
 					</td>
 					<td>${dto.name}</td>
 					<td>${dto.regdate}</td>

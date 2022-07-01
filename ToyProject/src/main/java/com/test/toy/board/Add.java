@@ -1,6 +1,7 @@
 package com.test.toy.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,9 +29,21 @@ public class Add extends HttpServlet {
 		String thread = req.getParameter("thread");
 		String depth = req.getParameter("depth");
 		
-		req.setAttribute("reply", reply);		
-		req.setAttribute("thread", thread);		
-		req.setAttribute("depth", depth);		
+		
+		
+		//해시 태그 목록 가져오기(자동 완성)
+		BoardDAO dao = new BoardDAO();
+		
+		ArrayList<String> taglist = dao.taglist();
+		
+		
+		
+		req.setAttribute("reply", reply);
+		req.setAttribute("thread", thread);
+		req.setAttribute("depth", depth);
+		
+		req.setAttribute("taglist", taglist);
+		
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/add.jsp");
 		dispatcher.forward(req, resp);

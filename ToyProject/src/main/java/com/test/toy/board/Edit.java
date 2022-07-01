@@ -24,6 +24,12 @@ public class Edit extends HttpServlet {
 		//1.
 		String seq = req.getParameter("seq");
 		
+		String isSearch = req.getParameter("isSearch");
+		String column = req.getParameter("column");
+		String word = req.getParameter("word");
+		
+		
+		
 		//2. + 3.
 		BoardDAO dao = new BoardDAO();
 		
@@ -31,6 +37,11 @@ public class Edit extends HttpServlet {
 		
 		//4.
 		req.setAttribute("dto", dto);
+		
+		req.setAttribute("isSearch", isSearch);
+		req.setAttribute("column", column);
+		req.setAttribute("word", word);
+		
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/edit.jsp");
 		dispatcher.forward(req, resp);
