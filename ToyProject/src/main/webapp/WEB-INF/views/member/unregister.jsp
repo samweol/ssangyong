@@ -7,31 +7,58 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
-	.btn {
+	.btns {
 		margin-top: 20px;
 	}
 </style>
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
-			<h2>Unregister</h2>
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam soluta quidem vel est unde ipsum facere quo iusto libero mollitia expedita esse sit optio ipsa in voluptates hic blanditiis veritatis!</div>
 			
-			<input type="button" value="돌아가기" class="btn btn-secondary"
+			<h2>Unregister</h2>
+			
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quisquam molestiae placeat id illum aliquid accusantium assumenda inventore iure error natus neque excepturi cum aspernatur eum. Ad quasi recusandae velit!</div>
+			
+			<div class="btns">
+				<input type="button" value="돌아가기" class="btn btn-secondary"
 					onclick="location.href='/toy/index.do';">
-				<input type="submit" value="탈퇴하기" class="btn btn-primary" onclick="location.href='/toy/member/unregisterok.do';">
+				
+				<button class="btn btn-danger"
+					onclick="location.href='/toy/member/unregisterok.do';">
+					<i class="fas fa-sign-out-alt"></i>
+					탈퇴하기
+				</button>
+			</div>
+			
 		</section>
 	</main>
-	<script>
 	
+	<script>
+		
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

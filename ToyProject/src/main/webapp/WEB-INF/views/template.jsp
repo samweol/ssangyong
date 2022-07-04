@@ -7,23 +7,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
 
 </style>
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
+			
 		</section>
 	</main>
-	<script>
 	
+	<script>
+		
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@
 </style>
 </head>
 <body>
-	<!-- register.ok > loginok.jsp -->
+
 	<main>
 		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
@@ -36,3 +36,21 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

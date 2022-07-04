@@ -1,4 +1,4 @@
-package com.test.toy;
+package com.test.toy.etc;
 
 import java.io.IOException;
 
@@ -9,20 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/template.do")
-public class Template extends HttpServlet {
+@WebServlet("/etc/map.do")
+public class Map extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		//Template.java
+		//Map.java
+		//- 서블릿 1개 + JSP N개
+		
+		
+		//etc/map.do?no=1
+		String no = req.getParameter("no");
+		
+		
 		
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/template.jsp");
+		RequestDispatcher dispatcher 
+				= req.getRequestDispatcher("/WEB-INF/views/etc/map0" + no + ".jsp");
 		dispatcher.forward(req, resp);
 	}
 
 }
+
 
 
 

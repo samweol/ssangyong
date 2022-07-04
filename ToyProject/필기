@@ -189,11 +189,22 @@ DB 설계
 
 
 싫어요/좋아요
+- 싫어요 카운트, 좋아요 카운트
+- com.test.toy.board > "GoodBad.java"
+
+차트 연동
+- 회원 > 게시물 생산 > 차트 출력
+
+- com.test.toy.etc > "Char.java"
+- views > etc > "char.jsp"
 
 
+지도 연동
+- 게시물 + 첨무파일(이미지 > 메타 정보 > 위도, 경도) > 지도 출력
+- 지도 API 수업
 
-
-
+- com.test.toy.etc > "Map.java"
+- views > etc > "map01.jsp"
 		
 
 

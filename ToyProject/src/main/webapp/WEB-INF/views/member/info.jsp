@@ -7,9 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Toy Project</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-
 <style>
 	main > section > div {
 		width: 150px;
@@ -22,26 +20,52 @@
 </head>
 <body>
 
-	<!-- template.jsp -->
 	<main>
-		<%@ include file="/WEB-INF/views/inc/header.jsp" %>	
+		<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 		<section>
+			
 			<h2>Info</h2>
 			
-			<div id="pic" style="background-image: url(/toy/pic/${dto.pic})"></div>
+			<div style="background-image:url(/toy/pic/${dto.pic})"></div>
 			<ul>
 				<li>${dto.name}(${dto.id})</li>
-				<li>Lv.${dto.lv} (${dto.lv ==1? "일반회원" : "관리자" })</li>
+				<li>Lv.${dto.lv}(${dto.lv == 1 ? "일반회원" : "관리자"})</li>
 				<li>가입일(${dto.regdate})</li>
 			</ul>
 			
-			<hr />
+			<hr>
 			
-			<input type="button" value="탈퇴하기" class="btn btn-danger" onclick="location.href='/toy/member/unregister.do';" />
+			<button class="btn btn-danger"
+				onclick="location.href='/toy/member/unregister.do';">
+				<i class="fas fa-sign-out-alt"></i>
+				탈퇴하기
+			</button>
+			
+			
 		</section>
 	</main>
-	<script>
 	
+	<script>
+		
 	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
