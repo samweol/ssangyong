@@ -176,3 +176,41 @@ create table tblGoodBad (
 );
 
 create sequence seqGoodBad;
+
+select * from tblGoodBad;
+delete from tblGoodBad where seq = 5;
+commit;
+select 
+    tblBoard.*, (select name from tblUser where id = tblBoard.id) as name,
+    nvl((select sum(good) from tblGoodBad where bseq = tblBoard.seq), 0) as good,
+    nvl((select sum(bad) from tblGoodBad where bseq = tblBoard.seq), 0) as bad,
+    (select 
+    case
+        when good = 1 then 1
+        when bad = 1 then 2
+        else 3
+    end
+    from tblGoodBad where bseq = tblBoard.seq and id = 'hello') as goodbad
+from tblBoard where seq = 295;
+
+create table tblFood(
+    seq number primary key,
+    name varchar2(100) not null,
+    lat number not null,
+    lng number not null,
+    star number(1) not null,
+    category number not null references tblCategory(seq)
+);
+
+create sequence seqFood;
+
+create table tblCategory(
+    seq number primary key,
+    name varchar2(100) not null,
+    marker varchar2(100) not null,
+    icon varchar2(100) not null
+);
+
+insert into tblCategory values (1, '한식', 'm1', 'fa-solid fa-bowl-food');
+insert into tblCategory values (2, '양식', 'm2', 'fa-solid fa-utensils');
+insert into tblCategory values (3, '카페', 'm3', 'fa-solid fa-mug-hot');
