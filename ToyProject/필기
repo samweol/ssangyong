@@ -174,17 +174,42 @@ DB 설계
 	b. 현재 답변글의 thread값은 부모글의 thread-1을 넣는다.
 	c. 현재 답변글의 depth값은 부모글의 depth+1을 넣는다.
 	
+	
+	
+	
+
+
 
 파일업로드
 - 게시판 첨부파일
 - webapp > "files" 폴더 생성
 - com.test.toy.board > "Download.java"
 
+
+
+
+
+
+
+
+
+
+
 태그(#)
 - 해시 태그 > (카테고리) 검색 기능
-- webapp > asset > css > tragify.css
-				 > js > jQuery.tagify.min.js
+- webapp > asset > css > tagify.css
+                 > js > jQuery.tagify.min.js
+                 
 - webapp > WEB-INF > lib > json-simple-1.1.1.jar
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,20 +217,136 @@ DB 설계
 - 싫어요 카운트, 좋아요 카운트
 - com.test.toy.board > "GoodBad.java"
 
+
+
+
+
+		
 차트 연동
 - 회원 > 게시물 생산 > 차트 출력
 
-- com.test.toy.etc > "Char.java"
-- views > etc > "char.jsp"
+- com.test.toy.etc > "Chart.java"
+- views > etc > "chart.jsp"
 
+ 
 
 지도 연동
-- 게시물 + 첨무파일(이미지 > 메타 정보 > 위도, 경도) > 지도 출력
+- 게시물 + 첨부파일(이미지 > 메타 정보 > 위도,경도) > 지도 출력
 - 지도 API 수업
 
 - com.test.toy.etc > "Map.java"
 - views > etc > "map01.jsp"
-		
+ 
+
+장소 CRUD
+- 장소 즐겨찾기 + 지도 연동
+
+- com.test.toy.etc > "Food.java" //목록
+                   > "AddFood.java" 
+                   > "AddFoodOk.java"
+                   > "EtcDAO.java"
+                   > "FoodDTO.java"
+                   > "CategoryDTO.java"
+                   
+- views > etc > "food.jsp"
+			  > "addfood.jsp"
+			  
+			  
+
+
+
+
+
+
+서버 갱신 데이터 > 브라우저 전달
+1. 새로 고침 > 프로그램
+2. <frame>, <iframe> 사용
+3. Ajax <-> ActiveX, Applet
+4. WebSocket
+
+
+
+
+
+
+
+
+Ajax, Asynchronous JavaScript and XML
+- 비동기 자바스크립트 and XML
+- 자바스크립트 기반 비동기 통신 기법
+- 브라우저와 웹서버간의 자바스크립트를 사용한 데이터를 주고 받는 기술
+- ~ 현재: 브라우저(크롬) ~ 웹서버(아파치톰캣)
+
+
+네크워크 통신 방식
+- 동기 통신
+- 비동기 통신
+
+
+
+
+Ajax 구현 방식
+1. XMLHttpRequest 사용
+2. jQuery Ajax 사용
+3. fetch 사용
+
+
+
+
+- "com.test.toy.ajax" > "AjaxDAO.java"
+					  > "Ex01.java"
+					  > "ResearchDTO.java"
+
+- views > "ajax" > "ex01.jsp"
+ 
+
+DB
+- script.sql
+
+
+
+
+- com.test.toy.ajax > "Ex02.java"
+					> "Ex02Data.java"
+					> "Ex02Data2.java"
+- views > ajax > "ex02.jsp"
+			   > "ex02data.jsp"
+			   > "ex02data2.jsp"
+
+
+아이디 중복 검사
+- com.test.toy.ajax > "Ex03.java"
+					> "IdCheck.java"
+					> "IdCheckOk.java"
+					> "IdCheckOk2.java"
+- views > ajax > "ex03.jsp"
+	           > "idcheck.jsp"	
+
+
+
+- com.test.toy.ajax > "Ex04.java"
+					> "Ex04Data.java"
+- views > ajax > "ex04.jsp"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
