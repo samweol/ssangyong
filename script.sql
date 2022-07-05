@@ -198,7 +198,7 @@ create table tblFood(
     name varchar2(100) not null,
     lat number not null,
     lng number not null,
-    star number(1) not null,
+    star number(3) not null,
     category number not null references tblCategory(seq)
 );
 
@@ -214,3 +214,24 @@ create table tblCategory(
 insert into tblCategory values (1, '한식', 'm1', 'fa-solid fa-bowl-food');
 insert into tblCategory values (2, '양식', 'm2', 'fa-solid fa-utensils');
 insert into tblCategory values (3, '카페', 'm3', 'fa-solid fa-mug-hot');
+
+commit;
+
+drop table tblFood;
+drop table tblCategory;
+
+-- Ajax
+-- 설문 테이블(질문) <-> 설문 (항목)
+-- 설문 조사
+create table tblResearch (
+    seq number primary key,
+    question varchar2(500) not null,
+    item1 varchar2(300) not null, --항목
+    item2 varchar2(300) not null,
+    item3 varchar2(300) not null,
+    item4 varchar2(300) not null,
+    cnt1 number default 0 not null, --선택
+    cnt2 number default 0 not null, --선택
+    cnt3 number default 0 not null, --선택
+    cnt4 number default 0 not null --선택
+);
