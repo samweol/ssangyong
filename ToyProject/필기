@@ -333,6 +333,65 @@ DB
 
 
 
+- com.test.toy.ajax > "Ex05.java"		> "/ajax/ex05.do"
+					> "Ex05Text.java"	> "/ajax/ex05text.do"
+					> "Ex05XML.java"	> "/ajax/ex05xml.do"
+					> "Ex05JSON.java"	> "/ajax/ex05json.do"
+- views > ajax > "ex05.jsp"
+
+
+
+
+
+tblInsa 목록 페이지
+
+- com.test.toy.ajax > "Ex06.java"		> "/ajax/ex06.do"
+				    > "Ex06Data.java"	> "/ajax/ex06data.do"
+- views > ajax > "ex06.jsp"
+
+
+
+Ajax + CRUD 문제
+
+- tblAddress 테이블(번호, 이름, 나이, 주소, 성별, 연락처)
+
+- com.test.toy.ajax > "Ex07.java"		> "/ajax/ex07.do"
+				    > "Ex07Add.java"	> "/ajax/ex07add.do"
+				    > "Ex07Del.java"	> "/ajax/ex07del.do"
+				    > "AddressDTO.java"
+				    > "Ex07Search.java" > "/ajax/ex07search.do"
+- views > ajax > "ex07.jsp"
+
+
+요구사항
+- 모든 행동이 페이지 새로고침 없이 진행되게 구현하시오.
+
+1. ex07.do 접속 시 > tblAddress의 모든 항목을 테이블에 출력하시오. :: MVC 방식
+
+2. 입력 폼 > 데이터 작성 > 등록하기 버튼 클릭 > DB에 insert :: Ajax 방식
+                                      > 방금 등록한 데이터를 테이블에 반영
+                                      > "Ex07Add.java"
+                                      
+3. 삭제 버튼 클릭 > DB에 delete :: Ajax 방식
+               > 방금 삭제된 데이터를 테이블에 반영
+               > "Ex07Del.java"
+               
+4. 상단 성별 버튼 클릭 > 클릭한 성별만 테이블에 반영 :: Ajax 방식
+				   > "Ex07Search.java"
+               
+
+
+
+
+
+Ajax > 게시판 > 댓글 쓰기
+
+
+
+jQuery Draggable + Ajax
+- com.test.toy.ajax > "Ex08.java"
+				    > "Ex08Data.java"
+- views > ajax > "ex08.jsp"				    
 
 
 
@@ -344,8 +403,44 @@ DB
 
 
 
+크롤링(Crawling), 스크래핑(Scraping)
+- 웹상의 페이지들에게서 내가 원하는 정보를 수집하는 행위
+- 왜? > 예) 맛집 블로그 방문 > 식당 정보 얻고 싶다!! > 방법?
+		   1. 상대방이 나에게 DB 권한을 준다면.. > 가장 좋은 방법 > 불가능
+		   2. OpenAPI 공개 > 무난한 방법
+		   3. 1(X), 2(X) > 크롤링 > 블로그 소스를 긁어와서 원하는 데이터를 추출
+
+크롤링 주의점!!!
+- 문제가 있는 행동
+- 허가 문제, 저작권 문제
+- 정도껏~ 사용;; > 긁는 작업 > 프로그램 > 속도 빠름 & 횟수 많음 > 서버에게 부하(물리적, 트래픽) > 소송		   
 
 
+크롤링 준비
+1. HTML 이해
+2. CSS 이해(JavaScript)
+3. JSOUP 라이브러리 사용
+
+- com.test.toy.etc > "Ex01.java"
+
+
+
+
+
+Open API
+- 오픈 API 또는 공개 API는 개발자라면 누구나 사용할 수 있도록 공개된 API를 말하며, 개발자에게 사유 응용 소프트웨어나 웹 서비스의 프로그래밍 적인 권한을 제공한다. 반대말은 프라이빗 API다.
+- 네트워크(웹,http://)을 통해서 API를 제공한다.
+
+기존 API
+- *.jar > 사용 > 설치
+- 해당 기능 실행 주체 > 나
+- rnd.jar
+
+Open API
+- 공개 URL > 접속 > 사용
+- 해당 기능 실행 주체 > API 서버
+- URL
+- 데이터 서비스(***)
 
 
 
