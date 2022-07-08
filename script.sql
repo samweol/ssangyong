@@ -235,3 +235,40 @@ create table tblResearch (
     cnt3 number default 0 not null, --선택
     cnt4 number default 0 not null --선택
 );
+
+insert into tblResearch values (1, '가장 잘 사용하는 프로그래밍 언어는?', 'Java', 'Python', 'Visual C++', 'Node.js', default, default, default, default);
+
+select * from tblResearch;
+
+update tblResearch set cnt1 = 10, cnt2 = 17, cnt3 = 5, cnt4 = 11 where seq = 1;
+
+commit;
+
+select * from tblInsa;
+
+select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment where seq = (select max(seq) from tblComment);
+
+-- Ajax + Draggable
+create table tblDraggable (
+    id varchar2(30) primary key,
+    left number not null,
+    top number not null
+);
+
+insert into tblDraggable (id, left, top) values ('cat01', 0, 0);
+insert into tblDraggable (id, left, top) values ('cat02', 0, 0);
+insert into tblDraggable (id, left, top) values ('cat03', 0, 0);
+
+commit;
+
+-- 크롤링, 네이버 영화
+create table tblMovie(
+    seq number primary key,
+    title varchar2(200) not null,
+    category varchar2(200) not null,
+    time number not null,
+    rdate varchar2(10) not null,
+    director varchar2(100) not null,
+    actor varchar2(200) null,
+    poster varchar2(300) not null
+);
