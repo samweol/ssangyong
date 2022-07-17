@@ -6,7 +6,7 @@
 <header>
             
 	 <div id="login">
-	     <input type="button" value="로그인" class="btn btn-warning">
+	     <input type="button" value="로그인" class="btn btn-warning" onclick="location.href='/fanimal/main/logincheck.do';">
 	     <input type="button" value="회원가입" class="btn btn-secondary">
 	 </div>
 	 <div id="mainlogo">
