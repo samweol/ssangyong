@@ -8,12 +8,12 @@
                 <div id="profile"><img src="/cat01.jpg"></div>
                 <div id="userinfo">
                     <div>
-                        <span>홍길동님</span>
+                        <span>${auth.nickname }님</span>
                     </div>
                     <div>
                         <span><a href="">마이페이지</a></span>
                         <span>|</span>
-                        <span><a href="">로그아웃</a></span>
+                        <span><a href="/fanimal/main/logout.do">로그아웃</a></span>
                     </div>
                 </div>
             </div>

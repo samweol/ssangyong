@@ -48,7 +48,6 @@ public class FindPassword extends HttpServlet {
 			password = companydao.findPassword(map); //기업 테이블에서 찾기
 		}
 		
-		System.out.println(password);
 		//다 찾은 후 비밀번호가 있는 경우
 		if(password != null) {
 			req.setAttribute("id", id); //아이디 넘겨야함 > 비밀번호 업데이트 하기 위해서

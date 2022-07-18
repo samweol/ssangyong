@@ -52,7 +52,7 @@ public class UserLogin extends HttpServlet {
 			//해당 회원의 정보를 담은 dto를 auth에 저장
 			session.setAttribute("auth", userdto);
 			//다음 페이지로 보내기
-			resp.sendRedirect("");
+			resp.sendRedirect("/fanimal/user/mypage/listanimal.do");
 		} else { //로그인 실패
 			//로그인 실패시 loginError 데이터를 가지고 다시 로그인 창으로 보냄
 			req.setAttribute("loginError", "y");

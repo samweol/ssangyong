@@ -11,6 +11,7 @@
 
 section {
     background-color: antiquewhite;
+    height: 100vh;
 }
 
 ul > li > a {

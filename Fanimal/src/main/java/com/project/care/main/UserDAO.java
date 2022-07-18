@@ -42,8 +42,10 @@ public class UserDAO {
 				userdto.setTel(rs.getString("tel"));
 				userdto.setAddress(rs.getString("address"));
 				userdto.setJoindate(rs.getString("joindate"));
-				userdto.setXcoor(rs.getString("xcoor"));
-				userdto.setYcoor(rs.getString("ycoor"));
+				userdto.setXcoor(rs.getDouble("xcoor"));
+				userdto.setYcoor(rs.getDouble("ycoor"));
+				userdto.setBirth(rs.getString("birth"));
+				userdto.setPicture(rs.getString("picture"));
 				
 				return userdto;
 			}
@@ -110,6 +112,64 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public int userRegister(UserDTO dto) {
+		try {
+			
+			if(dto.getPicture() == null) {
+				String sql = "insert into tblUser values (seqUser.nextVal, ?, ?, ?, ?, ?, ?, default, ?, ?, ?, default)";				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getId());
+				pstat.setString(2, dto.getName());
+				pstat.setString(3, dto.getNickname());
+				pstat.setString(4, dto.getPassword());
+				pstat.setString(5, dto.getTel());
+				pstat.setString(6, dto.getAddress());
+				pstat.setDouble(7, dto.getXcoor());
+				pstat.setDouble(8, dto.getYcoor());
+				pstat.setString(9, dto.getBirth());
+				
+				return pstat.executeUpdate();
+			} else {
+				String sql = "insert into tblUser values (seqUser.nextVal, ?, ?, ?, ?, ?, ?, default, ?, ?, ?, ?)";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, dto.getId());
+				pstat.setString(2, dto.getName());
+				pstat.setString(3, dto.getNickname());
+				pstat.setString(4, dto.getPassword());
+				pstat.setString(5, dto.getTel());
+				pstat.setString(6, dto.getAddress());
+				pstat.setDouble(7, dto.getXcoor());
+				pstat.setDouble(8, dto.getYcoor());
+				pstat.setString(9, dto.getBirth());
+				pstat.setString(10, dto.getPicture());
+				
+				return pstat.executeUpdate();
+			}
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("UserDAO.userRegister");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void addId(UserDTO dto) {
+		try {
+			String sql = "insert into tblId values (?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("UserDAO.addId");
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

@@ -12,6 +12,8 @@ public class UserDTO {
 	private String tel;
 	private String address;
 	private String joindate;
-	private String xcoor;
-	private String ycoor;
+	private Double xcoor;
+	private Double ycoor;
+	private String birth;
+	private String picture;
 }

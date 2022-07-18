@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.project.care.DBUtil;
@@ -41,6 +42,7 @@ public class CompanyDAO {
 				companydto.setYcoor(rs.getString("ycoor"));
 				companydto.setBusiness(rs.getString("business"));
 				companydto.setPassword(rs.getString("password"));
+				companydto.setEmail(rs.getString("email"));
 				
 				return companydto;
 			}
@@ -101,6 +103,144 @@ public class CompanyDAO {
 			return pstat.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("CompanyDAO.updatePassword");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public CompanyDTO getHospitalInfo(CompanyDTO companydto) {
+		try {
+			String sql = "select c.id, h.hosname, h.license, h.info, h.starttime, h.endtime, st.stat from tblHospital h\r\n"
+					+ "    inner join tblCompany c\r\n"
+					+ "        on c.cseq = h.cseq\r\n"
+					+ "            inner join tblStat st\r\n"
+					+ "                on st.statseq = h.statseq\r\n"
+					+ "                    where c.id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, companydto.getId());
+			rs = pstat.executeQuery();
+			
+			//System.out.println(companydto.getId());
+			
+			if(rs.next()) {
+				CompanyDTO dto = new CompanyDTO();
+				dto.setHosname(rs.getString("hosname"));
+				dto.setLicense(rs.getString("license"));
+				dto.setInfo(rs.getString("info"));
+				dto.setStarttime(rs.getString("starttime"));
+				dto.setEndtime(rs.getString("endtime"));
+				dto.setStat(rs.getString("stat"));
+				
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.getHospitalInfo");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public ArrayList<String> getOpenDate(CompanyDTO companydto) {
+		try {
+			String sql = "select c.id, h.hosname, op.open from tblHosDate hd\r\n"
+					+ "    inner join tblHospital h\r\n"
+					+ "        on h.hpseq = hd.hpseq\r\n"
+					+ "            inner join tblOpen op\r\n"
+					+ "                on op.opneseq = hd.opneseq\r\n"
+					+ "                    inner join tblCompany c\r\n"
+					+ "                        on c.cseq = h.cseq\r\n"
+					+ "                            where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, companydto.getId());
+			rs = pstat.executeQuery();
+			
+			while(rs.next()) {
+				ArrayList<String> mlist = new ArrayList<String>();
+				mlist.add(rs.getString("open"));
+				
+				return mlist;
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.getOpenDate");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public int updateCompany(CompanyDTO dto) {
+		try {
+			String sql = "update tblCompany set email = ? where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getEmail());
+			pstat.setString(2, dto.getId());
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.updateCompany");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public CompanyDTO getCompanyInfo(CompanyDTO companydto) {
+		try {
+			String sql = "select * from tblCompany where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, companydto.getId());
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				CompanyDTO dto = new CompanyDTO();
+				dto.setName(rs.getString("name"));
+				dto.setBusiness(rs.getString("business"));
+				dto.setId(rs.getString("id"));
+				dto.setEmail(rs.getString("email"));
+				
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.getCompanyInfo");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public int findHpseq(CompanyDTO dto) {
+		try {
+			String sql = "select h.hpseq from tblHospital h\r\n"
+					+ "    inner join tblCompany c\r\n"
+					+ "        on c.cseq = h.cseq\r\n"
+					+ "            where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt("hpseq");
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.findHpseq");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int updateHospital(int hpseq, String info) {
+		try {
+			String sql = "update tblHospital set info = ? where hpseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, info);
+			pstat.setInt(2, hpseq);
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.updateHospital");
 			e.printStackTrace();
 		}
 		return 0;
