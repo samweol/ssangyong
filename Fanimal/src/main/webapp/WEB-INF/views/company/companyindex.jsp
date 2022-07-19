@@ -30,15 +30,20 @@
 	<main>
         <div style="display: flex; flex-direction: column; align-items: center; margin-top: 100px; margin-bottom: 80px;">
             <div id="logo"><i class="fa-solid fa-house-chimney-medical" style="font-size: 40px;"></i></div>
-            <div style="font-size: 30px; margin-top: 20px; font-weight: bold;">${auth.name }</div>
+            <div style="font-size: 25px; margin-top: 20px; font-weight: bold;">${auth.name }</div>
+            <c:if test="${cdto.stat eq '승인'}">
+            <div style="font-size: 30px; margin-top: 10px; font-weight: bold;">${cdto.hosname }</div>
+            </c:if>
             <div style="margin-top: 8px; "><a href="/fanimal/main/logout.do" style="color: gray;">로그아웃</a></div>
         </div>
-        <div class="btns" style="display: flex; justify-content: space-between;">
-            <a href="/"><div style="margin-left: 50px; ">등록신청</div></a>
+        <div class="btns" style="display: flex; justify-content: space-between; width: 1200px; margin: 0 auto;">
+            <c:if test="${empty cdto }">
+            <a href="/"><div>등록신청</div></a>
+            </c:if>
             <a href="/fanimal/company/companymypage.do"><div>마이페이지</div></a>
             <a href="/"><div>예약내역</div></a>
             <a href="/"><div>문의게시판</div></a>
-            <a href="/"><div style="margin-right: 50px;">커뮤니티</div></a>
+            <a href="/"><div>커뮤니티</div></a>
         </div>
     </main>
 </body>

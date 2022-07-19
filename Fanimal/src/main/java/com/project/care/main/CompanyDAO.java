@@ -38,8 +38,8 @@ public class CompanyDAO {
 				companydto.setName(rs.getString("name"));
 				companydto.setTel(rs.getString("tel"));
 				companydto.setAddress(rs.getString("address"));
-				companydto.setXcoor(rs.getString("xcoor"));
-				companydto.setYcoor(rs.getString("ycoor"));
+				companydto.setXcoor(rs.getDouble("xcoor"));
+				companydto.setYcoor(rs.getDouble("ycoor"));
 				companydto.setBusiness(rs.getString("business"));
 				companydto.setPassword(rs.getString("password"));
 				companydto.setEmail(rs.getString("email"));
@@ -244,5 +244,84 @@ public class CompanyDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public int companyRegister(CompanyDTO dto) {
+		try {
+			String sql = "insert into tblCompany values ((select  NVL(MAX(cseq), 0) + 1 from tblCompany), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.setString(2, dto.getName());
+			pstat.setString(3, dto.getTel());
+			pstat.setString(4, dto.getAddress());
+			pstat.setDouble(5, dto.getXcoor());
+			pstat.setDouble(6, dto.getYcoor());
+			pstat.setString(7, dto.getBusiness());
+			pstat.setString(8, dto.getPassword());
+			pstat.setString(9, dto.getEmail());
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.companyRegister");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void addId(CompanyDTO dto) {
+		try {
+			String sql = "insert into tblId values (?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("UserDAO.addId");
+			e.printStackTrace();
+		}
+	}
+
+	public int checkBusiness(String business) {
+		try {
+			String sql = "select * from tblCompany where business = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, business);
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.checkBusiness");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public CompanyDTO companyState(LoginDTO dto) {
+		try {
+			String sql = "select c.id, h.hosname, st.stat from tblCompany c\r\n"
+					+ "    inner join tblHospital h\r\n"
+					+ "        on h.cseq = c.cseq\r\n"
+					+ "            inner join tblStat st\r\n"
+					+ "                on st.statseq = h.statseq\r\n"
+					+ "                    where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				CompanyDTO cdto = new CompanyDTO();
+				cdto.setId(rs.getString("id"));
+				cdto.setHosname(rs.getString("hosname"));
+				cdto.setStat(rs.getString("stat"));
+				
+				return cdto;
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.companyState");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

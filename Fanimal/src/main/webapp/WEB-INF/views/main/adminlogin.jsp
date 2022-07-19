@@ -48,7 +48,6 @@
                     <input type="submit" value="로그인" style="font-size: 15px; font-weight: bold; margin-bottom: 5px; width: 210px; background-color: orange; border: 1px solid orange; border-radius: 3px; cursor: pointer;">
                 </form>
             </div>
-            <div><span><a href="/fanimal/main/findid.do">아이디</a></span>/<span><a href="/">비밀번호 찾기</a></span></div>
         </div>
     </main>
 </body>

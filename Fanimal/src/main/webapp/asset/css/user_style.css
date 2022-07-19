@@ -53,7 +53,7 @@ main > header > nav {
 main > header > div#mainlogo {
     margin: 0 auto;
     text-align: center;
-    background-image: url('/logo.png');
+    background-image: url('/fanimal/asset/images/logo.png');
     background-size: 350px;
     background-repeat: no-repeat;
     width: 300px;

@@ -20,7 +20,7 @@
 	    
 	.col {
 		display: flex;
-		margin: 5px;
+		margin-bottom: 10px;
 	}
 	
 	.cal {
@@ -41,28 +41,40 @@
         	</div></a>
         	<div style="display: flex; justify-content: center; margin-left: 50px;">
 	        	<form action="/fanimal/main/userregister.do" method="post" enctype="multipart/form-data" id="formData" style="display: flex; flex-direction: column;">
-		        	<div class="col">
-		        		<div class="cal">아이디</div>
-		        		<input type="text" name="id" style="margin-right: 5px;" required>
-		        		<input type="button" value="중복검사">
-		        	</div>
+		        	<div style="display:flex; flex-direction: column; padding-bottom: 10px;">
+			        	<div style="display: flex;">
+			        		<div class="cal">아이디</div>
+			        		<input type="text" id="id" name="id" style="margin-right: 5px;" required>
+			        		<input type="button" value="중복검사" id="id-check">
+			        	</div>	
+		        		<div style="display:flex; justify-content: center;" id="id-check-result" class="error"></div>
+		        	</div>		        	
 		        	<div class="col">
 		        		<div class="cal">비밀번호</div>
-		        		<input type="password" name="pw" required>
+		        		<input type="password" name="pw" id="pw" required>
 		        	</div>
-		        	<div class="col">
-		        		<div class="cal">비밀번호 확인</div>
-		        		<input type="password" name="pwcheck" required>
+		        	<div style="display:flex; flex-direction: column; padding-bottom: 10px;">
+			        	<div style="display: flex;">
+			        		<div class="cal">비밀번호 확인</div>
+			        		<input type="password" id="pw-check" name="pwcheck" style="margin-right: 5px;" required>
+			        	</div>	
+		        		<div style="display:flex; justify-content: center;" id="is-same-pw" class="error"></div>
 		        	</div>
-		        	<div class="col">
-		        		<div class="cal">이름</div>
-		        		<input type="text" name="name" required>
+		        	<div style="display:flex; flex-direction: column; padding-bottom: 10px;">
+			        	<div style="display: flex;">
+			        		<div class="cal">이름</div>
+			        		<input type="text" id="name" name="name" style="margin-right: 5px;" required>
+			        	</div>	
+		        		<div style="display:flex; justify-content: center;" id="name-check-result" class="error"></div>
 		        	</div>
-		        	<div class="col">
-		        		<div class="cal">닉네임</div>
-		        		<input type="text" name="nickname" style="margin-right: 5px;" required>
-		        		<input type="button" value="중복검사">
-		        	</div>
+		        	<div style="display:flex; flex-direction: column; padding-bottom: 10px;">
+			        	<div style="display: flex;">
+			        		<div class="cal">닉네임</div>
+			        		<input type="text" id="nickname" name="nickname" style="margin-right: 5px;" required>
+			        		<input type="button" value="중복검사" id="nickname-check">
+			        	</div>	
+		        		<div style="display:flex; justify-content: center;" id="nickname-check-result" class="error"></div>
+		        	</div>	
 		        	<div class="col">
 		        		<div class="cal">전화번호</div>
 		        		<input type="text" name="tel1" style="width: 70px;" required> - 
@@ -81,10 +93,10 @@
 		        	</div>
 		        	<div class="col">
 		        		<div class="cal">이미지</div>
-		        		<input type="file" name="img">
+		        		<input type="file" name="img" accept="image/*">
 		        	</div>
 		        	<div>
-		        		<input type="submit" value="회원가입하기" style="width: 450px;">
+		        		<input type="submit" id="register-btn" value="회원가입하기" style="width: 450px;" disabled>
 		        	</div>
 	        	</form>
         	</div>
@@ -135,6 +147,109 @@
 	            }
 	        }).open();
 	    }
+	    
+	    let isValidId = false;
+	    let isValidNickname = false;
+	    
+	    /* 아이디 중복 검사 */
+	    $('#id-check').click(function() {
+	    	$.ajax({
+	    		url: '/fanimal/main/idcheck.do',
+	    		type: 'POST',
+	    		data: "id=" + $('#id').val(),
+	    		dataType: 'json',
+	    		success: function(result) {
+	    			if(result.result == "1") {
+	    				//아이디가 존재하는 경우
+	    				$('#id-check-result').text('중복된 아이디가 존재합니다.');
+	    				$('#id-check-result').css('color', 'red');
+	    				isValidId = false;
+	    			} else {
+	    				//아이디가 존재하지 않아 사용가능한 경우
+	    				$('#id-check-result').text('사용 가능한 아이디입니다.');
+	    				$('#id-check-result').css('color', 'green');
+	    				isValidId = true;
+	    			}
+	    		},
+	    		error: function(a, b, c) {
+	    			console.log(a, b, c)
+	    		}
+	    	});
+	    });
+	    
+	    $('#nickname-check').click(function() {
+	    	$.ajax({
+	    		url: '/fanimal/main/nicknamecheck.do',
+	    		type: 'POST',
+	    		data: "nickname=" + $('#nickname').val(),
+	    		dataType: 'json',
+	    		success: function(result) {
+	    			if(result.result == "1") {
+	    				//닉네임이 존재하는 경우
+	    				$('#nickname-check-result').text('중복된 닉네임이 존재합니다.');
+	    				$('#nickname-check-result').css('color', 'red');
+	    				isValidNickname = false;
+	    			} else {
+	    				//아이디가 존재하지 않아 사용가능한 경우
+	    				$('#nickname-check-result').text('사용 가능한 닉네임입니다.');
+	    				$('#nickname-check-result').css('color', 'green');
+	    				isValidNickname = true;
+	    			}
+	    			
+	    			//아이디와 닉네임 중복검사를 해야지만 버튼 활성화
+	    			if (isValidId && isValidNickname) {
+                        $('#register-btn').removeAttr('disabled');
+                    } else {
+                        $('#register-btn').attr('disabled', true);
+                    }
+	    		},
+	    		error: function(a, b, c) {
+	    			console.log(a, b, c)
+	    		}
+	    	});
+	    });
+	    
+	    //회원가입 전체 유효성 검사
+	    $('form').submit(function(){
+	    	let pw = $('#pw').val();
+            let pwCheck = $('#pw-check').val();
+            let name = $('#name').val();
+	    	
+	    	//console.log(pw);
+	    	//console.log(pwCheck);
+	    	
+	    	//아이디에 한글이 있는지없는지 검사
+	    	if (!/^[A-Za-z]{1}[A-Za-z0-9]{3,15}$/.test($('#id').val())) {
+                $('#id-check-result').css('color', 'red');
+                $('#id-check-result').text("아이디는 영대소문자, 숫자를 포함한 4 ~ 16자로 입력해주세요.");
+                return false;
+            }
+	    	
+	    	if (!/^[A-Za-z0-9]{7,15}$/.test(pw)) {
+                $('#pw-check-result').text("비밀번호는 영대소문자, 숫자를 포함한 8 ~ 16자로 입력해주세요.");
+                return false;
+            }
+	    	
+	    	if (pw != pwCheck) {
+	    		$('#is-same-pw').css('color', 'red');
+                $('#is-same-pw').text('입력하신 비밀번호와 일치하지 않습니다.');
+                return false;
+            }
+
+            if (!/^[가-힣]{2,6}$/.test($('#nickname').val())) {
+                $('#nickname-check-result').css('color', 'red');
+                $('#nickname-check-result').text('닉네임은 2~6자 이내 한글로 입력해주세요.');
+                return false
+            }
+
+            if (!/^[가-힣]{2,6}$/.test($('#name').val())) {
+            	$('#name-check-result').css('color', 'red');
+                $('#name-check-result').text('이름은 2~6자 이내 한글로 입력해주세요.');
+                return false;
+            }
+            
+            $("#register-btn").submit();
+	    });
 	</script>
 </body>
 </html>

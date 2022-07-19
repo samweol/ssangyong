@@ -10,8 +10,8 @@ public class CompanyDTO {
 	private String name;
 	private String tel;
 	private String address;
-	private String xcoor;
-	private String ycoor;
+	private Double xcoor;
+	private Double ycoor;
 	private String business;
 	private String password;
 	private String email;

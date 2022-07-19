@@ -171,5 +171,61 @@ public class UserDAO {
 		}
 		
 	}
+
+	public int checkId(String id) {
+		try {
+			String sql = "select * from tblId where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("UserDAO.checkId");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int checkNickname(String nickname) {
+		try {
+			String sql = "select * from tblUser where nickname = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, nickname);
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("UserDAO.checkNickname");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public UserDTO getUserInfo(UserDTO userdto) {
+		try {
+			String sql = "select * from tblUser where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, userdto.getId());
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				UserDTO dto = new UserDTO();
+				dto.setName(rs.getString("name"));
+				dto.setNickname(rs.getString("nickname"));
+				dto.setId(rs.getString("id"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setTel(rs.getString("tel"));
+				dto.setAddress(rs.getString("address"));
+				
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println("UserDAO.getUserInfo");
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }

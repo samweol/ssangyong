@@ -40,8 +40,7 @@ public class UserRegister extends HttpServlet {
 		
 		//데이터 받아오기
 		String id = multi.getParameter("id");
-		String pw = multi.getParameter("pw"); 
-		String pwcheck = multi.getParameter("pwcheck");
+		String pw = multi.getParameter("pw");
 		String name = multi.getParameter("name");
 		String nickname = multi.getParameter("nickname");
 		String tel1 = multi.getParameter("tel1");
@@ -51,7 +50,7 @@ public class UserRegister extends HttpServlet {
 		String xcoor = multi.getParameter("xcoor");
 		String ycoor = multi.getParameter("ycoor");
 		String birth = multi.getParameter("birth");
-		String img = multi.getParameter("img");
+		String img = multi.getFilesystemName("img");
 		
 		//System.out.println(address); //서울 강남구 가로수길 5
 		//System.out.println(birth); //2022-07-26
@@ -72,13 +71,13 @@ public class UserRegister extends HttpServlet {
 		dto.setBirth(birth);
 		dto.setPicture(img);
 		//System.out.println(img); null
-		System.out.println(dto);
+		//System.out.println(dto);
 		//UserDTO(id=jooye, name=서주예, nickname=주예, password=jooye1234, tel=010-1111-1111, address=서울 마포구 독막로3길 13, joindate=null, xcoor=37.5490138703904, ycoor=126.916590603184, birth=2022-07-27, picture=null)
 		
 		UserDAO dao = new UserDAO();
 		dao.addId(dto); //tblId에 넣기
 		int result = dao.userRegister(dto);
-		System.out.println(result);
+		//System.out.println(result);
 		
 		resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;");
@@ -96,6 +95,7 @@ public class UserRegister extends HttpServlet {
             writer.println("</script>");
             writer.println("</body>");
             writer.println("<html>");
+            writer.close();
 		}
 				
 	}
