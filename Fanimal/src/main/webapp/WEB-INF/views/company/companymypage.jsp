@@ -20,7 +20,7 @@
         .content {
             padding: 5px;
             margin-left: 5px;
-            width: 250px;
+            width: 230px;
         }
         
         #content {
@@ -34,7 +34,8 @@
 		<%@ include file ="/WEB-INF/views/inc/companyheader.jsp"%>
 		<section>
 	            <div id="content">
-	            	<div style="display: flex; flex-direction: column; align-items: center;">
+	            <div style="display: flex; justify-content: center; font-size: 30px; padding-top: 50px;"><i style="padding-top: 5px;" class="fa-solid fa-paw"></i> 마이페이지</div>		
+	            	<div style="display: flex; flex-direction: column; margin: 0 auto; width: 450px; padding-top: 20px;">
 			            <div style="display: flex; margin-top: 20px;">
 			                <div class="col">대표자이름</div>
 			                <div class="content">${dto.name }</div>
@@ -57,13 +58,20 @@
 	        </section>
         </main>
         <script>
+        
+        	let isEdit = false;
         	function updateinfo(id) {
-        		const tempStr = $(event.target).parent().prev().text();
-        		/* alert(tempStr); */ 
-        		$(event.target).parent().parent().after(temp);
+        		if(!isEdit) {
+        			const tempStr = $(event.target).parent().prev().text();
+            		/* alert(tempStr); */ 
+            		$(event.target).parent().parent().after(temp);
+            		
+            		isEdit = true;
+            		
+            		$(event.target).parent().parent().next().find('input').val(tempStr);
+            		$(event.target).parent().parent().next().find('input[name=id]').val(id);
+        		}
         		
-        		$(event.target).parent().parent().next().find('input').val(tempStr);
-        		$(event.target).parent().parent().next().find('input[name=id]').val(id);
         	}
         	
         	temp =`<div id="editRow" style="display: flex; margin-left: 165px;">
@@ -71,6 +79,7 @@
         		<input type="text" id="txt" name="email">
         		<input type="hidden" name="id">
         		<button onclick="update();">수정하기</button>
+        		<button onclick="cancelForm();">취소하기</button>
         	</form>
         </div>`;
         	
@@ -86,6 +95,10 @@
         					$('#txtemail').text($('#txt').val());
         					$('#editRow').remove();
         					
+        					isEdit = false;
+        					
+        				} else {
+        					alert('수정에 실패하였습니다.')
         				}
         			},
         			error: function(a, b, c) {
@@ -93,6 +106,11 @@
         			}
         		});
         	}
+        	
+        	function cancelForm() {
+                $('#editRow').remove();
+                isEdit = false;
+            }
         </script>
 </body>
 </html>

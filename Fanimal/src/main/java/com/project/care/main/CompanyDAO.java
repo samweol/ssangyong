@@ -324,4 +324,73 @@ public class CompanyDAO {
 		}
 		return null;
 	}
+
+	public int getHpseq(String id) {
+		try {
+			String sql = "select hpseq from tblHospital h\r\n"
+					+ "    inner join tblCompany c\r\n"
+					+ "        on h.cseq = c.cseq\r\n"
+					+ "            where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+			rs = pstat.executeQuery();
+			
+			if(rs.next()) {
+				int hpseq = rs.getInt("hpseq");
+				return hpseq;
+			}
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.getHpseq");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int cancelEnrollment(int hpseq) {
+		try {
+			String sql = "delete from tblHospital where hpseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, hpseq);
+			
+			return pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.cancelEnrollment");
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public void deleteDoctor(int hpseq) {
+		try {
+			String sql = "delete from tblDoctor where hpseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, hpseq);
+			
+			pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.deleteDoctor");
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void deleteHosDate(int hpseq) {
+		try {
+			String sql = "delete from tblHosDate where hpseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, hpseq);
+			
+			pstat.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.deleteHosDate");
+			e.printStackTrace();
+		}
+		
+	}
+
+	
 }

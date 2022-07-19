@@ -15,12 +15,14 @@
             border-radius: 10px;
             text-align: center;
             margin-bottom: 10px;
+            font-size: 20px;
         }
 
         .content {
             padding: 5px;
-            margin-left: 5px;
+            margin-left: 10px;
             width: 250px;
+            font-size: 18px;
         }
         
         #content {

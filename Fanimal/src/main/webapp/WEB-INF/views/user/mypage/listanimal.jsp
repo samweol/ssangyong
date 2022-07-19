@@ -17,10 +17,12 @@
 		<section>
             <div id="content">					
 				
-				<a href=""> <!-- 클릭 시 링크 설정 -->
+				<c:forEach items="${alist}" var="dto">
+				<a href="/fanimal/user/mypage/viewanimal.do?uaseq=${dto.uaseq}"> <!-- 클릭 시 링크 설정 -->
 				<div class="card">				
 					<!-- 카드 헤더 -->
-					<div class="card-header" >
+					<div class="card-header" 
+						style="background: url('/fanimal/files/${dto.pic}') no-repeat; background-size: 100% 280px; background-repeat: no-repeat;">
 						<div class = "card-header-is_closed" > 
 			                <!-- <div class = "card-header-text" > </div > 
 			                <div class = "card-header-number" > </div >  -->
@@ -32,10 +34,12 @@
 			
 						<!--  카드 바디 헤더 -->
 						<div class="card-body-header">
-							<h1><i class="fa-solid fa-paw"></i> 복돌이</h1>
-							<p class="card-body-hashtag">말티즈 / 수컷 / 3살</p>
+							<h1><i class="fa-solid fa-paw"></i> ${dto.name}</h1>
+							<p class="card-body-hashtag">
+								${dto.kind} / <c:if test="${dto.gender == 'm'}">수컷</c:if><c:if test="${dto.gender == 'f'}">암컷</c:if> / ${dto.age}살
+							</p>
 							<hr style="border-color: #EF5A31; margin: 5px 0px;">
-							 <p class = "card-body-nickname">견주: 홍길동</p>
+							 <p class = "card-body-nickname">보호자: ${dto.uname}</p>
 						</div>
 						<!-- <p class="card-body-description">
 							안녕하세요!
@@ -52,62 +56,11 @@
 						</div>	 -->			
 					</div>				
 				</div>
-				</a>
+				</a>				
+				</c:forEach>
+							
 				
-				<!-- 2 -->
-				<a href=""> <!-- 클릭 시 링크 설정 -->
-				<div class="card">				
-					<!-- 카드 헤더 -->
-					<div class="card-header" >
-						<div class = "card-header-is_closed" > 
-			                <!-- <div class = "card-header-text" > </div > 
-			                <div class = "card-header-number" > </div >  -->
-			            </div >
-					</div>
-			
-					<!--  카드 바디 -->
-					<div class="card-body">
-			
-						<!--  카드 바디 헤더 -->
-						<div class="card-body-header">
-							<h1><i class="fa-solid fa-paw"></i> 복돌이</h1>
-							<p class="card-body-hashtag">말티즈 / 수컷 / 3살</p>
-							<hr style="border-color: #EF5A31; margin: 5px 0px;">
-							 <p class = "card-body-nickname">견주: 홍길동</p>
-						</div>									
-					</div>				
-				</div>
-				</a>
-				
-				<!-- 3 -->				
-				<a href=""> <!-- 클릭 시 링크 설정 -->
-				<div class="card">				
-					<!-- 카드 헤더 -->
-					<div class="card-header" >
-						<div class = "card-header-is_closed" > 
-			                <!-- <div class = "card-header-text" > </div > 
-			                <div class = "card-header-number" > </div >  -->
-			            </div >
-					</div>
-			
-					<!--  카드 바디 -->
-					<div class="card-body">
-			
-						<!--  카드 바디 헤더 -->
-						<div class="card-body-header">
-							<h1><i class="fa-solid fa-paw"></i> 복돌이</h1>
-							<p class="card-body-hashtag">말티즈 / 수컷 / 3살</p>
-							<hr style="border-color: #EF5A31; margin: 5px 0px;">
-							 <p class = "card-body-nickname">견주: 홍길동</p>
-						</div>									
-					</div>				
-				</div>
-				</a>
-				
-				
-				
-				
-				<!-- 반려동물 추가 -->
+				<!-- 반려동물 추가 > AddAnimal.java -->
 				<a href="/fanimal/user/mypage/addanimal.do"> <!-- 클릭 시 링크 설정 -->
 				<div class="card">				
 					<!-- 카드 헤더 -->

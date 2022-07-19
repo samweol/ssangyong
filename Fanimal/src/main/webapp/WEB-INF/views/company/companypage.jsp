@@ -34,9 +34,11 @@
 		<%@ include file ="/WEB-INF/views/inc/companyheader.jsp"%>
 		<section>
 	            <div id="content">
-	            	<div style="display: flex; flex-direction: column; align-items: center;">
-			            <div style="display: flex; margin-top: 20px;">
-			                <div style="font-size: 20px;"><i class="fa-solid fa-paw"></i> ${dto.stat }</div>
+	            <c:if test = "${not empty dto }">
+	            <div style="display: flex; justify-content: center; font-size: 30px; padding-top: 50px;"><i style="padding-top: 5px;" class="fa-solid fa-paw"></i> 병원페이지</div>	
+	            	<div style="display: flex; flex-direction: column; margin: 0 auto; width: 450px; padding-top: 20px;">
+			            <div style="display: flex; justify-content: center; margin-top: 20px;">
+			                <div style="font-size: 20px; margin-top: 10px;"><i class="fa-solid fa-paw"></i> ${dto.stat }</div>
 			            </div>
 			            <div style="display: flex; margin-top: 20px;">
 			                <div class="col">병원이름</div>
@@ -59,15 +61,26 @@
 			                <div class="content" id="txtinfo">${dto.info }</div>
 			                <div><i class="fa-solid fa-pen" onclick="updateinfo('${auth.id}');" style="cursor: pointer;"></i></div>
 			            </div>
-        			</div>	            
+			            <c:if test = "${dto.stat != '승인'}">
+			            <div><input type="button" value="취소하기" onclick="location.href='/fanimal/company/cancelenrollment.do?id=${auth.id}';"></div>
+			            </c:if>
+        			</div>
+        			</c:if>	   
+        			<c:if test = "${empty dto }">
+        			<div style="display: flex; justify-content: center; font-size: 30px; padding-top: 50px;"><i style="padding-top: 5px;" class="fa-solid fa-paw"></i> 병원페이지</div>
+        			<div style="display: flex; justify-content: center; padding-top: 80px;">병원정보가 없습니다.</div>	
+        			</c:if>         
 	            </div>
 	        </section>
         </main>
         <script>
+        let isEdit = false;
         function updateinfo(id) {
     		const tempStr = $(event.target).parent().prev().text();
     		/* alert(tempStr); */ 
     		$(event.target).parent().parent().after(temp);
+    		
+    		isEdit = true;
     		
     		$(event.target).parent().parent().next().find('textarea').val(tempStr);
     		$(event.target).parent().parent().next().find('input[name=id]').val(id);
@@ -78,6 +91,7 @@
     		<textarea name="info" id="info"></textarea>
     		<input type="hidden" name="id">
     		<button onclick="update();">수정하기</button>
+    		<button onclick="cancelForm();">취소하기</button>
     	</form>
     </div>`;
     	
@@ -93,6 +107,8 @@
     					$('#txtinfo').text($('#info').val());
     					$('#editRow').remove();
     					
+    					isEdit = false;
+    					
     				}
     			},
     			error: function(a, b, c) {
@@ -100,6 +116,11 @@
     			}
     		});
     	}
+    	
+    	function cancelForm() {
+            $('#editRow').remove();
+            isEdit = false;
+        }
         </script>
 </body>
 </html>

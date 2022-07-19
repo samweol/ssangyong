@@ -17,7 +17,7 @@
 	         <div id="mainmenu">
 	             <ul class="pure-menu-list">
                 <li class="pure-menu-item pure-menu-selected">
-                    <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 병원진료</a>
+                    <a href="/fanimal/diagnosis/hospitallist.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 병원진료</a>
                 </li>
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                     <a href="#" id="menuLink1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 커뮤니티</a>

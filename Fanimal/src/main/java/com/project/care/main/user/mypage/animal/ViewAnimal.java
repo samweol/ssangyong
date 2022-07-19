@@ -2,7 +2,6 @@ package com.project.care.main.user.mypage.animal;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,16 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.project.care.dto.AnimalDTO;
-import com.project.care.dto.AnimalListDTO;
+import com.project.care.dto.AniViewDTO;
 import com.project.care.dto.UserDTO;
 
-@WebServlet("/user/mypage/listanimal.do")
-public class ListAnimal extends HttpServlet {
+@WebServlet("/user/mypage/viewanimal.do")
+public class ViewAnimal extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		
 		HttpSession session = req.getSession();
 		
@@ -44,33 +41,40 @@ public class ListAnimal extends HttpServlet {
             return;
         }
 		
+
+		req.setCharacterEncoding("UTF-8");
 		
-		AnimalDTO anidto = new AnimalDTO();
+		String uaseq = req.getParameter("uaseq");
+		
+		//System.out.println(uaseq);
+		
+		AniViewDTO viewdto = new AniViewDTO();
 		
 		AnimalDAO dao = new AnimalDAO();
 		
-		ArrayList<AnimalListDTO> alist = new ArrayList<AnimalListDTO>();
-		
-		
-		alist = dao.anilist(dto.getId());
+		viewdto = dao.aniview(uaseq);
 		
 		
 		
-		req.setAttribute("alist", alist);
+		req.setAttribute("viewdto", viewdto);
+		req.setAttribute("uaseq", uaseq);
 		
 		
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage/listanimal.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage/viewanimal.jsp");
 
 		dispatcher.forward(req, resp);
 
 	}
 	
-	
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-	}
+	/*
+	 * @Override protected void doPost(HttpServletRequest req, HttpServletResponse
+	 * resp) throws ServletException, IOException {
+	 * 
+	 * 
+	 * 
+	 * resp.sendRedirect("/WEB-INF/views/user/mypage/viewanimal.jsp");
+	 * 
+	 * }
+	 */
 
 }

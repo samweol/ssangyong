@@ -16,4 +16,6 @@ public class UserDTO {
 	private Double ycoor;
 	private String birth;
 	private String picture;
+	
+	private String useq;
 }

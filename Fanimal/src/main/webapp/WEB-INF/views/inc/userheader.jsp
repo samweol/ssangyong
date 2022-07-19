@@ -4,9 +4,9 @@
 
     <header>
             
-            <div id="login">
+            <div id="login" style="margin-top: 10px;">
                 <div id="profile"><img src="/fanimal/asset/images/user/${auth.picture}" style="width: 50px; height: 50px; border-radius: 50%"></div>
-                <div id="userinfo">
+                <div id="userinfo" style="padding-top: 5px;">
                     <div>
                         <span>${auth.nickname }님</span>
                     </div>
@@ -31,12 +31,12 @@
                             <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 일정표</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약정보 조회</a>
+                            <a href="/fanimal/user/mypage/reshos.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약정보 조회</a>
                         </li>
                     </ul>
                 </li>
                 <li class="pure-menu-item pure-menu-selected">
-                    <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 병원진료</a>
+                    <a href="/fanimal/diagnosis/hospitallist.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 병원진료</a>
                 </li>
                 
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">

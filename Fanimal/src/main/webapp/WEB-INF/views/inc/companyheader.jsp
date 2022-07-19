@@ -5,9 +5,9 @@
 
  <header>
             
-            <div id="login">
+            <div id="login" style="margin-top: 10px; margin-right: 8px;">
                 <div id="profile"></div>
-                <div id="userinfo">
+                <div id="userinfo" style="padding-top: 5px;">
                     <div>
                         <span>${auth.name }님</span>
                     </div>

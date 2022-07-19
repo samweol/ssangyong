@@ -34,7 +34,7 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				UserDTO userdto = new UserDTO();
-				
+				userdto.setUseq(rs.getString("useq"));
 				userdto.setId(rs.getString("id"));
 				userdto.setName(rs.getString("name"));
 				userdto.setNickname(rs.getString("nickname"));

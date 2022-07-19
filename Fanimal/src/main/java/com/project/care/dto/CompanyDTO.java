@@ -23,4 +23,6 @@ public class CompanyDTO {
 	private String starttime;
 	private String endtime;
 	private String stat;
+	
+	private String cseq;
 }

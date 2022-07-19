@@ -5,11 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%@ include file = "/WEB-INF/views/inc/asset.jsp"%>
 <script src="https://kit.fontawesome.com/3ac15bdbeb.js" crossorigin="anonymous"></script>
 <style>
      a {
          color: black;
          text-decoration: none;
+     }
+     
+     a:hover {
+        text-decoration: none;
      }
 
      .btns > a > div {
@@ -22,6 +27,8 @@
          display: flex;
          justify-content: center; 
          align-items: center;
+         
+         font-size: 25px;
      }
     </style>
 <title>Insert title here</title>

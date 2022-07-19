@@ -77,9 +77,9 @@
 		        	</div>	
 		        	<div class="col">
 		        		<div class="cal">전화번호</div>
-		        		<input type="text" name="tel1" style="width: 70px;" required> - 
-		        		<input type="text" name="tel2" style="width: 70px;" required> - 
-		        		<input type="text" name="tel3" style="width: 70px;" required>
+		        		<input type="text" name="tel1" style="width: 70px;" required maxlength='3'> - 
+		        		<input type="text" name="tel2" style="width: 70px;" required maxlength='4'> - 
+		        		<input type="text" name="tel3" style="width: 70px;" required maxlength='4'>
 		        	</div>
 		        	<div class="col">
 		        		<div class="cal">주소</div>
