@@ -65,7 +65,14 @@
 <body>
 
 	<main>
-		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
+		<c:if test = "${empty auth }">
+			<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
+		</c:if>
+
+		<c:if test = "${not empty auth}">
+			<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
+		</c:if>
+
 		<section>
 		<div id="content">
 			<form method="GET" action="/fanimal/diagnosis/hospitallist.do" id="hospitallist">
@@ -159,9 +166,7 @@
 			
 		</div>	
 		</section>
-		<footer>
-		
-		</footer>
+		<%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
 	</main>
 	
 	<script>

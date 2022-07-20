@@ -822,4 +822,77 @@ public class AnimalDAO {
 			return 0;
 		}
 
+
+		//예약 상세보기
+		public AniResDTO viewres(String rhseq) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				System.out.println("rhseq:" + rhseq);
+				String sql = "select a.name, rh.resdate, h.hosname, p.purpose, rh.uniqueness, ai.pic from tblResHos rh inner join tblUserAni ua on rh.uaseq = ua.uaseq inner join tblAnimal a on ua.aseq = a.aseq inner join tblHospital h on rh.hpseq = h.hpseq inner join tblPurpose p on rh.pseq = p.pseq inner join tblAniInfo ai on ai.aseq = a.aseq where rh.rhseq = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, rhseq);
+				
+				rs = pstat.executeQuery();
+				
+				AniResDTO dto = new AniResDTO();
+				System.out.println(3);
+				
+				if (rs.next()) {
+					
+					System.out.println(2);
+					dto.setName(rs.getString("name"));
+					dto.setResdate(rs.getString("resdate").substring(0, 10));
+					dto.setHosname(rs.getString("hosname"));
+					dto.setPurpose(rs.getString("purpose"));
+					dto.setUniqueness(rs.getString("uniqueness"));
+					dto.setPic(rs.getString("pic"));
+					
+				}
+				
+				return dto;
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.viewres");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+
+
+		
+		//병원 예약 삭제
+		public int delreshos(String rhseq) {
+			
+			int result = 0;
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "delete from tblResHos where rhseq = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, rhseq);
+				
+				
+				result = pstat.executeUpdate();
+				
+				pstat.close();
+				conn.close();		
+				
+				return result;
+				
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.delreshos");
+				e.printStackTrace();
+			}
+			
+			return 0;
+		}
+
 }

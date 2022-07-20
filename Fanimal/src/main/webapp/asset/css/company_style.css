@@ -13,6 +13,7 @@
 
 section {
     background-color: antiquewhite;
+    height: auto;
 }
 
 ul > li > a {
@@ -30,7 +31,7 @@ ul > li > a:hover {
 main {
     /* border: 1px solid black; */
     margin: 0 auto;
-    height: 100vh;
+    height: auto;
 }
 
 main > header > nav {
@@ -110,4 +111,21 @@ main > header > div#login > input:nth-child(1) {
     width: 1000px;
     margin: 0 auto;
     /* padding-top: 30px; */
+}
+
+.pure-menu-link {
+    color: black;
+}
+
+footer > div {
+	padding: 2px;
+}
+
+footer > div > a {
+	color: gray;
+	text-decoration: none;
+}
+
+footer > div > a:hover {
+	color: #24292F;
 }

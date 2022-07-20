@@ -11,7 +11,7 @@
 
 section {
     background-color: antiquewhite;
-    height: 100vh;
+    height: auto;
 }
 
 ul > li > a {
@@ -207,6 +207,18 @@ ul.imgs li > img {
     object-fit:cover;
 }
 
+footer > div {
+	padding: 2px;
+}
+
+footer > div > a {
+	color: gray;
+	text-decoration: none;
+}
+
+footer > div > a:hover {
+	color: #24292F;
+}
 
 /* #mainmenu .pure-menu-link {
         color:black;

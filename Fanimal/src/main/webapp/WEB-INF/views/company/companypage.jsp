@@ -24,8 +24,12 @@
         }
         
         #content {
-        	height: 100vh;
+        	height: calc(100vh - 319px);
         }
+        
+        .pure-menu-link {
+    	color: black;
+		}
 </style>
 <title>Insert title here</title>
 </head>
@@ -72,6 +76,7 @@
         			</c:if>         
 	            </div>
 	        </section>
+	        <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
         </main>
         <script>
         let isEdit = false;

@@ -12,15 +12,18 @@
 
 
 
+#tblview {
+	background-color: #FFF7DC;
+	border-radius: 20px;	
+}
 
 
-
-#content > table > tbody > tr > td:nth-child(2), #tbox, #tbox2 {
+#content > table > tbody > tr > td:nth-child(2) {
 	padding-top: 20px;
 	padding-left: 25px;
 	font-size: 20px;
 	font-weight: 500;	
-	width: 200px;
+	width: 480px;
 	height: 60px;
 	
 }
@@ -32,27 +35,29 @@
 	text-align: center;
 	padding-top: 10px;
 	height: 50px;
-	background-color: #FFF7DC;
+	background-color: gold;
 	border-radius: 10px;
 	width: 91px;
+	margin-left: 20px;
 }
 
 
 
 
 #content > table > tbody > tr:nth-child(2) > td:nth-child(3) > div {
-	width: 540px;
-	height: 480px;
+	width: 400px;
+	height: 400px;
 	overflow: hidden;
-	border: 8px solid gold;
+	border: 1px solid black;
 	border-radius: 20px;
-	margin-right: 10px;
+	margin-right: 20px;
 	/*백그라운드 위치 옵션을 center 정중앙에 위치  */
 	background-position: center;
 	
 	/*기본적으로 백그라운드의 옵션은 repeat이다. */
 	background-repeat: no-repeat;
 	background-size: cover;
+	
 }
 
 #aniprofile {
@@ -85,7 +90,15 @@
 	width: 100px;
 	height: 45px;
 	font-size: 17px; 
+	margin-right: 20px;
 }
+
+
+
+
+
+
+
 
 
 

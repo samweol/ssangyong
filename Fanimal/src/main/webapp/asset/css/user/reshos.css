@@ -86,7 +86,7 @@ a:hover {
 }
 
 
-#beforediv > a > table > tbody > tr:nth-child(1) > td {
+#beforediv table > tbody > tr:nth-child(1) > td {
 	padding: 15px;
 	font-size: 18px;
 	font-weight: 400;
@@ -99,17 +99,17 @@ a:hover {
 }
 
 
-#beforediv > a > table > tbody > tr > td:nth-child(2) {
+#beforediv  table > tbody > tr > td:nth-child(2) {
 	width: 214px;
 }
 
 
-#beforediv > a > table > tbody > tr > td:nth-child(3) {
+#beforediv table > tbody > tr > td:nth-child(3) {
 	width: 410px;
 }
 
 
-#beforediv > a > table > tbody > tr > td:nth-child(4) {
+#beforediv table > tbody > tr > td:nth-child(4) {
 	width: 240px;
 }
 

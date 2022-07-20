@@ -1,23 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+	.pure-menu-link {
+	    color: black;
+	}
+</style>
+
 
     <header>
             
-            <div id="login" style="margin-top: 10px;">
+            <div id="login" style="margin-top: 10px; margin-right: 8px;">
                 <div id="profile"><img src="/fanimal/asset/images/user/${auth.picture}" style="width: 50px; height: 50px; border-radius: 50%"></div>
                 <div id="userinfo" style="padding-top: 5px;">
                     <div>
                         <span>${auth.nickname }님</span>
                     </div>
                     <div>
-                        <span><a href="/fanimal/user/usermypage.do">마이페이지</a></span>
+                        <span><a href="/fanimal/user/usermypage.do" style="color: gray; text-decoration: none;">마이페이지</a></span>
                         <span>|</span>
-                        <span><a href="/fanimal/main/logout.do">로그아웃</a></span>
+                        <span><a href="/fanimal/main/logout.do" style="color: gray; text-decoration: none;">로그아웃</a></span>
                     </div>
                 </div>
             </div>
-            <div id="mainlogo">
+            <div id="mainlogo" style = "cursor: pointer;" onclick = "location.href='/fanimal/user/mypage/listanimal.do';">
             </div>
             <div>
                 

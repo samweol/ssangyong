@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<style>
+	.pure-menu-link {
+	    color: black;
+	}
+</style>    
 
 <header>
             
@@ -9,8 +13,8 @@
 	     <input type="button" value="로그인" class="btn btn-warning" onclick="location.href='/fanimal/main/logincheck.do';">
 	     <input type="button" value="회원가입" class="btn btn-secondary" onclick="location.href='/fanimal/main/registerselect.do'">
 	 </div>
-	 <div id="mainlogo">
-	 </div>
+	 <div id="mainlogo" style = "cursor: pointer;" onclick = "location.href='/fanimal/main/index.do';">
+     </div>
 	 <div>
 	     
 	     <nav class="pure-menu pure-menu-horizontal">

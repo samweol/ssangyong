@@ -27,6 +27,11 @@ public class UserMyPage extends HttpServlet {
 		
 		UserDTO dto = dao.getUserInfo(userdto);
 		
+		//생일 가공하기
+		String birth = (dto.getBirth()).substring(0, 10);
+		
+		dto.setBirth(birth);
+		
 		req.setAttribute("dto", dto);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/usermypage.jsp");

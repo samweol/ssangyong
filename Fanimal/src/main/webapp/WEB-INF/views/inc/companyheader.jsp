@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+<style>
+	.pure-menu-link {
+	    color: black;
+	}
+</style>
+
 
  <header>
             
@@ -18,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div id="mainlogo">
+            <div id="mainlogo" style = "cursor: pointer;" onclick = "location.href='/fanimal/company/companymypage.do';">
             </div>
             <div>
                 

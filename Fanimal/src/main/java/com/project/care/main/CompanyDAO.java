@@ -147,7 +147,7 @@ public class CompanyDAO {
 					+ "    inner join tblHospital h\r\n"
 					+ "        on h.hpseq = hd.hpseq\r\n"
 					+ "            inner join tblOpen op\r\n"
-					+ "                on op.opneseq = hd.opneseq\r\n"
+					+ "                on op.openseq = hd.openseq\r\n"
 					+ "                    inner join tblCompany c\r\n"
 					+ "                        on c.cseq = h.cseq\r\n"
 					+ "                            where id = ?";

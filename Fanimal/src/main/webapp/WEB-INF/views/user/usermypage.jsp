@@ -26,7 +26,7 @@
         }
         
         #content {
-        	height: 100vh;
+        	height: calc(100vh - 319px);
         }
 </style>
 </head>
@@ -65,6 +65,7 @@
         			</div>
             </div>
         </section>
+        <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
     </main>    
 </body>
 </html>
