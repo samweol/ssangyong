@@ -32,7 +32,7 @@
 	         <div id="mainmenu">
 	             <ul class="pure-menu-list">
                 <li class="pure-menu-item pure-menu-selected">
-                    <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 기업등록</a>
+                    <a href="/fanimal/company/enrollment.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 기업등록</a>
                 </li>
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
                     <a href="/fanimal/company/companymypage.do" id="menuLink1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 마이페이지</a>
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 <li class="pure-menu-item pure-menu-selected">
-                    <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약내역</a>
+                    <a href="/fanimal/company/reservationlist.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약내역</a>
                 </li>
                 <li class="pure-menu-item pure-menu-selected">
                     <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 문의게시판</a>

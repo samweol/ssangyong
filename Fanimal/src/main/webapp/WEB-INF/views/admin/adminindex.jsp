@@ -44,10 +44,10 @@
 <body>
 	<div style="display: flex; flex-direction: column; align-items: center;">
 		<div id="homelogo"></div>
-		<a><div class="btns">회원 정보 조회</div></a>
-		<a><div class="btns">기업 정보 조회</div></a>
-		<a><div class="btns">커뮤니티</div></a>
-		<a><div class="btns">기업 승인 리스트</div></a>
+		<a href="/fanimal/admin/userinfolist.do"><div class="btns">회원 정보 조회</div></a>
+		<a href="/fanimal/admin/companyinfolist.do"><div class="btns">기업 정보 조회</div></a>
+		<a ><div class="btns">커뮤니티</div></a>
+		<a href="/fanimal/admin/companyapprovelist.do"><div class="btns">기업 승인 리스트</div></a>
 		<a href="/fanimal/main/logout.do"><div class="btns">로그아웃</div></a>
 	</div>
 

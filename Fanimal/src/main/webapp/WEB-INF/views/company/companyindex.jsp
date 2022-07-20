@@ -45,10 +45,10 @@
         </div>
         <div class="btns" style="display: flex; justify-content: space-between; width: 1200px; margin: 0 auto;">
             <c:if test="${empty cdto }">
-            <a href="/"><div>등록신청</div></a>
+            <a href="/fanimal/company/enrollment.do"><div>등록신청</div></a>
             </c:if>
             <a href="/fanimal/company/companymypage.do"><div>마이페이지</div></a>
-            <a href="/"><div>예약내역</div></a>
+            <a href="/fanimal/company/reservationlist.do"><div>예약내역</div></a>
             <a href="/"><div>문의게시판</div></a>
             <a href="/"><div>커뮤니티</div></a>
         </div>

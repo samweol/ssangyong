@@ -34,7 +34,7 @@
                     <a href="/fanimal/user/mypage/listanimal.do" id="menuLink1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 반려동물</a>
                     <ul class="pure-menu-children">
                         <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 일정표</a>
+                            <a href="/fanimal/user/mypage/calendar.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 일정표</a>
                         </li>
                         <li class="pure-menu-item">
                             <a href="/fanimal/user/mypage/reshos.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약정보 조회</a>

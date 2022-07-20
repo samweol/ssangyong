@@ -15,6 +15,7 @@ import com.project.care.dto.AniTypeDTO;
 import com.project.care.dto.AniViewDTO;
 import com.project.care.dto.AnimalDTO;
 import com.project.care.dto.AnimalListDTO;
+import com.project.care.dto.CalendarDTO;
 import com.project.care.dto.DisDTO;
 import com.project.care.dto.UserAniDTO;
 
@@ -895,4 +896,120 @@ public class AnimalDAO {
 			return 0;
 		}
 
+
+		
+		//일정 리스트		
+		public ArrayList<CalendarDTO> callist(String id) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "select memo, datetime, end from tblSche where id = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, id);
+				
+				rs = pstat.executeQuery();
+				
+				ArrayList<CalendarDTO> clist = new ArrayList<CalendarDTO>();
+				
+				
+				while (rs.next()) {
+				
+					CalendarDTO cdto = new CalendarDTO();
+					// memo datetime(start) end(end) / id가 홍길동인
+					cdto.setMemo(rs.getString("memo"));
+					cdto.setDatetime(rs.getString("datetime").substring(0,10));
+					
+					if (rs.getString("end") == null) {
+						cdto.setEnd(rs.getString("datetime").substring(0,10));
+					} else {
+						cdto.setEnd(rs.getString("end").substring(0,10));
+					}
+					
+					clist.add(cdto);
+				}
+				
+				return clist;
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.callist");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+
+
+
+		public ArrayList<CalendarDTO> reshoslist(String useq) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "select hp.hosname, rh.resdate from tblResHos rh inner join tblUserAni ua on rh.uaseq = ua.uaseq inner join tblhospital hp on hp.hpseq = rh.hpseq where ua.useq = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, useq);
+				
+				rs = pstat.executeQuery();
+				
+				ArrayList<CalendarDTO> rlist = new ArrayList<CalendarDTO>();
+				
+				
+				while (rs.next()) {
+					
+					CalendarDTO rdto = new CalendarDTO();
+					rdto.setResdate(rs.getString("resdate").substring(0,10));
+					rdto.setHname(rs.getString("hosname"));
+					
+					rlist.add(rdto);
+				}
+				
+				return rlist;
+				
+				//CalendarDTO rdto = new CalendarDTO();
+				
+				//rdto.
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.reshoslist");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+
+
+
+		
+		//일정 추가
+		public int addCal(String day, String memo, String start, String id) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "insert into tblSche values(seqSche.nextVal, ?,?,?,1,?,1)";
+				// 메모 시작날짜 아이디 1 종료날짜 1
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, memo);
+				pstat.setString(2, start);
+				pstat.setString(3, id);				
+				pstat.setString(4, day);
+				
+				return pstat.executeUpdate();
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.addCal");
+				e.printStackTrace();
+			}
+			
+			return 0;
+		}
+
+		
+		
 }
