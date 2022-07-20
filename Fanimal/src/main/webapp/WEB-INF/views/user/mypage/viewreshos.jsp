@@ -61,9 +61,7 @@
 
             </div>
         </section>
-       <footer>
-
-       </footer>
+       <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
     </main>    
     <script>
     

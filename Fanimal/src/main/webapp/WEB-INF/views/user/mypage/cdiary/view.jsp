@@ -5,24 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <%@ include file = "/WEB-INF/views/inc/asset.jsp"%>
-<link rel="stylesheet" href="/fanimal/asset/css/user/listanimal.css">
 <title>Insert title here</title>
-<style>
-
-</style>
 </head>
 <body>
 	<main>
 		<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
 		<section>
-            <div id="content">					
-				
-					
-
-
-            </div>
-        </section>
-       <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
-    </main>    
+	     	컨텐츠내용
+	     
+	        </section>
+	        <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
+        </main>
 </body>
 </html>
