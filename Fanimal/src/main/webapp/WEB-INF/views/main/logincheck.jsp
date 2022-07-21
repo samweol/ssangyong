@@ -62,6 +62,7 @@
         text-decoration: none;
     }
 </style>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">
 </head>
 <body>
 	 <main>

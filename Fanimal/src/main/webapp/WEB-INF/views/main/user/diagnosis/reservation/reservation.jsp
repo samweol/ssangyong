@@ -175,7 +175,7 @@
         	<h1 class="hospital-reservation-title">${hosname}</h1>
         	
 			<form  enctype="multipart/form-data" class="hospital-reservation">
-			<div id="reservation-accordion" >
+			<div id="reservation-accordion" style="padding-bottom: 30px;" >
 				<!-- 반려동물 선택 -->
 				<h3>진료 동물 <span></span>
 				</h3>

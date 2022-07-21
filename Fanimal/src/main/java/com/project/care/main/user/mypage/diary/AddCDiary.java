@@ -23,6 +23,7 @@ public class AddCDiary extends HttpServlet {
 		String aSeq = req.getParameter("aSeq");
 		
 		
+		
 		req.setAttribute("pSeq", pSeq);
 		req.setAttribute("aSeq", aSeq);
 		

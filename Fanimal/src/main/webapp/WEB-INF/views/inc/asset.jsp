@@ -8,3 +8,4 @@
 <script src="/fanimal/asset/js/jquery-1.12.4.js"></script>
 <script src="/fanimal/asset/js/bootstrap.js"></script>
 <script src="https://kit.fontawesome.com/3ac15bdbeb.js" crossorigin="anonymous"></script>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">

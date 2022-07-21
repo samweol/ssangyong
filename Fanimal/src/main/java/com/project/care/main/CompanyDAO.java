@@ -34,6 +34,7 @@ public class CompanyDAO {
 			if(rs.next()) {
 				CompanyDTO companydto = new CompanyDTO();
 				
+				companydto.setCseq(rs.getString("cseq"));
 				companydto.setId(rs.getString("id"));
 				companydto.setName(rs.getString("name"));
 				companydto.setTel(rs.getString("tel"));
@@ -390,6 +391,68 @@ public class CompanyDAO {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public ArrayList<Integer> countMonth(CompanyDTO dto) {
+		try {
+			String sql = "select count(*) as count, TO_CHAR(TO_DATE(rh.resdate), 'YYYY-MM') as MONTHLYDATA  from tblResHos rh \r\n"
+					+ "    inner join tblHospital h\r\n"
+					+ "        on rh.hpseq = h.hpseq\r\n"
+					+ "            inner join tblCompany c\r\n"
+					+ "                on c.cseq = h.cseq\r\n"
+					+ "                    where c.cseq = ?\r\n"
+					+ "                        group by TO_CHAR(TO_DATE(rh.resdate), 'YYYY-MM')\r\n"
+					+ "                            order by MONTHLYDATA";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getCseq());
+			rs = pstat.executeQuery();
+			
+			ArrayList<Integer> mlist = new ArrayList<Integer>();
+			
+			while(rs.next()) {
+				
+				mlist.add(rs.getInt("count"));
+				
+				
+			}
+			return mlist;
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.countMonth");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public ArrayList<String> getMonth(CompanyDTO dto) {
+		try {
+			String sql = "select count(*) as count, TO_CHAR(TO_DATE(rh.resdate), 'YYYY-MM') as MONTHLYDATA  from tblResHos rh \r\n"
+					+ "    inner join tblHospital h\r\n"
+					+ "        on rh.hpseq = h.hpseq\r\n"
+					+ "            inner join tblCompany c\r\n"
+					+ "                on c.cseq = h.cseq\r\n"
+					+ "                    where c.cseq = ?\r\n"
+					+ "                        group by TO_CHAR(TO_DATE(rh.resdate), 'YYYY-MM')\r\n"
+					+ "                            order by MONTHLYDATA";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getCseq());
+			rs = pstat.executeQuery();
+			
+			ArrayList<String> mlist = new ArrayList<String>();
+			
+			while(rs.next()) {
+				
+				mlist.add(rs.getString("MONTHLYDATA"));
+				
+				
+			}
+			return mlist;
+		} catch (Exception e) {
+			System.out.println("CompanyDAO.getMonth");
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	

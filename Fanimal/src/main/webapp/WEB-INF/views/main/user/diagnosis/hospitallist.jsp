@@ -10,21 +10,25 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 <style>
+#hospitallist { font-size: 14px; }
 .hospitallist-sigu { display: inline-block; width: 50rem; }
 .hospitallist-sigu select {
 	display: inline;
 	margin: 100px 10px 20px 15px;
+	font-size: 14px;
 }
 .hospitallist-align { width: 35rem; float:right; }
 .hospitallist-align select {
 	display: inline;
 	margin-top: 100px;
 	float:right;
+	font-size: 14px;
 } 
 .hospitallist-search input {
 	display: inline-block;
 	width: 300px;
 	margin-right: 10px;
+	font-size: 14px;
 }
 .hospitallist-search {
 	width: 400px;
@@ -49,7 +53,8 @@
 	border-color: #AAA;
 }
 
-.hospitalist-list { background-color: white;}
+.hospitalist-list { background-color: white;  margin-top: 20px;}
+.hospitalist-list tr:nth-child(1) { background-color: gold; height: 40px; }
 .hospitalist-list th, .hospitalist-list td { text-align: center; }
 .hospitalist-list th:nth-child(1) { width: 90px; }
 .hospitalist-list th:nth-child(2) { width: 180px; }
@@ -65,12 +70,12 @@
 <body>
 
 	<main>
-	<c:if test="${empty auth.id }">
-		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
-	</c:if>
-	<c:if test="${not empty auth.id }">
-		<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
-	</c:if>
+		<c:if test="${empty auth.id }">
+      		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
+   		</c:if>
+   		<c:if test="${not empty auth.id }">
+     		<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
+   		</c:if>
 		<section>
 		<div id="content">
 			<form method="GET" action="/fanimal/diagnosis/hospitallist.do" id="hospitallist">
@@ -155,7 +160,7 @@
 				</c:if>
 						
 						
-				<div class="hospitallist-search">
+				<div class="hospitallist-search" style="padding-bottom: 30px;">
 					<input type="text" name="search" placeholder="병원명을 검색하세요." class="form-control col-8">
 					<button class="btn btn-secondary">검색</button>
 				</div>

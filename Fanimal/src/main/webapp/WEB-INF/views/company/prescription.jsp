@@ -8,6 +8,7 @@
 
 <title>prescription</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">
 <link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
    <style>
    #tablebox {

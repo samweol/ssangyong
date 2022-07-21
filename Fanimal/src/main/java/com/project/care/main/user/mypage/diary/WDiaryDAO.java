@@ -1,6 +1,7 @@
 package com.project.care.main.user.mypage.diary;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -27,8 +28,11 @@ public class WDiaryDAO {
 	
 	
 	//산책읽기 등록
-	public int insertWDiary(WDiaryDTO wd) {
+	public int insertWDiary(WDiaryDTO wd, String aseq) {
 		int result =0;
+		
+		System.out.println("insertWDiary aseq :" + aseq);
+		
 		try {
 			String sql = "insert into  tblwalkdiary "
 					+ "(wseq, datetime, place, pic, title, content, id)"
@@ -42,8 +46,17 @@ public class WDiaryDAO {
 			pstat.setString(5, wd.getContent());
 			pstat.setString(6, wd.getId());
 	
-			//System.out.println(result);
-			return result =pstat.executeUpdate();			
+			
+			result = pstat.executeUpdate();	
+			
+			System.out.println("insertWDiary res : " +result);
+			
+			if(result > 0) {//성공적으로insert 되었을때 매핑 테이블에도 값 넣어줘야함****주의
+				insertMappingWDiary(aseq);	
+			}
+			
+			
+			return 1;		
 			
 		} catch (Exception e) {
 			System.out.println("insertWdiary");
@@ -52,8 +65,35 @@ public class WDiaryDAO {
 		
 		return -1;
 	}
+	
+	
+	//산책일기 매핑 테이블 인서트
+	public int insertMappingWDiary(String aseq) {
+		int result =0;
+		try {
+			String sql = "insert into tblwalkani values (SEQWKAN.nextval, seqwdiary.currval, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, aseq);
+	
+			//System.out.println(result);
+			return result =pstat.executeUpdate();			
+			
+		} catch (Exception e) {
+			System.out.println("insertMappingWDiary");
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
 
 
+	
+	
+	
+	
+	
+	
 
 	
 	//글번호에 해당하는 산책일기 가져오기
@@ -62,7 +102,7 @@ public class WDiaryDAO {
 			
 			CDiaryDTO cdDto = new CDiaryDTO();
 			
-			String sql = " select*from tblwalkdiary w inner join  tblwalkani ani on ani.wseq = w.wseq join tblanimal a on a.aseq = ani.aseq where  w.wseq = ?"; 
+			String sql = "select*from tblwalkdiary w inner join  tblwalkani ani on ani.wseq = w.wseq join tblanimal a on a.aseq = ani.aseq where  w.wseq = ?"; 
 			
 	
 			pstat = conn.prepareStatement(sql);
@@ -74,9 +114,7 @@ public class WDiaryDAO {
 			WDiaryDTO cdto = new WDiaryDTO();
 			
 			if (rs.next()) {
-				
 		
-				
 				//산책일기 테이블 정보
 				cdto.setWseq(rs.getString("wseq"));
 				cdto.setDatetime(rs.getString("datetime"));
@@ -99,14 +137,48 @@ public class WDiaryDAO {
 			return null;
 		}
 	}
+
+	
+	public int delinfo(String wseq) {
+		try {
+			String sql = "delete from tblwalkani where wseq=?";
+		
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, wseq);
+
+			
+			return pstat.executeUpdate();		
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 	
-	
-	
-	//산책읽기 조회
 
 
+	public int del(String wseq) {
+		try {
+			String sql = "delete from tblwalkdiary where wseq=?";
+		
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, wseq);
 
-
+			
+			return pstat.executeUpdate();		
+			
+			
+		} catch (Exception e) {
+			System.out.println("산책일기 딜리트 안됨");
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
 	
 }

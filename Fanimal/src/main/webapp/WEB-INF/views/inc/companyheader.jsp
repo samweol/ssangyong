@@ -43,6 +43,9 @@
                         <li class="pure-menu-item">
                             <a href="/fanimal/company/companypage.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 병원 정보보기</a>
                         </li>
+                        <li class="pure-menu-item">
+                            <a href="/fanimal/company/reservationchart.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 차트보기</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="pure-menu-item pure-menu-selected">

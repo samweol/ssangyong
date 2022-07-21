@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
 <script src="/fanimal/asset/js/jquery-1.12.4.js"></script>
 <script src="https://kit.fontawesome.com/3ac15bdbeb.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <style>
         .col {
             width: 150px;
@@ -32,6 +33,7 @@
 		}
 </style>
 <title>Insert title here</title>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">
 </head>
 <body>
 	<main>
@@ -73,7 +75,7 @@
         			<c:if test = "${empty dto }">
         			<div style="display: flex; justify-content: center; font-size: 30px; padding-top: 50px;"><i style="padding-top: 5px;" class="fa-solid fa-paw"></i> 병원페이지</div>
         			<div style="display: flex; justify-content: center; padding-top: 80px;">병원정보가 없습니다.</div>	
-        			</c:if>         
+        			</c:if>        
 	            </div>
 	        </section>
 	        <%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
@@ -126,6 +128,7 @@
             $('#editRow').remove();
             isEdit = false;
         }
-        </script>
+
+    	</script>
 </body>
 </html>

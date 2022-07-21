@@ -1,7 +1,9 @@
 package com.project.care.main.user.mypage.diary;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +34,7 @@ public class ListDiary extends HttpServlet {
 		int count = dao.plist(uaseq); //처방전이 여러개 존재할경우, 한개 존재할경우 나눠서 생각하기
 		ArrayList<CDiaryDTO> pslist = dao.pslist(uaseq);  //진료확인서번호, 반려동물번호
 		
-		
+			
 		req.setAttribute("clist", clist);
 		req.setAttribute("wlist", wlist);
 		req.setAttribute("dlist", dlist);

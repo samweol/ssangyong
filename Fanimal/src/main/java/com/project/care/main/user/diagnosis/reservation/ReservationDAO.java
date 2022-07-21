@@ -208,7 +208,7 @@ public class ReservationDAO {
 
 	public int addReservation(ResHosDTO dto) {
 		
-		String sql = "insert into tblResHos values(seqResHos.nextVal, to_date( ? ,'yy-mm-dd hh24:mi'), default, ?, ?, ?, ?, ?)";
+		String sql = "insert into tblResHos values(seqResHos.nextVal, to_date( ? ,'yy-mm-dd hh24:mi'), default, ?, ?, ?, ?, " + dto.getPicture() + ")";
 		
 		DML pstat = new DML() {
 			
@@ -219,7 +219,6 @@ public class ReservationDAO {
 				pstat.setString(3, dto.getHpseq());
 				pstat.setString(4, dto.getUaseq());
 				pstat.setString(5, dto.getPseq());
-				pstat.setString(6, dto.getPicture()); 
 				
 			}
 		};

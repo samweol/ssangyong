@@ -28,11 +28,15 @@ public class PostWDiary extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		int result=0;
+
+		int result = 0;
 
 		try {
 
+			System.out.println("querystring :" + req.getQueryString());
+			 String url = ((HttpServletRequest)req).getRequestURL().toString();
+				System.out.println("url :" + url);			 
+			
 			req.setCharacterEncoding("UTF-8");
 
 			MultipartRequest multi = null;
@@ -42,58 +46,56 @@ public class PostWDiary extends HttpServlet {
 
 			int size = 1024 * 1024 * 100;
 
+			
+			
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
 			pic = multi.getFilesystemName("pic");
 
-			// 업로드한 파일이 있을 경우에만 
-			if(!pic.equals(null)) {
+			// 업로드한 파일이 있을 경우에만
+			if (!pic.equals(null)) {
 				req.setAttribute("pic", pic);
 			}
-			
 
-			
 			String id = "hong1234"; // TODO: 추후 세션에서 얻어오기
 			String title = multi.getParameter("title");
 			String content = multi.getParameter("content");
 			String diaryType = multi.getParameter("diaryType");
-			String place =multi.getParameter("place");
+			String place = multi.getParameter("place");
 			String datetime = multi.getParameter("datetime");
-			String value =multi.getParameter("value");
-			
+			String value = multi.getParameter("value");
+
+			String aseq = multi.getParameter("aseq");
 
 			
-				WDiaryDAO dao = new WDiaryDAO();
-				WDiaryDTO wdiary= new WDiaryDTO();
-				
-				
-				wdiary.setDatetime(datetime);
-				wdiary.setPlace(place);
-				wdiary.setPic(pic);
-				wdiary.setTitle(title);
-				wdiary.setContent(content);
-				wdiary.setId(id);
-				
+//			System.out.println("aseq postwd : " + aseq);
 
-				result = dao.insertWDiary(wdiary);//************
-				System.out.println(result);
-				
-				req.setAttribute("wdiary", wdiary);
-				req.setAttribute("result", result);
-				req.setAttribute("value", value);
-				
+			WDiaryDAO dao = new WDiaryDAO();
+			WDiaryDTO wdiary = new WDiaryDTO();
 
-			
-			
-			
-			
-  			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage/wdiary/post.jsp");
+			wdiary.setDatetime(datetime);
+			wdiary.setPlace(place);
+			wdiary.setPic(pic);
+			wdiary.setTitle(title);
+			wdiary.setContent(content);
+			wdiary.setId(id);
+			wdiary.setAseq(aseq);
+
+			try {
+				result = dao.insertWDiary(wdiary, aseq);// ************
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			req.setAttribute("wdiary", wdiary);
+			req.setAttribute("result", result);
+			req.setAttribute("value", value);
+
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/mypage/wdiary/post.jsp");
 			dispatcher.forward(req, resp);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 
 	}
 

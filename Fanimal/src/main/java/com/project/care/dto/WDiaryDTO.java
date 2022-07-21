@@ -18,7 +18,8 @@ private String id;
 
 //반려동물 관련 변수
 private String seq; //산책일기 반려동물 번호
-private String useq; //반려동물번호
+private String useq; 
+private String aseq; 
 
 
 //반려동물 테이블

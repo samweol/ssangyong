@@ -25,12 +25,15 @@ public class ListWDiaryAjax extends HttpServlet {
 		
 		
 		String wseq = req.getParameter("wseq");
-
+		
+		
 		WDiaryDAO dao = new WDiaryDAO();
 
 		WDiaryDTO cdto = dao.viewCDairy(wseq); // cdto를 받아옴
 		
 		
+		cdto.setDatetime(cdto.getDatetime().substring(0,11));
+	
 		
 		// JSON 반환
 		resp.setCharacterEncoding("UTF-8");
@@ -38,6 +41,10 @@ public class ListWDiaryAjax extends HttpServlet {
 
 		String jsonStr = "{\"name\" : \"" +   cdto.getName() +  " \","
 					    + "\"title\" : \"" +   cdto.getTitle() +  " \", "
+					    + "\"wseq\" : \"" +   cdto.getWseq() +  " \", "
+					    + "\"place\" : \"" +   cdto.getPlace() +  " \", "
+					    + "\"pic\" : \"" +   cdto.getPic() +  " \", "
+					    + "\"datetime\" : \"" +   cdto.getDatetime() +  " \", "
 					    + "\"content\" : \"" +   cdto.getContent() +  " \"} ";
 		
 		

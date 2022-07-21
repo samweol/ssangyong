@@ -83,7 +83,7 @@ public class CDiaryDAO {
 	}
 	
 	// 케어일기 등록
-	public int insertCDiary(CDiary cd) {
+	public int insertCDiary(CDiaryDTO cd) {
 
 		try {
 			String sql = "insert into tblcdiary "
@@ -115,7 +115,7 @@ public class CDiaryDAO {
 		
 		try {
 			
-			String sql ="select  c.cdseq, c.picture  from tblcdiary c inner join tblanimal a on a.aseq = c.aseq inner join tbluserani ua on ua.aseq = a.aseq where uaseq=?";
+			String sql ="select  c.cdseq, c.picture ,c.datetune from tblcdiary c inner join tblanimal a on a.aseq = c.aseq inner join tbluserani ua on ua.aseq = a.aseq where uaseq=?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, uaseq);
 			
@@ -133,6 +133,7 @@ public class CDiaryDAO {
 				
 				dto.setCdSeq(rs.getString(1));
 				dto.setPicture(rs.getString(2));
+				dto.setDatetune(rs.getString(3));
 
 				clist.add(dto);
 
@@ -193,7 +194,7 @@ public class CDiaryDAO {
 	public ArrayList<WDiaryDTO> dlist(String uaseq) {
 		try {
 			
-			String sql ="select name,gender,age,pic,weight from tblanimal a inner join tbluserani ua on ua.aseq = a.aseq inner join tblaniinfo ai on ai.aseq = a.aseq where uaseq=?";
+			String sql ="select name,gender,age,pic,weight, a.aseq from tblanimal a inner join tbluserani ua on ua.aseq = a.aseq inner join tblaniinfo ai on ai.aseq = a.aseq where uaseq=?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, uaseq);
 			
@@ -210,6 +211,7 @@ public class CDiaryDAO {
 				dto.setAge(rs.getString(3));
 				dto.setDogpic(rs.getString(4));
 				dto.setDogweight(rs.getString(5));
+				dto.setUseq(rs.getString(6));
 				
 				
 				
@@ -300,5 +302,28 @@ public class CDiaryDAO {
 		e.printStackTrace();
 		return null;
 	}
+	}
+	
+	
+	//디비에서 선택한 일기 삭제하기 
+	public int del(String cdSeq) {
+	
+		try {
+			String sql = "delete from tblcdiary where cdseq=?";
+		
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, cdSeq);
+
+			
+			return pstat.executeUpdate();		
+			
+			
+		} catch (Exception e) {
+			System.out.println("케어일기 딜리트 안됨");
+			e.printStackTrace();
+		}
+		
+		return -1;
 	}
 }

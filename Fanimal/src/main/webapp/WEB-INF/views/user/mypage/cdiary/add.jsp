@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+
+String aseq = (String)request.getAttribute("aseq");
+
+%>	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +18,8 @@
 	<main>
 		<%@ include file="/WEB-INF/views/inc/userheader.jsp"%>
 		<section>
-			<div class="container">
+			<div class="container" style="padding-top: 30px; padding-bottom: 30px;">
+			
 				<form action="/fanimal/cdiary/post.do" method="post"
 					enctype="multipart/form-data">
 
@@ -62,6 +69,7 @@
 			
 					<input type="hidden" name="pseq" value="${pSeq}">
 					<input type="hidden" name="aseq" value="${aSeq}">
+					
 					<button type="submit" class="btn btn-primary">작성</button>
 				</form>
 			</div>

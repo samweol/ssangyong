@@ -16,6 +16,14 @@ public class AddWDiary extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 
 		String wdiaryPath = "/WEB-INF/views/user/mypage/wdiary";
+		
+		String aseq = req.getParameter("aSeq");
+
+		System.out.println(req.getQueryString());
+		
+		System.out.println("AddWDiary doGet aseq : "+ aseq);
+
+		req.setAttribute("aseq", aseq);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher(wdiaryPath+"/add.jsp");
 		dispatcher.forward(req, resp);

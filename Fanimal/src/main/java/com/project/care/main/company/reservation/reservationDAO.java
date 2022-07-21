@@ -23,7 +23,7 @@ public class reservationDAO {
    public ArrayList<reservationDTO> list() {
       
       try {
-         String sql = "select r.hpseq seq, a.name name, v.visit visit, r.resdate resdate, p.purpose purpose from tblanimal a inner join tbluserani e on a.aseq = e.aseq inner join tbluser u on u.useq = e.useq inner join tblreshos r on e.uaseq = r.uaseq inner join tblvisit v on v.visitseq = r.visitseq inner join tblpurpose p on p.pseq = r.pseq";
+         String sql = "select r.rhseq seq, a.name name, v.visit visit, r.resdate resdate, p.purpose purpose from tblanimal a inner join tbluserani e on a.aseq = e.aseq inner join tbluser u on u.useq = e.useq inner join tblreshos r on e.uaseq = r.uaseq inner join tblvisit v on v.visitseq = r.visitseq inner join tblpurpose p on p.pseq = r.pseq";
          
          stat = conn.createStatement();
          

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.project.care.dto.CDiaryDTO;
 
 //이름 바꿈 -> addcdiary(가상매핑주소 모두 소문자로 )
 @WebServlet("/cdiary/post.do")
@@ -38,7 +39,8 @@ public class PostCDiary extends HttpServlet {
 			String filename = "";
 
 			String path = req.getSession().getServletContext().getRealPath("/files");
-
+			
+			System.out.println(path);
 			int size = 1024 * 1024 * 100;
 
 			multi = new MultipartRequest(req, path, size, "UTF-8", new DefaultFileRenamePolicy());
@@ -50,7 +52,7 @@ public class PostCDiary extends HttpServlet {
 			}
 			
 
-			// TODO: 추후 세션에서 얻어오기*************
+			// TODO: 추후 세션에서 얻어오기
 			String id = "hong1234";
 			
 			String title = multi.getParameter("title");
@@ -58,7 +60,7 @@ public class PostCDiary extends HttpServlet {
 			String diaryType = multi.getParameter("diaryType");
 	
 			
-			// TODO: 파라미터로 얻어오기(동물번호,진료확인서) 
+			// TODO: 파라미터로 얻어오기(동물번호,진료확인서) - 나중에 받아올 데이터 -여기까지는 데이터 도착
 			String aSeq =multi.getParameter("aseq");  //fix값 - 동물번호
 			String pSeq = multi.getParameter("pseq"); //동적 - 진료확인서번호 
 
@@ -67,12 +69,12 @@ public class PostCDiary extends HttpServlet {
 		
 
 			String diaryPath = "";
-
+		
 			if (diaryType.equals("care")) {//케어일기
 				diaryPath = "/WEB-INF/views/user/mypage/cdiary";
-
+				
 				CDiaryDAO dao = new CDiaryDAO();
-				CDiary cdiary = new CDiary();
+				CDiaryDTO cdiary = new CDiaryDTO();
 				
 				cdiary.setPicture(filename);
 				cdiary.setTitle(title);
@@ -82,10 +84,9 @@ public class PostCDiary extends HttpServlet {
 				cdiary.setPSeq(pSeq);
 				cdiary.setASeq(aSeq);
 
-				System.out.println("CDiary : " + cdiary + " type :"+ diaryType);
-				System.out.println(cdiary);
-
-				result = dao.insertCDiary(cdiary);//************
+			
+					result = dao.insertCDiary(cdiary);//************	
+				
 				
 				req.setAttribute("cdiary", cdiary);
 				req.setAttribute("result", result);

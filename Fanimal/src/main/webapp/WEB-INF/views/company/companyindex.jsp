@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <%@ include file = "/WEB-INF/views/inc/asset.jsp"%>
 <script src="https://kit.fontawesome.com/3ac15bdbeb.js" crossorigin="anonymous"></script>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">
 <style>
      a {
          color: black;

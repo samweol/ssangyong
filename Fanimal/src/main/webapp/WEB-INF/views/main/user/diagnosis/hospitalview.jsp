@@ -94,12 +94,12 @@
 </head>
 <body>
 	<main>
-		<c:if test="${empty auth.id }">
-		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
-		</c:if>
-		<c:if test="${not empty auth.id }">
-		<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
-		</c:if>
+		<c:if test="${empty auth.id}">
+	    	<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
+	   	</c:if>
+	   	<c:if test="${not empty auth.id}">
+	    	<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
+	   	</c:if>
 		<section>
             <div id="content">
             	
@@ -215,23 +215,22 @@
     <script src="/fanimal/asset/js/jquery.rateit.js"></script>
 	<script>
 
-		var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
-		
+		var markerPosition  = new kakao.maps.LatLng(${info.xcoor}, ${info.ycoor}); 
+
 		var marker = {
 		    position: markerPosition
 		};
-		
-		//TODO 중부좌표계를 위경도로 변경하기
-		var staticMapContainer  = document.getElementById('staticMap'),   
+
+		var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
 		    staticMapOption = { 
-		        center: new kakao.maps.LatLng(${info.xcoor}, ${info.ycoor}), 
+		        center: new kakao.maps.LatLng(${info.xcoor}, ${info.ycoor}), // 이미지 지도의 중심좌표
 		        level: 4, // 이미지 지도의 확대 레벨
 		        marker: marker // 이미지 지도에 표시할 마커 
 		    };    
-		
-		// 이미지 지도를 생성합니다
+
 		var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 		
+
 		
 		function moreReview() {
 			
@@ -267,9 +266,15 @@
 					
 					$('.rateit').rateit();
 					
-					if ($('.hospitalview-review table tr').length > ${reviewNum}){
-						$('.hospitalview-review .btn-block').css('display', 'none');
-					};
+					if (${not empty auth.id}) { 
+						if ($('.hospitalview-review table tr').length > ${reviewNum}){
+							$('.hospitalview-review .btn-block').css('display', 'none');
+						};
+					} else {
+						if ($('.hospitalview-review table tr').length >= ${reviewNum}){
+							$('.hospitalview-review .btn-block').css('display', 'none');
+						};
+					}
 					
 				},
 				error: function(a, b, c){
@@ -287,6 +292,20 @@
 		 
 		function addReview() {
 		
+			let star = $('.hospitalview-review input[name=star]');
+			let review = $('.review-add textarea[name=review]');
+			
+			if (star.val() == '') {
+				alert('별점을 입력해주세요.');
+				return;
+			}
+
+			if (review.val() == ''){
+				alert('리뷰를 입력해주세요.');
+				return;
+			}
+			
+			
 			$.ajax({
 				type: 'GET',
 				url: '/fanimal/diagnosis/hospitalreviewadd.do',
@@ -315,11 +334,15 @@
 						$('.review-add').after(temp);
 						$('.rateit').rateit();
 						
-						$('.hospitalview-review table tr').last().remove();
+						if ($('.hospitalview-review table tr').length > 11) {
+							
+							$('.hospitalview-review table tr').last().remove();
+						}
 	
 						//review-add 입력란 비우기
-						$('.review-add textarea[name=review]').val('');
-						$('#review-add-star').rateit('reset'); 
+						review.val('');
+						star.val('');
+						$('#review-add-star').rateit('reset');
 						
 					} else {
 						alert('죄송합니다. 리뷰 작성에 실패했습니다.');

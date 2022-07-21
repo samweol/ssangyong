@@ -59,9 +59,10 @@ public class ReservationAdd extends HttpServlet {
 		dto.setUniqueness(multi.getParameter("uniqueness"));
 		dto.setHpseq(multi.getParameter("hpseq"));
 		dto.setUaseq(multi.getParameter("uaseq"));
-		dto.setPicture(multi.getFilesystemName("picture"));
-		if(dto.getPicture() == null) {
+		if (dto.getPicture() == null) {
 			dto.setPicture("default");
+		} else {
+			dto.setPicture("'" + multi.getFilesystemName("picture") + "'");
 		}
 		
 		ReservationDAO dao = new ReservationDAO();

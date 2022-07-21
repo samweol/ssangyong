@@ -16,7 +16,8 @@
         height: 300px;
         background-position: -55px -100px;
     }	
-</style>	
+</style>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">	
 <title>Insert title here</title>
 </head>
 <body>

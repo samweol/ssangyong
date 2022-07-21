@@ -12,7 +12,7 @@
 	<main>
 		<%@ include file="/WEB-INF/views/inc/userheader.jsp"%>
 		<section>
-			<div class="container">
+			<div class="container" style="padding-top: 30px; padding-bottom: 30px;">
 				<form action="/fanimal/wdiary/post.do" method="post"
 					enctype="multipart/form-data">
 
@@ -69,7 +69,7 @@
 						<textarea class="form-control" id="content" name="content"
 							rows="10" placeholder="내용을 입력하세요"></textarea>
 					</div>
-
+					<input type="hidden" name="aseq" value="${aseq}">
 					<button type="submit" class="btn btn-primary">작성</button>
 
 				</form>

@@ -27,6 +27,7 @@
         	height: calc(100vh - 319px);
         }
 </style>
+<link rel="icon" type="image/x-icon" href="/fanimal/pic/dog.ico">
 <title>Insert title here</title>
 </head>
 <body>
