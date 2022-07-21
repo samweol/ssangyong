@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 <style>
 	#main {
@@ -44,7 +45,7 @@
 </head>
 <body>
 	<main>
-	<%@ include file ="/WEB-INF/views/inc/header.jsp" %>
+	<%@ include file ="/WEB-INF/views/inc/adminheader.jsp"%>
 	<div id="main">
 	
 		<h1>기업 정보 조회</h1>
@@ -70,19 +71,19 @@
          </tr>
          <tr>
             <td class="cell1">승인상태</td>
-            <td class="cell3" colspan="3">${cdto.state}</td>
+            <td class="cell3" colspan="3">${cvdto.state}</td>
          </tr>
          <tr>
          	<td>대표자 이름</td>
-         	<%-- <td>${dto.name}</td> --%>
+         	<%-- <td>${cdto.name}</td> --%>
          </tr>
          <tr>
          	<td>사업자 번호</td>
-         	<%-- <td>${dto.business}</td> --%>
+         	<%-- <td>${cdto.business}</td> --%>
          </tr>
          <tr>
          	<td>아이디</td>
-         	<%-- <td>${dto.id}</td> --%>
+         	<%-- <td>${cdto.id}</td> --%>
          </tr>
          <tr>
          	<td>이메일</td>

@@ -154,7 +154,7 @@
 	                		
 		                		<div id="filelist"></div>		                							                		
 								<!-- <input type="button" value="첨부 파일 추가하기" class="btn btn-secondary" id="btnfile"> -->
-								<div id="picbox"><input type="file" name="attach" onchange="viewimg(event);"><span onclick="del();">&times;</span></div>
+								<div id="picbox"><input type="file" name="attach" onchange="viewimg(event);"><span onclick="del2();">&times;</span></div>
 								<div id="image_container"></div>
 	                		</td>
 	                	</tr>
@@ -180,14 +180,14 @@ $('#btnfile').click(function() {
 	
 });
 
-function del() {
+function del2() {
 	//alert(this);
 	//alert(event.target);
 	
 	$(event.target).parent().remove();
 	$('#image_container').children().remove();
 	
-	let temp = String.format('<div id="picbox"><input type="file" name="attach" onchange="viewimg(event);"><span onclick="del();">&times;</span></div>');
+	let temp = String.format('<div id="picbox"><input type="file" name="attach" onchange="viewimg(event);"><span onclick="del2();">&times;</span></div>');
 	
 	$('#filelist').append(temp);
 	
@@ -249,6 +249,20 @@ function animalChange(e) {
 	
 }
 
+
+
+
+function viewimg(event) {
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var img = document.createElement("img");
+      img.setAttribute("src", event.target.result);
+      document.querySelector("div#image_container").appendChild(img);
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
 
 
 

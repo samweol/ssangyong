@@ -17,6 +17,8 @@ import com.project.care.dto.AnimalDTO;
 import com.project.care.dto.AnimalListDTO;
 import com.project.care.dto.CalendarDTO;
 import com.project.care.dto.DisDTO;
+import com.project.care.dto.EditAniViewDTO;
+import com.project.care.dto.EditAnimalDTO;
 import com.project.care.dto.UserAniDTO;
 
 public class AnimalDAO {
@@ -831,7 +833,7 @@ public class AnimalDAO {
 				
 				conn = DBUtil.open();
 				System.out.println("rhseq:" + rhseq);
-				String sql = "select a.name, rh.resdate, h.hosname, p.purpose, rh.uniqueness, ai.pic from tblResHos rh inner join tblUserAni ua on rh.uaseq = ua.uaseq inner join tblAnimal a on ua.aseq = a.aseq inner join tblHospital h on rh.hpseq = h.hpseq inner join tblPurpose p on rh.pseq = p.pseq inner join tblAniInfo ai on ai.aseq = a.aseq where rh.rhseq = ?";
+				String sql = "select a.name, rh.resdate, h.hosname, p.purpose, rh.uniqueness, rh.picture from tblResHos rh inner join tblUserAni ua on rh.uaseq = ua.uaseq inner join tblAnimal a on ua.aseq = a.aseq inner join tblHospital h on rh.hpseq = h.hpseq inner join tblPurpose p on rh.pseq = p.pseq inner join tblAniInfo ai on ai.aseq = a.aseq where rh.rhseq = ?";
 				
 				pstat = conn.prepareStatement(sql);
 				pstat.setString(1, rhseq);
@@ -845,11 +847,11 @@ public class AnimalDAO {
 					
 					System.out.println(2);
 					dto.setName(rs.getString("name"));
-					dto.setResdate(rs.getString("resdate").substring(0, 10));
+					dto.setResdate(rs.getString("resdate").substring(0, 16));
 					dto.setHosname(rs.getString("hosname"));
 					dto.setPurpose(rs.getString("purpose"));
 					dto.setUniqueness(rs.getString("uniqueness"));
-					dto.setPic(rs.getString("pic"));
+					dto.setPic(rs.getString("picture"));
 					
 				}
 				
@@ -1006,6 +1008,206 @@ public class AnimalDAO {
 				System.out.println("AnimalDAO.addCal");
 				e.printStackTrace();
 			}
+			
+			return 0;
+		}
+
+
+
+		
+		public EditAnimalDTO editlist(String uaseq) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "select a.name, ak.tseq, ak.kind, a.gender, a.age, a.birth, ai.neutral, ai.weight, ad.dseq, ai.state, ai.pic, at.type from tblAnimal a inner join tblAniInfo ai on a.aseq = ai.aseq inner join tblUserAni ua on a.aseq = ua.aseq inner join tblAniKind ak on a.kseq = ak.kseq inner join tblAniType at on ak.tseq = at.tseq inner join tblAniDis ad on a.aseq = ad.aseq inner join tblAniType at on ak.tseq = at.tseq where ua.uaseq = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, uaseq);
+				
+				rs = pstat.executeQuery();
+					
+				EditAnimalDTO dto = new EditAnimalDTO();
+				
+				if (rs.next()) {
+					
+					dto.setName(rs.getString("name"));
+					dto.setTseq(rs.getString("tseq"));
+					dto.setKind(rs.getString("kind"));
+					dto.setGender(rs.getString("gender"));					
+					dto.setAge(rs.getString("age"));
+					dto.setYy(rs.getString("birth").substring(0, 4));
+					dto.setMm(rs.getString("birth").substring(5, 7));
+					dto.setDd(rs.getString("birth").substring(8, 10));
+					dto.setNeutral(rs.getString("neutral"));
+					dto.setWeight(rs.getString("weight"));
+					dto.setDseq(rs.getString("dseq"));
+					dto.setState(rs.getString("state"));
+					dto.setPic(rs.getString("pic"));
+					dto.setType(rs.getString("type"));
+					
+				}
+				
+				return dto;
+				
+				
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.editlist");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+
+
+		
+		//현재 동물의 프로필 사진 이름 가져오기
+		public String picname(String uaseq) {
+			
+			String fname = null;
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "select ai.pic from tblAnimal a inner join tblAniInfo ai on a.aseq = ai.aseq inner join tblUserAni ua on ua.aseq = a.aseq where ua.uaseq = ?";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, uaseq);
+				
+				rs = pstat.executeQuery();
+				
+				if (rs.next()) {
+					
+					fname = rs.getString("pic");
+					
+				}
+				
+				return fname;
+				
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.picname");
+				e.printStackTrace();
+			}
+			
+			
+			return null;
+		}
+
+
+
+		
+		public int editAniInfo(String uaseq, EditAniViewDTO edto) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "update tblAniInfo set neutral = ?, state = ?, weight = ? where aseq = (select aseq from tblUserAni ua where ua.uaseq = ?)";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, edto.getNeutral());
+				pstat.setString(2, edto.getState());
+				pstat.setString(3, edto.getWeight());
+				pstat.setString(4, uaseq);
+				
+				return pstat.executeUpdate();
+				
+						
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.editAniInfo");
+				e.printStackTrace();
+			}
+			
+			
+			return 0;
+		}
+
+
+
+		public int editAniDis(String uaseq, EditAniViewDTO edto) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "update tblAniDis set dseq = ? where aseq = (select aseq from tblUserAni ua where ua.uaseq = ?)";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, edto.getDis());
+				pstat.setString(2, uaseq);
+				
+				return pstat.executeUpdate();
+				
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.editAniDis");
+				e.printStackTrace();
+			}
+			
+			return 0;
+		}
+
+
+
+		public int editAnimal(String uaseq, EditAniViewDTO edto) {
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "update tblAnimal set name = ?, gender = ?, age = ?, birth = ? where aseq = (select aseq from tblUserAni ua where ua.uaseq = ?)";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, edto.getName());
+				pstat.setString(2, edto.getGender());
+				pstat.setString(3, edto.getAge());
+				pstat.setString(4, edto.getBirth());
+				pstat.setString(5, uaseq);
+				
+				return pstat.executeUpdate();
+				
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.editAnimal");
+				e.printStackTrace();
+			}
+			
+			
+			return 0;
+		}
+
+
+
+		public int editAniInfoPic(String uaseq, EditAniViewDTO edto) {
+			
+			
+			try {
+				
+				conn = DBUtil.open();
+				
+				String sql = "update tblAniInfo set neutral = ?, state = ?, weight = ?, pic = ? where aseq = (select aseq from tblUserAni ua where ua.uaseq = ?)";
+				
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, edto.getNeutral());
+				pstat.setString(2, edto.getState());
+				pstat.setString(3, edto.getWeight());
+				pstat.setString(4, edto.getPic());
+				pstat.setString(5, uaseq);
+				
+				return pstat.executeUpdate();
+				
+						
+				
+			} catch (Exception e) {
+				System.out.println("AnimalDAO.editAniInfo");
+				e.printStackTrace();
+			}
+			
 			
 			return 0;
 		}

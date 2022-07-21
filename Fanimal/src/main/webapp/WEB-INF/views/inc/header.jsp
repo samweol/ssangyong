@@ -30,7 +30,7 @@
                             <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 증상게시판</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 고객센터</a>
+                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 자유게시판</a>
                         </li>
                     </ul>
                 </li>

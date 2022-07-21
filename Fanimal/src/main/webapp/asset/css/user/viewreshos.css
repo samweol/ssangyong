@@ -1,5 +1,6 @@
 #content {
 	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 #content > table > tbody > tr > td:nth-child(1), #hbox, #hbox2 {

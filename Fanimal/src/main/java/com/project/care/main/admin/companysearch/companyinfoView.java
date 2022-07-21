@@ -27,6 +27,9 @@ public class companyinfoView extends HttpServlet {
 
       CompanyDTO cdto = dao.get(seq);
       
+      System.out.println("cdto: " + cdto);
+      System.out.println("cvdto: " + cvdto);
+      
       req.setAttribute("cvdto", cvdto);
       req.setAttribute("cdto", cdto);
             

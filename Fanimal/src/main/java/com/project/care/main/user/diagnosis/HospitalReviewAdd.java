@@ -20,13 +20,7 @@ public class HospitalReviewAdd extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
-		//UserDTO auth = (UserDTO)session.getAttribute("auth");
-		
-		//-----------임시-----------
-		UserDTO auth = new UserDTO();
-		auth.setId("hong1234");
-		auth.setNickname("길길동이");
-		//---------------------------
+		UserDTO auth = (UserDTO)session.getAttribute("auth");
 		
 
 		HosReviewDTO dto = new HosReviewDTO();
@@ -40,7 +34,7 @@ public class HospitalReviewAdd extends HttpServlet {
 		HosReviewDTO rdto = null;
 		
 		if(result == 1) {
-			rdto  = dao.getMaxSeqReview();
+			rdto  = dao.getTheReview();
 			
 			resp.setCharacterEncoding("UTF-8");
 			resp.setContentType("application/json");

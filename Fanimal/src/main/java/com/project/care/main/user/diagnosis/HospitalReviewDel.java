@@ -2,6 +2,7 @@ package com.project.care.main.user.diagnosis;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,13 +21,7 @@ public class HospitalReviewDel extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
-		//UserDTO auth = (UserDTO)session.getAttribute("auth");
-		
-		//-----------임시-----------
-		UserDTO auth = new UserDTO();
-		auth.setId("hong1234");
-		auth.setNickname("길길동이");
-		//---------------------------
+		UserDTO auth = (UserDTO)session.getAttribute("auth");
 		
 		HosReviewDTO dto = new HosReviewDTO();
 		dto.setId(auth.getId());
@@ -44,7 +39,9 @@ public class HospitalReviewDel extends HttpServlet {
 		HosReviewDTO rdto = null;
 		if(result == 1) {
 			dto.setHrseq(req.getParameter("anoHrseq"));
-			rdto = dao.getReview(dto).get(0);
+			
+			ArrayList<HosReviewDTO> temp = dao.getReview(dto);
+			if(temp.size() != 0) { rdto = temp.get(0); }
 		}
 
 			

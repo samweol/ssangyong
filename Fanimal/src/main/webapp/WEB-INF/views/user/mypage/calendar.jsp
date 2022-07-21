@@ -87,14 +87,13 @@
 <main>
 <%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
 	<section>
-        <div id='content' style='background-color: white;'>
- 			 <div id='calendar' style="padding-top: 30px;"></div>
-		</div>
-		
-		<hr>
+        <div id='content' style='padding-top: 20px;'>
+ 			 <div id='calendar' style="background-color: white; padding: 5px;"></div>
+ 			 
+ 			 
 		
 		<div>
-		<form method="GET" action="/fanimal/user/mypage/addcalendar.do">
+		<form method="GET" action="/fanimal/user/mypage/addcalendar.do" style="padding-top: 20px; padding-bottom: 40px; background-color: antiquewhite;">
 		<table id="addtbl">
 			<tr>
 			<th>일정 추가</th>
@@ -112,6 +111,9 @@
 		</table>
 		</form>
 		</div>
+		</div>
+		
+		
 	</section>
 	<%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
 </main>	

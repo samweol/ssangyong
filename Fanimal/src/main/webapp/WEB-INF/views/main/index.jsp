@@ -11,16 +11,16 @@
 	<main>
 		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
 		<section>
-	            <div id="content">
-	                <div class="slider">
+	            <div id="content" style="width: 100%;">
+	                <div class="slider" style="width: 100%;">
 	                    <input type="radio" name="slide" id="slide1" checked>
 	                    <input type="radio" name="slide" id="slide2">
 	                    <input type="radio" name="slide" id="slide3">
 	                    <input type="radio" name="slide" id="slide4">
 	                    <ul id="imgholder" class="imgs">
-	                        <li><img src="/fanimal/asset/images/docter.png" class="image-thumbnail"></li>
-	                        <li><img src="/fanimal/asset/images/back.jpg" class="image-thumbnail"></li>
-	                        <li><img src="/fanimal/asset/images/cat04_small.jpg" class="image-thumbnail"></li>
+	                        <li><img src="/fanimal/asset/images/back3.jpg" style="width: 100%;" class="image-thumbnail"></li>
+	                        <li><img src="/fanimal/asset/images/back2.jpg" style="width: 100%;" class="image-thumbnail"></li>
+	                        <li><img src="/fanimal/asset/images/back1.jpg" style="width: 100%;" class="image-thumbnail"></li>
 	                    </ul>
 	                    <div class="bullets">
 	                        <label for="slide1">&nbsp;</label>

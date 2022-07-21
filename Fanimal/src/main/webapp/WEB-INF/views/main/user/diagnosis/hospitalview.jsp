@@ -94,7 +94,12 @@
 </head>
 <body>
 	<main>
+		<c:if test="${empty auth.id }">
 		<%@ include file ="/WEB-INF/views/inc/header.jsp"%>
+		</c:if>
+		<c:if test="${not empty auth.id }">
+		<%@ include file ="/WEB-INF/views/inc/userheader.jsp"%>
+		</c:if>
 		<section>
             <div id="content">
             	
@@ -147,8 +152,8 @@
 	            	</table>
 	
 	            	<div class="hospitalview-btn">
-	            	<button type="button" onclick="#" class="btn btn-light">문의하기</button>
-	            	<button type="button" onclick="#" class="btn btn-warning">예약하기</button>
+	            	<button type="button" onclick="location.href='/fanimal/inquire/hospitalinquirelist.do?hpseq=${hpseq}&si=${dto.si}&gu=${dto.gu}&align=${dto.align}&search=${dto.search}&page=${dto.page}'" class="btn btn-light">문의하기</button>
+	            	<button type="button" onclick="location.href='/fanimal/reservation/reservation.do?hpseq=${hpseq}&si=${dto.si}&gu=${dto.gu}&align=${dto.align}&search=${dto.search}&page=${dto.page}'" class="btn btn-warning">예약하기</button>
 	            	</div>
             	
             	</div>
@@ -197,7 +202,7 @@
             	</form>
             	
             	<c:if test="${reviewNum > 10}">
-            	<button class="btn btn-block btn-light btn-lg" ="button" onclick="moreReview();">▼ 더보기</button>
+            	<button class="btn btn-block btn-light btn-lg" onclick="moreReview();">▼ 더보기</button>
             	</c:if>
             	
             	</div>
@@ -311,7 +316,11 @@
 						$('.rateit').rateit();
 						
 						$('.hospitalview-review table tr').last().remove();
-					
+	
+						//review-add 입력란 비우기
+						$('.review-add textarea[name=review]').val('');
+						$('#review-add-star').rateit('reset'); 
+						
 					} else {
 						alert('죄송합니다. 리뷰 작성에 실패했습니다.');
 					}
@@ -364,11 +373,16 @@
 						$('.hospitalview-review table tbody').append(temp);
 						$('.rateit').rateit();				
 						
-					} else if(result.result == 1){
+					} else if (result.result == 1) {
 						tr.remove();
 					} else {
 						alert('죄송합니다. 리뷰 작성에 실패했습니다.');
 					}
+					
+					if ($('.hospitalview-review table tr').length > ${reviewNum}){
+						$('.hospitalview-review .btn-block').css('display', 'none');
+					};
+					
 					
 				},
 				error: function(a, b, c){

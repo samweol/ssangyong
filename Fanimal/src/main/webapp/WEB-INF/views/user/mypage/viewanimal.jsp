@@ -87,7 +87,7 @@
                 	<tr>
                 		<td colspan="4" id="btnbox" style="text-align:right;">                		
                 		<input type="button" class="btn btn-warning" value="케어일기" onclick="location.href='/fanimal/cdiary/list.do?uaseq=${uaseq}'">
-                		<input type="button" class="btn btn-success" value="수정하기" onclick="location.href=''">
+                		<input type="button" class="btn btn-success" value="수정하기" onclick="location.href='/fanimal/user/mypage/editanimal.do?uaseq=${uaseq}'">
                 		<input type="button" class="btn btn-secondary" value="삭제하기" onclick="delcheck()">                		
                 		</td>
                 	</tr>

@@ -48,7 +48,9 @@ public class HospitalList extends HttpServlet {
 			dto.setSigu(si + " " + gu);
 		} else if (!si.equals("all")) {
 			dto.setSigu(si);
-		} 
+		} else {
+			dto.setSigu("");
+		}
 		
 		//거리순 정렬
 		if (auth != null) {
@@ -92,7 +94,7 @@ public class HospitalList extends HttpServlet {
 		int beginPage = ((nowPage-1) / pageBarNum) *  pageBarNum + 1;
 		int endPage = beginPage + pageBarNum - 1;
 		if (endPage > totalPage) { endPage = totalPage; }
-				
+			
 		//DAO
 		ArrayList<HospitalDTO> list = dao.getList(dto);
 		ArrayList<String> silist = dao.getSi();

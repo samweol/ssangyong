@@ -23,6 +23,7 @@
 					<c:forEach items="${reslist}" var="dto">
 					<a href="/fanimal/user/mypage/viewreshos.do?rhseq=${dto.rhseq}" style="color: black;">
 					<table class="resbox">
+					
 						<tr>
 							<td colspan="2">${dto.name}</td>	
 						</tr>
@@ -34,11 +35,11 @@
 							<%-- <td colspan="2"><input type="button" value="예약취소" class="btn btn-danger" onclick="event.preventDefault(); location.href='/fanimal/user/mypage/delreshos.do?rhseq=${dto.rhseq}';"></td> --%>
 							<td colspan="2"><input type="button" value="예약취소" class="btn btn-danger" onclick="event.preventDefault(); delcheck(${dto.rhseq});"></td>
 						</tr>
-					</table>					
+					</table>
+					</a>					
 					</c:forEach>
 					<c:if test="${reslist.size() == 0}">
-					<h4>예약내역이 없습니다.</h4>				
-					</a>	
+					<h4>예약내역이 없습니다.</h4>					
 					</c:if>
 					
 				</div>		
@@ -47,7 +48,6 @@
 				<h3 style="margin-top: 0; padding-top: 30px">지난 예약 내역</h3>
 				<div id="beforediv">
 					<c:forEach items="${beflist}" var="dto">
-					<%-- <a href="/fanimal/user/mypage/viewreshos.do?rhseq=${dto.rhseq}" style="color: black;" id="beforea"> --%>
 					<table class="beforebox">
 						<tr>
 							<td colspan="2">${dto.name}</td>	
@@ -56,7 +56,6 @@
 							<td>예약날짜:  ${dto.resdate}</td>
 						</tr>											
 					</table>
-					<!-- </a> -->
 					</c:forEach>					
 					<c:if test="${beflist.size() == 0}">
 					<h4>예약내역이 없습니다.</h4>					

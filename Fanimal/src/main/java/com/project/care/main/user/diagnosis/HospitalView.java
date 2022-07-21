@@ -23,13 +23,7 @@ public class HospitalView extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		HttpSession session = req.getSession();
-		//UserDTO auth = (UserDTO)session.getAttribute("auth");
-		
-		//-----------임시-----------
-		UserDTO auth = new UserDTO();
-		auth.setId("hong1234");
-		auth.setNickname("길길동이");
-		//---------------------------
+		UserDTO auth = (UserDTO)session.getAttribute("auth");
 		
 		//1
 		HospitalListDTO dto = new HospitalListDTO();

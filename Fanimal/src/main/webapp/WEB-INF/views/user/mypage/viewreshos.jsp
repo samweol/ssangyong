@@ -30,7 +30,7 @@
                 		<td>${dto.name}</td>
                 		<td rowspan="4" colspan="2">
                 			<!-- <div><img src="/fanimal/asset/images/user/animallist/ddol2.jpg" id="aniprofile"></div> -->
-                			<div style="background-image: url('/fanimal/files/${dto.pic}')"></div>
+                			<div style="background-image: url('/fanimal/files/reservation/${dto.pic}')"></div>
                 		</td>
                 	</tr>
                 	<tr>

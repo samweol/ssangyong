@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>companyapprovelist</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
 <style>
 		body {
 			margin-bottom: 100px;
@@ -15,14 +16,17 @@
 			color: #444;
 		}
 		#main {
-			width: 940px;
+			/* width: 940px; */
 			margin: 0 auto;
 		}
 		#main h1 {
 			border-bottom: 7px double #999;
-			margin-top: 30px;
+			padding-top: 30px;
          	align-content: center;
 			text-align: center;
+			margin: 0;
+			padding-bottom: 5px;
+			margin-bottom: 5px;
 		}
 
 		#list1 {
@@ -56,11 +60,11 @@
 </head>
 <body>
 	<main>
-	<%@ include file ="/WEB-INF/views/inc/header.jsp" %>
+	<%@ include file ="/WEB-INF/views/inc/adminheader.jsp"%>
 	<section id="main">
 	
 		<h1>기업 정보 조회</h1>
-		<table id="list1">
+		<table id="list1" style="margin: 0 auto;">
 			<tr>
 				<th class="col1">번호</th>
 				<th class="col2">아이디</th>

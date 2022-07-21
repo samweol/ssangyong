@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
+<link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
 <style>
 	#main {
 		width: 940px;
@@ -41,7 +42,7 @@
 </head>
 <body>
 	<main>
-	<%@ include file ="/WEB-INF/views/inc/header.jsp" %>
+	<%@ include file ="/WEB-INF/views/inc/adminheader.jsp"%>
 	<div id="main">
 	
 		<h1>기업 승인 상세보기</h1>

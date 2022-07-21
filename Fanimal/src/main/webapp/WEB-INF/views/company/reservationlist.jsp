@@ -17,14 +17,17 @@
 			color: #444;
 		}
 		#main {
-			width: 940px;
+			/* width: 940px; */
 			margin: 0 auto;
 		}
 		#main h1 {
 			border-bottom: 7px double #999;
-			margin-top: 30px;
+			padding-top: 30px;
          	align-content: center;
 			text-align: center;
+			margin: 0;
+			padding-bottom: 5px;
+			margin-bottom: 5px;
 		}
 
 		#list1 {
@@ -83,6 +86,7 @@
 		</table>
 		</div>
 	</section>
+	<%@ include file ="/WEB-INF/views/inc/footer.jsp"%>
 	</main>
 	
 	<script>
