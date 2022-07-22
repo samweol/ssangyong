@@ -14,4 +14,6 @@ public class reservationDTO {
 	private String username;
 	private String tel;
 	private String uniqueness;
+	
+	private String pic;
 }

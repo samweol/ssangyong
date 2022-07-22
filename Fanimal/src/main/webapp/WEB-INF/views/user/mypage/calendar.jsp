@@ -38,7 +38,7 @@
       },
       eventClick: function(arg) {
         if (confirm('정말 삭제하시겠습니까?')) {
-        	alert(arg.event);	
+        	//alert(arg.event);	
           arg.event.remove()
         }
       },
@@ -56,7 +56,9 @@
     	  <c:forEach items="${hlist}" var="hdto">
     	  {
 	    	  title: '${hdto.hname}',
-	          start: '${hdto.resdate}'
+	          start: '${hdto.resdate}',
+	          backgroundColor: '#23C82E',
+	          borderColor: '#23C82E'
     	  },
     	  </c:forEach>
         
@@ -98,7 +100,7 @@
 			<tr>
 			<th>일정 추가</th>
 			<th>시작 날짜</th>
-			<th>시작 날짜</th>
+			<th>종료 날짜</th>
 			<th></th>
 						
 			</tr>

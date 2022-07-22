@@ -25,6 +25,7 @@ public class ReservationView extends HttpServlet {
 		
 		reservationDTO dto = dao.get(seq);
 
+		
 		req.setAttribute("dto", dto);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/company/reservationview.jsp");

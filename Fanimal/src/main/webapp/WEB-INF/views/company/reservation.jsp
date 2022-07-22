@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>reservationlist</title>
-
 <%@ include file="/WEB-INF/views/inc/asset.jsp" %>
-<link rel="stylesheet" href="/fanimal/asset/css/company_style.css">
 <style>
 		body {
 			margin-bottom: 100px;
@@ -25,7 +23,7 @@
 			font-variant: small-caps;
 			border-bottom: 1px dashed #999;
 			margin-top: 30px;
-         align-content: center;
+         	align-content: center;
 			text-align: center;
 		}
 
@@ -62,7 +60,7 @@
 <body>
 
 	<main>
-	<%@ include file ="/WEB-INF/views/inc/companyheader.jsp"%>
+	<%@ include file ="/WEB-INF/views/inc/header.jsp" %>
 	
 	<div id="main">
 

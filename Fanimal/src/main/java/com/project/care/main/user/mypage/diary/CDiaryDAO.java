@@ -284,7 +284,7 @@ public class CDiaryDAO {
 			
 			dto.setPSeq(rs.getString(1));
 			dto.setASeq(rs.getString(2));
-			dto.setPDate(rs.getString(3));
+			dto.setPDate(rs.getString(3).substring(0,11));
 			
 
 			pslist.add(dto);

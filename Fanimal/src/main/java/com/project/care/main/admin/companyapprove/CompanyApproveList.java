@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.project.care.dto.CompanyDTO;
-import com.project.care.main.admin.companysearch.companysearchDAO;
+import com.project.care.dto.CompanyapproveDTO;
+
 
 @WebServlet("/admin/companyapprovelist.do")
 public class CompanyApproveList extends HttpServlet {
@@ -19,11 +19,15 @@ public class CompanyApproveList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		companysearchDAO dao = new companysearchDAO();
+		companyapproveDAO dao = new companyapproveDAO();
 		
-		ArrayList<CompanyDTO> list = dao.list();
+		ArrayList<CompanyapproveDTO> list = dao.list();
 		
 		req.setAttribute("list", list);
+
+		
+//		resp.sendRedirect("기업승인인리스트소");
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/companyapprovelist.jsp");
 

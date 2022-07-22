@@ -50,8 +50,8 @@
             </c:if>
             <a href="/fanimal/company/companymypage.do"><div>마이페이지</div></a>
             <a href="/fanimal/company/reservationlist.do"><div>예약내역</div></a>
-            <a href="/"><div>문의게시판</div></a>
-            <a href="/"><div>커뮤니티</div></a>
+            <a href="/fanimal/inquire/hospitalinquirelist.do?hpseq=1&si=all&gu=all&align=distance&search=늘푸른&page=1"><div>문의게시판</div></a>
+            <a href="/fanimal/community/freelistcp.do"><div>커뮤니티</div></a>
         </div>
     </main>
 </body>

@@ -52,16 +52,16 @@
                     <a href="/fanimal/company/reservationlist.do" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 예약내역</a>
                 </li>
                 <li class="pure-menu-item pure-menu-selected">
-                    <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 문의게시판</a>
+                    <a href="/fanimal/inquire/hospitalinquirelist.do?hpseq=1&si=all&gu=all&align=distance&search=늘푸른&page=1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 문의게시판</a>
                 </li>
                 <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                    <a href="#" id="menuLink1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 커뮤니티</a>
+                    <a href="/fanimal/community/freelistcp.do" id="menuLink1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 커뮤니티</a>
                     <ul class="pure-menu-children">
                         <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 자유게시판</a>
+                            <a href="/fanimal/community/freelistcp.do?division=1" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 자유게시판</a>
                         </li>
                         <li class="pure-menu-item">
-                            <a href="#" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 증상게시판</a>
+                            <a href="/fanimal/community/freelistcp.do?division=2" class="pure-menu-link"><i class="fa-solid fa-paw"></i> 증상게시판</a>
                         </li>
                     </ul>
                 </li>

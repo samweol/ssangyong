@@ -22,8 +22,7 @@ public class ReservationList extends HttpServlet {
 		
 		ArrayList<reservationDTO> list = dao.list();
 		
-		
-		
+
 		//시분초 자르기
 		for (reservationDTO dto : list) {
 			dto.setResdate(dto.getResdate().substring(0, 10));

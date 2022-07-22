@@ -186,7 +186,7 @@
 				        <div class="col-sm-4">
 				        <div class="card" data-uaseq="${animal.uaseq}">
 				          	<div class="card-header" 
-								style="background: url('/fanimal/files/${animal.pic}'); background-size: 100% 280px; background-repeat: no-repeat;">
+								style="background: url('/fanimal/files/reservation/${animal.pic}'); background-size: 100% 280px; background-repeat: no-repeat;">
 								<div class = "card-header-is_closed"></div>
 							</div>
 				            <div class="card-body">

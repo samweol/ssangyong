@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.project.care.dto.companyviewDTO;
-import com.project.care.main.admin.companysearch.companysearchDAO;
+import com.project.care.dto.CompanyapproveDTO;
 
 @WebServlet("/admin/companyapproveview.do")
 public class CompanyApproveView extends HttpServlet {
@@ -20,10 +19,10 @@ public class CompanyApproveView extends HttpServlet {
 		
 		String seq = req.getParameter("seq");
 		
-		companysearchDAO dao = new companysearchDAO();
+		companyapproveDAO dao = new companyapproveDAO();
 		
-		companyviewDTO dto = dao.get(seq);
-		
+		CompanyapproveDTO dto = dao.get(seq);
+
 		req.setAttribute("dto", dto);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/companyapproveview.jsp");
