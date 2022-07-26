@@ -9,7 +9,30 @@
 <body>
 	<h1>add.jsp</h1>
 	
-	<form action="/spring/board/addok.do" method="POST">
+	<h2>단일 데이터</h2>
+	
+	<form action="/spring/addok" method="POST">
+		<input type="text" name="num">
+		<input type="submit" value="보내기">
+	</form>
+	
+	<h2>다중 데이터</h2>
+	
+	<form action="/spring/addok" method="POST">
+		<input type="text" name="name">
+		<input type="text" name="age">
+		<input type="text" name="address">
+		<input type="submit" value="보내기">
+	</form>
+	
+	<h2>다중 데이터</h2>
+	
+	<form action="/spring/addok" method="POST">
+		<input type="checkbox" value="1" name="cb"> 딸기
+		<input type="checkbox" value="2" name="cb"> 바나나
+		<input type="checkbox" value="3" name="cb"> 사과
+		<input type="checkbox" value="4" name="cb"> 수박
+		<input type="checkbox" value="5" name="cb"> 포도
 		<input type="submit" value="보내기">
 	</form>
 </body>
