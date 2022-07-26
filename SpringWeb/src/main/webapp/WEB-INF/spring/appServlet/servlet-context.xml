@@ -21,8 +21,18 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.test.spring" />
+	<!-- @Controller, @Component, @Service, @Repository 붙은 클래스의 객체를 자동으로 생성한다. -->
+	<context:component-scan base-package="com.test.spring, com.test.java" />
 	
 	
+	<!-- Ex01 > 컨트롤러 > bean 생성 -->
+	<!-- context.getBean("/ex01.do") -->
+	<beans:bean class="com.test.spring.Ex01Controller" name="/ex01.do"></beans:bean>
 	
+	
+	<!-- 스프링으로 의존주입하는 방법 -> 역제어가 발생 -->
+	<beans:bean class="com.test.spring.SpringDAO" name="dao"></beans:bean>
+	<beans:bean class="com.test.spring.Ex02Controller" name="/ex02.do">
+		<beans:property name="dao" ref="dao"></beans:property>
+	</beans:bean>
 </beans:beans>
