@@ -20,7 +20,14 @@ public class Main {
 		memo.add("스프링 AOP 작업을 하고 있습니다.");
 		
 		//메모 읽기
-		String txt = memo.read(5);
+		try {
+			
+			String txt = memo.read(5);
+			txt = memo.read(15);
+			
+		} catch (Exception e) {
+			//e.printStackTrace();
+		}
 		
 		//메모 수정하기
 		boolean result = memo.edit(5, "수정한 내용입니다.");

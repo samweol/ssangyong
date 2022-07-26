@@ -128,6 +128,14 @@ Spring AOP
 	- 보조업무
 	
 3. Advice
+	- 주업무가 실행되는 어느 시점에 보조 업무를 실행할지?
+	- Before Advice
+	- After Advice
+	
+	- Around Advice
+	
+	- After-returning
+	- After throwing
 
 
 
