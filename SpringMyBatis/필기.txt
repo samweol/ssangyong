@@ -1,0 +1,19 @@
+
+MyBatis
+- iBatis
+- JDBC 역할 > 응용 프로그램과 데이터베이스를 연결시켜주는 중간계층
+
+1. pom.xml
+	- 스프링 버전, 자바 버전 > 자바 1.11 spring 5.0.7 maven 3
+	- properties > project facets > java 11
+	
+3. script.sql
+	- tblMyBatis
+	
+4. WEB-INF > spring > root-context.xml
+
+-> 빈 태그를 생성해주는 어노테이션
+@Component
+- @Controller
+- @Service
+- @Repository
