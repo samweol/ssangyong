@@ -28,7 +28,9 @@ public class BoardController {
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		
+		List<BoardDTO> list = service.list();
 		
+		model.addAttribute("list", list);
 		
 		return "list";
 	}

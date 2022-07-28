@@ -69,7 +69,7 @@ public class BoardServiceImpl implements BoardService {
 			
 			//flist.add(fdto);
 		}
-		return 0;
+		return result;
 		
 	}
 	
@@ -102,5 +102,23 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		}
+	}
+	
+	@Override
+	public List<BoardDTO> list() {
+		
+		//게시물 select
+		List<BoardDTO> list = dao.list();
+		
+		//게시물 당 첨부파일 select
+		for(BoardDTO dto : list) {
+			
+			List<FileDTO> flist = dao.flist(dto.getSeq());
+			dto.setFiles(flist);
+			
+		}
+		
+		
+		return list;
 	}
 }

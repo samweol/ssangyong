@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/spring/resources/css/bootstrap.css">
+<script src="https://kit.fontawesome.com/3ac15bdbeb.js" crossorigin="anonymous"></script>
 <script src="/spring/resources/js/jquery-1.12.4.js"></script>
 <style>
 	main {
@@ -20,17 +21,34 @@
 		<h1>List</h1>
 		
 		<table class="table table-bordered">
+			<c:forEach items="${list }" var="dto">
 			<tr>
-				<td>5</td>
-				<td>제목입니다.</td>
+				<td>${dto.seq }</td>
+				<td>${dto.title }</td>
 				<td>
-					<ul>
-						<li>첨부파일</li>
-						<li>첨부파일</li>
-						<li>첨부파일</li>
-					</ul>
+					
+						<c:forEach items="${dto.files }" var="fdto">
+						<div>
+							<c:choose>
+								<c:when test="${fdto.mimetype == 'image/jpeg' }"><i class="fa-solid fa-file-image"></i></c:when>
+								<c:when test="${fdto.mimetype == 'image/gif' }"><i class="fa-solid fa-file-image"></i></c:when>
+								<c:when test="${fdto.mimetype == 'image/png' }"><i class="fa-solid fa-file-image"></i></c:when>
+								<c:when test="${fdto.mimetype == 'text/plain' }"><i class="fa-solid fa-file-lines"></i></c:when>
+								<c:when test="${fdto.mimetype == 'application/zip' }"><i class="fa-solid fa-file-zipper"></i></c:when>
+							</c:choose>
+							
+							<span>${fdto.filename }</span>
+							<span>${fdto.filesize }</span>
+						</div>
+						</c:forEach>
+						
+						<c:if test="${dto.files.size() == 0 }">
+							파일 없음
+						</c:if>
+					
 				</td>
 			</tr>
+			</c:forEach>
 		</table>
 		
 		<div>

@@ -22,6 +22,17 @@
 	
 	<script>
 	
+		//writeok.jsp
+		
+		<c:if test="${result == 1}">
+		location.href = "/spring/list";
+		</c:if>
+		
+		<c:if test="${result == 0}">
+		alert('failed');
+		history.back();
+		</c:if>
+	
 	</script>
 </body>
 </html>

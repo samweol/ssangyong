@@ -14,4 +14,12 @@
    	<insert id="addFile" parameterType="fdto">
    		insert into tblFile (seq, filename, filesize, mimetype, bseq) values (seqFile.nextVal, #{filename}, #{filesize}, #{mimetype}, #{bseq})
    	</insert>
+   	
+   	<select id="list" resultType="bdto">
+   		select * from tblFileBoard order by seq desc
+   	</select>
+   	
+   	<select id="flist" parameterType="String" resultType="fdto">
+   		select * from tblFile where bseq = #{seq} order by filename asc
+   	</select>
 </mapper>

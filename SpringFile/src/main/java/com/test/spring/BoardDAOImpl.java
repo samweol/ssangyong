@@ -1,5 +1,7 @@
 package com.test.spring;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,5 +31,18 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public void addFile(FileDTO fdto) {
 		this.template.insert("file.addFile", fdto);
+	}
+	
+	@Override
+	public List<BoardDTO> list() {
+		
+		//DAO > 메소드 1개 > 1개의 SQL만 실행
+		
+		return this.template.selectList("file.list");
+	}
+	
+	@Override
+	public List<FileDTO> flist(String seq) {
+		return this.template.selectList("file.flist", seq);
 	}
 }
