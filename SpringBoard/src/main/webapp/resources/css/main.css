@@ -1,0 +1,18 @@
+
+main {
+	width: 800px;
+	margin: 0 auto;
+}
+
+header {
+	width: 800px;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid #CCC;
+}
+
+main > section {
+	
+}
