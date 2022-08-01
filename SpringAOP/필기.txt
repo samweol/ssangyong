@@ -1,0 +1,5 @@
+
+Spring MVC + AOP (어노테이션) 설정
+
+1. pom.xml
+2. servlet-context.xml
